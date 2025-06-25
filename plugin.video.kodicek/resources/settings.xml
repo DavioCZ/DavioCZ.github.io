@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<settings>
+    <category label="Webshare">
+        <setting id="ws_username" type="text" label="Webshare Uživatelské jméno" default=""/>
+        <setting id="ws_password" type="text" label="Webshare Heslo" option="hidden" default=""/>
+        <setting id="ws_token" label="WST token" type="text" default="" />
+    </category>
+    <category label="TMDb">
+        <setting id="tmdb_api_key"
+                 type="text"
+                 label="TMDb API klíč"
+                 default="cc58aa7b24e4b6e297f8ec4b5ee0931c"
+                 visible="true"
+                 />
+        <setting id="tmdb_skip_specials"
+                 type="bool"
+                 label="Přeskočit speciály (Season 0)"
+                 default="true"
+                 />
+    </category>
+</settings>
