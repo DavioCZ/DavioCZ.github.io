@@ -3,7 +3,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addon id="plugin.video.kodicek"
        name="Kodíček"
-       version="0.0.105"
+       version="0.0.108"
        provider-name="DavioCZ">
 
     <requires>
@@ -30,27 +30,18 @@
             <fanart>fanart.jpg</fanart>
         </assets>
         <news>
-            [B]1.3.3[/B] - 2025-06-25 - Změna názvu testovací funkce a oprava vyhledávání seriálů se speciálními znaky.
-            [B]1.3.2[/B] - 2025-06-25 - Přidání položky "Nastavení" a automatické obnovení menu po změnách.
-            [B]1.3.1[/B] - 2025-06-25 - Oprava pádu při nenalezení zdrojů na Webshare.
-            [B]1.3.0[/B] - 2025-06-13 - Rozšířená podpora pro seriály s navigací sezón a epizod.
-            [B]1.2.3[/B] - 2025-06-24 - Oprava parseru a vyhledávání pro Sdilej.cz.
-            [B]1.2.2[/B] - 2025-06-24 - Přidáno testovací vyhledávání pro Sdílej.cz a oprava hashování hesla.
-            [B]1.2.1[/B] - 2025-06-24 - Oprava přihlašování na Webshare a přidána možnost ručního zadání WST tokenu.
-            [B]1.2.0[/B] - 2025-06-13 - Vylepšené vyhledávání TMDB s tolerancí roku, flexibilnější párování roku ve Webshare.
-            [B]1.1.0[/B] - Streamuj.tv integration completely removed.
-            [B]1.0.0[/B] - První verze Kodíčku: jednoduché vyhledávání a přehrávání z Webshare.
+            [B]1.4.0[/B] - 2025-07-06 - Oprava struktury ZIP balíčků a verzování pro zajištění kompatibility s Kodi. Vylepšen CI/CD pipeline pro automatické buildy a nasazení.
         </news>
     </extension>
 
 </addon>
 
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="repository.kodicek" name="Kodicek Repository" version="1.0.0" provider-name="DavioCZ">
+<addon id="repository.kodicek" name="Kodicek Repository" version="0.1.5" provider-name="DavioCZ">
     <extension point="xbmc.addon.repository" name="Kodicek Repository">
-        <info compressed="false">https://raw.githubusercontent.com/DavioCZ/Kodicek/main/addons.xml</info>
-        <checksum>https://raw.githubusercontent.com/DavioCZ/Kodicek/main/addons.xml.md5</checksum>
-        <datadir zip="true">https://github.com/DavioCZ/Kodicek/raw/main/repo</datadir>
+        <info compressed="true">https://daviocz.github.io/repository.kodicek/addons.xml</info>
+        <checksum>https://daviocz.github.io/repository.kodicek/addons.xml.md5</checksum>
+        <datadir zip="true">https://daviocz.github.io/</datadir>
     </extension>
     <extension point="xbmc.addon.metadata">
         <summary>Instalační repozitář pro doplňky od DavioCZ</summary>
