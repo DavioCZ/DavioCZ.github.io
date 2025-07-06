@@ -1,34 +1,22 @@
-<?xml version='1.0' encoding='utf-8'?>
-<addons><addon id="plugin.video.kodicek" name="Kodíček" version="1.2.2" provider-name="TvojeJméno">
-
-    <requires>
-        <import addon="xbmc.python" version="3.0.0" />
-        <import addon="script.module.requests" version="2.18.4" /> 
-        <import addon="script.module.unidecode" version="0.4.16" />
-        <import addon="script.module.beautifulsoup4" version="4.11.2" />
-    </requires>
-
-    <extension point="xbmc.python.pluginsource" library="kodicek.py">
-        <provides>video</provides>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addons>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="repository.kodicek" name="Kodicek Repository" version="1.0.0" provider-name="DavioCZ">
+    <extension point="xbmc.addon.repository" name="Kodicek Repository">
+        <info compressed="false">https://raw.githubusercontent.com/DavioCZ/Kodicek/main/addons.xml</info>
+        <checksum>https://raw.githubusercontent.com/DavioCZ/Kodicek/main/addons.xml.md5</checksum>
+        <datadir zip="true">https://github.com/DavioCZ/Kodicek/raw/main/repo</datadir>
     </extension>
-
-    <extension point="xbmc.addon.metadata" icon="icon.png">
-        <summary lang="cs">Jednoduchý vyhledávač a přehrávač filmů z Webshare pro Kodi.</summary>
-        <disclaimer lang="cs">Plugin neposkytuje žádný obsah, je to jen simulace prohlížeče veřejně dostupné web stránky. Nejsem zodpovědný za obsah, který tato stránka poskytuje.</disclaimer>
+    <extension point="xbmc.addon.metadata">
+        <summary>Instalační repozitář pro doplňky od DavioCZ</summary>
+        <description>Tento repozitář obsahuje doplňky pro Kodi, včetně populárního pluginu Kodíček pro přehrávání online obsahu.</description>
+        <disclaimer></disclaimer>
         <platform>all</platform>
-        <license>AGPL 3.0</license>
-        
-        
-        
         <assets>
             <icon>icon.png</icon>
             <fanart>fanart.jpg</fanart>
         </assets>
-        <news>
-            [B]1.2.0[/B] - Vylepšené vyhledávání TMDB s tolerancí roku, flexibilnější párování roku ve Webshare.
-            [B]1.1.0[/B] - Streamuj.tv integration completely removed.
-            [B]1.0.0[/B] - První verze Kodíčku: jednoduché vyhledávání a přehrávání z Webshare.
-        </news>
     </extension>
+</addon>
 
-</addon></addons>
+</addons>
