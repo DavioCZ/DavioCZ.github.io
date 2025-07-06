@@ -3,7 +3,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addon id="plugin.video.kodicek"
        name="Kodíček"
-       version="0.0.111"
+       version="0.0.112"
        provider-name="DavioCZ">
 
     <requires>
