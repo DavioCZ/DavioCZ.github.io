@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /kodi/
+Sitemap: https://daviocz.github.io/sitemap.xml
