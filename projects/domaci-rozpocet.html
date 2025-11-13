@@ -1,11 +1,77 @@
-<!doctype html><html lang="cs"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Domácí rozpočet — Case study</title><link rel="stylesheet" href="/assets/css/main.css"/></head>
-<body><header class="header"><div class="container"><a href="/">← Zpět</a></div></header>
-<main class="main container"><h1>Domácí rozpočet</h1>
-<h2>Přehled</h2><p>Krátký popis cíle a problému.</p>
-<h2>Technologie</h2><ul><li>HTML/CSS/JS</li></ul>
-<h2>Funkce</h2><ul><li>Přepínání měsíců</li><li>Souhrny a průměry</li></ul>
-<h2>Screenshoty</h2><p><em>Brzy doplním</em></p>
-<h2>Co jsem se naučil</h2><ul><li>...</li></ul>
-</main><footer class="footer"><div class="container"><small>&copy; <span id="y"></span> David Kučera</small></div></footer>
-<script>document.getElementById('y').textContent = new Date().getFullYear();</script></body></html>
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Domácí rozpočet — přehled výdajů a příjmů</title>
+  <meta name="description" content="Lehký nástroj na sledování příjmů a výdajů s měsíčním přepínáním, kategoriemi, filtry a rychlými souhrny." />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Domácí rozpočet — přehled výdajů a příjmů" />
+  <meta property="og:description" content="Měsíční přehled, kategorie, filtry, souhrny. Ošetření rozdílných délek měsíců." />
+  <meta property="og:url" content="https://daviocz.github.io/projects/domaci-rozpocet.html" />
+</head>
+<body>
+  <header class="header"><div class="container"><a href="/">← Zpět</a></div></header>
+
+  <main class="main container" id="content" tabindex="-1">
+    <h1>Domácí rozpočet</h1>
+
+    <p>Lehký, praktický nástroj pro sledování <strong>příjmů a výdajů</strong>. Zaměřuje se na rychlou práci bez zbytečných obrazovek: měsíční přepínání, kategorie, filtry a srozumitelné souhrny.</p>
+
+    <h2>Co to řeší</h2>
+    <p>Potřebuješ vidět, kam tečou peníze <em>po měsících</em>, bez překomplikovaných tabulek. Aplikace udržuje přehled, umí filtrovat a hlídá špeky typu rozdílné délky měsíců (28/29/30/31).</p>
+
+    <h2>Tok uživatele</h2>
+    <ol>
+      <li>Zvolíš <strong>měsíc/rok</strong> v přepínači.</li>
+      <li>Přidáš <strong>transakci</strong> (částka, typ příjem/výdaj, kategorie, datum, poznámka).</li>
+      <li>Využiješ <strong>filtry</strong> (kategorie, částka, text) pro rychlou orientaci.</li>
+      <li>Sleduješ <strong>souhrny</strong> (celkem výdaje/příjmy, saldo, top kategorie).</li>
+    </ol>
+
+    <h2>Klíčové funkce</h2>
+    <ul>
+      <li><strong>Měsíční přepínání</strong> s ošetřením konce měsíce (28/29/30/31).</li>
+      <li><strong>Kategorie</strong> a <strong>filtry</strong> (dle kategorie, částky, fulltext poznámky).</li>
+      <li><strong>Souhrny</strong> (výdaje, příjmy, saldo, průměr na den/měsíc).</li>
+      <li><strong>Rychlé přidání</strong> transakce a úprava existujících položek.</li>
+      <li><strong>Export do CSV</strong> (volitelné) pro další zpracování.</li>
+    </ul>
+
+    <h2>Technologie</h2>
+    <ul>
+      <li>Frontend: HTML/CSS/JavaScript (jednoduchá, rychlá implementace pro web).</li>
+      <li>Ukládání dat: pro demo lokálně (např. LocalStorage/JSON); export pro další práci v Excelu/Sheets.</li>
+    </ul>
+
+    <h2>Limity</h2>
+    <ul>
+      <li>Nevyžaduje backend; pokročilé sdílení/kolaborace není cílem.</li>
+      <li>Data jsou lokální; pro týmové účetnictví by byla potřeba serverová vrstva.</li>
+    </ul>
+
+    <h2>Role & přínos</h2>
+    <p>Návrh UX (měsíční tok, rychlé zadávání), implementace a logika přepínání měsíců včetně korekcí konce měsíce.</p>
+
+    <h2>Repo a demo</h2>
+    <ul>
+      <li><em>Repozitář:</em> <span>doplním odkaz</span></li>
+      <li><em>Demo:</em> <span>doplním odkaz</span></li>
+    </ul>
+
+    <!-- Volitelně:
+    <h2>Screenshoty</h2>
+    <p><img src="/assets/img/projects/domaci-rozpocet-ui.png" alt="UI Domácího rozpočtu"></p>
+    -->
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <small>&copy; <span id="y"></span> David Kučera</small>
+    </div>
+  </footer>
+
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
