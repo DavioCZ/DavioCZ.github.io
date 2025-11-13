@@ -41,3 +41,30 @@
     } catch { showError(); }
   });
 })();
+
+(() => {
+  const imgs = document.querySelectorAll('.gallery img');
+  if (!imgs.length) return;
+
+  const lb = document.createElement('div');
+  lb.id = 'lightbox';
+  lb.className = 'lightbox';
+  lb.setAttribute('hidden','');
+  lb.innerHTML = '<img alt="">';
+  document.body.appendChild(lb);
+
+  const imgTag = lb.querySelector('img');
+
+  imgs.forEach(img => {
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', () => {
+      imgTag.src = img.src;
+      lb.removeAttribute('hidden');
+      imgTag.style.cursor = 'zoom-out';
+    });
+  });
+
+  const close = () => lb.setAttribute('hidden','');
+  lb.addEventListener('click', close);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+})();

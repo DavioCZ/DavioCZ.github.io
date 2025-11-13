@@ -82,7 +82,24 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 @keyframes pop{0%{transform:scale(1)}60%{transform:scale(1.08)}100%{transform:scale(1)}}
 @media (prefers-reduced-motion: reduce){.copy-pill.copied{animation:none}}
 
-.gallery{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin:12px 0 6px}
+/* Větší layout jen pro projektové stránky */
+.project{ --max: 1200px; }              /* šířka obsahu pro projekty */
+@media (min-width: 1400px){ .project{ --max: 1320px; } }
+
+/* Galerie: místo 3 úzkých → 2 široké sloupce */
+.gallery{
+  display:grid; gap:16px;
+  grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+  margin:12px 0 6px;
+}
 .gallery figure{margin:0;border:1px solid var(--border);border-radius:12px;background:var(--muted);padding:8px}
 .gallery img{border-radius:8px;display:block;width:100%;height:auto}
 .gallery figcaption{font-size:var(--fz-2);color:rgba(127,127,127,.9);margin-top:6px}
+
+/* Volitelně: udělej jeden screenshot přes dva sloupce */
+.gallery figure.wide{grid-column: span 2;}
+
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.8);display:grid;place-items:center;
+  z-index:1000;padding:24px}
+.lightbox[hidden]{display:none}
+.lightbox img{max-width:min(96vw,1400px);max-height:92vh;border-radius:14px;box-shadow:var(--shadow)}
