@@ -32,9 +32,32 @@
       <p>Statické, rychlé a srozumitelné. Každý projekt má case-study a pár čísel. Žádný vendor-lock.</p>
       <div class='actions'>
         <a class='btn btn--primary' href='#projekty'>Projekty</a>
-        <a class='btn' href='mailto:your.email@example.com'>Kontakt</a>
+        <button id="contactBtn" class="btn" aria-expanded="false" aria-controls="contactPopover">
+          Kontakt
+        </button>
       </div>
     </section>
+
+    <!-- Popover s e-mailem (schovaný, zobrazí se po kliknutí) -->
+    <div id="contactPopover" class="contact-pop" hidden role="dialog" aria-label="Kontaktní e-mail">
+      <p class="contact-label">Napište mi na</p>
+
+      <!-- Kliknutím se kopíruje -->
+      <button id="copyEmailBtn"
+              class="copy-pill"
+              type="button"
+              data-email="your.email@example.com"
+              aria-live="polite"
+              title="Kliknutím zkopírujete e-mail">
+        <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M16 1H4a2 2 0 0 0-2 2v12h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z"/></svg>
+        <span class="copy-text">your.email@example.com</span>
+      </button>
+
+      <p class="hint">Klikněte pro kopii do schránky</p>
+    </div>
+
+    <!-- Toast potvrzení -->
+    <div id="toast" class="toast" hidden>📋 Zkopírováno do schránky</div>
 
     <section aria-labelledby='projekty'>
       <h2 id='projekty' class='visually-hidden'>Projekty</h2>
