@@ -3,7 +3,7 @@
   const pop = document.getElementById('contactPopover');
   const copyBtn = document.getElementById('copyEmailBtn');
   const toast = document.getElementById('toast');
-  if (!btn || !pop || !copyBtn || !toast) return;
+  if (!btn || !pop || !copyBtn) return;
 
   const open = () => { pop.hidden = false; btn.setAttribute('aria-expanded','true'); };
   const close = () => { pop.hidden = true;  btn.setAttribute('aria-expanded','false'); };
@@ -12,14 +12,17 @@
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
   document.addEventListener('click', (e) => {
     if (pop.hidden) return;
-    const t = e.target;
-    if (!pop.contains(t) && t !== btn) close();
+    if (!pop.contains(e.target) && e.target !== btn) close();
   });
 
-  const showToast = (msg='📋 Zkopírováno do schránky') => {
+  // copy → check → zpět
+  const COPIED_MS = 1400;
+  let t;
+  const showError = (msg='✖️ Nepodařilo se zkopírovat') => {
+    if (!toast) return;
     toast.textContent = msg; toast.hidden = false;
-    window.clearTimeout(showToast._t);
-    showToast._t = window.setTimeout(() => { toast.hidden = true; }, 1600);
+    clearTimeout(showError._t);
+    showError._t = setTimeout(() => { toast.hidden = true; }, 1800);
   };
 
   copyBtn.addEventListener('click', async () => {
@@ -28,7 +31,13 @@
     try {
       if (navigator.clipboard?.writeText) await navigator.clipboard.writeText(email);
       else { const i = document.createElement('input'); i.value = email; document.body.appendChild(i); i.select(); document.execCommand('copy'); i.remove(); }
-      showToast();
-    } catch { showToast('✖️ Nepodařilo se zkopírovat'); }
+      copyBtn.classList.add('copied');
+      copyBtn.setAttribute('aria-label', 'Zkopírováno');
+      clearTimeout(t);
+      t = setTimeout(() => {
+        copyBtn.classList.remove('copied');
+        copyBtn.setAttribute('aria-label', 'Zkopírovat e-mail');
+      }, COPIED_MS);
+    } catch { showError(); }
   });
 })();
