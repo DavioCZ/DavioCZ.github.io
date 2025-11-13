@@ -1,80 +1,95 @@
 <!doctype html>
-<html lang="cs">
+<html lang='cs'>
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset='utf-8' />
+  <meta name='viewport' content='width=device-width,initial-scale=1' />
   <title>David Kučera — Portfolio</title>
-  <meta name="description" content="Portfolio osobních projektů." />
-  <meta name="theme-color" content="#ffffff" />
-  <link rel="preload" href="/assets/css/main.css" as="style" />
-  <link rel="stylesheet" href="/assets/css/main.css?v=20251113-1" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="David Kučera — Portfolio" />
-  <meta property="og:description" content="Portfolio osobních projektů." />
-  <meta property="og:url" content="https://daviocz.github.io/" />
+  <meta name='description' content='Praktické mini-aplikace a UX řešení: AI Autoškola, Domácí rozpočet, Kopírování struktury, Autoškola TOP.' />
+  <meta name='theme-color' content='#0f1115' />
+  <link rel='preload' href='/assets/css/main.css' as='style' />
+  <link rel='stylesheet' href='/assets/css/main.css?v=20251113-2' />
+  <link rel='icon' href='/assets/img/favicon.svg' type='image/svg+xml' />
+  <meta property='og:type' content='website' />
+  <meta property='og:title' content='David Kučera — Portfolio' />
+  <meta property='og:description' content='Mini nástroje, UX redesigny a webové appky.' />
+  <meta property='og:image' content='https://daviocz.github.io/assets/img/og-default.png' />
+  <meta property='og:url' content='https://daviocz.github.io/' />
 </head>
 <body>
-  <header class="header">
-    <div class="container">
-      <nav aria-label="Hlavní navigace">
-        <a href="/" aria-current="page"><strong>David Kučera</strong></a>
+  <a class='visually-hidden' href='#content'>Přeskočit na obsah</a>
+  <header class='header'>
+    <div class='container'>
+      <nav aria-label='Hlavní navigace'>
+        <a href='/' aria-current='page'><strong>David Kučera</strong></a>
       </nav>
     </div>
   </header>
 
-  <main class="main container" id="content" tabindex="-1">
-    <section class="hero">
-      <h1>Portfolio</h1>
-      <p>Výběr praktických projektů: jednoduché nástroje, automatizace a mini-aplikace.</p>
+  <main class='main container' id='content' tabindex='-1'>
+    <section class='hero'>
+      <span class='kicker'>Portfolio</span>
+      <h1>Mini-aplikace a UX řešení, co šetří čas</h1>
+      <p>Statické, rychlé a srozumitelné. Každý projekt má case-study a pár čísel. Žádný vendor-lock.</p>
+      <div class='actions'>
+        <a class='btn btn--primary' href='#projekty'>Projekty</a>
+        <a class='btn' href='mailto:your.email@example.com'>Kontakt</a>
+      </div>
     </section>
 
-    <section aria-labelledby="projekty">
-      <h2 id="projekty" class="visually-hidden">Projekty</h2>
-      <div class="grid">
+    <section aria-labelledby='projekty'>
+      <h2 id='projekty' class='visually-hidden'>Projekty</h2>
+      <div class='grid'>
 
-        <article class="card">
-          <h3><a href="/projects/domaci-rozpocet.html">Domácí rozpočet</a></h3>
-          <p>Jednoduchý tracker příjmů a výdajů s měsíčním přepínáním, kategoriemi, filtry a rychlými souhrny. Ošetřuje rozdílné délky měsíců.</p>
-          <div class="badges"><span class="badge">JS</span><span class="badge">HTML/CSS</span></div>
-          <div class="links">
-            <a href="/projects/domaci-rozpocet.html">Case study</a>
-            <!-- <a href="<REPO_URL>">Repo</a> -->
-            <!-- <a href="<LIVE_URL>">Demo</a> -->
-          </div>
+        <article class='card'>
+          <figure class='thumb thumb--skeleton'>
+            <!-- Později: <img src='/assets/img/projects/domaci-rozpocet-thumb.png' alt='Domácí rozpočet – náhled' loading='lazy'> -->
+          </figure>
+          <h3><a href='/projects/domaci-rozpocet.html'>Domácí rozpočet</a></h3>
+          <p>Jednoduchý tracker příjmů a výdajů s měsíčním přepínáním, kategoriemi, filtry a rychlými souhrny.</p>
+          <div class='badges'><span class='badge'>HTML/CSS/JS</span><span class='badge'>Export CSV</span></div>
+          <div class='links'><a href='/projects/domaci-rozpocet.html'>Case study</a></div>
         </article>
 
-        <article class="card">
-          <h3><a href="/projects/ai-autoskola.html">AI Autoškola</a></h3>
-          <p>Webová appka na procvičování a zkoušky nanečisto. Režimy učení/test, statistiky, vlastní balíčky a AI nápověda přes bezpečnou proxy.</p>
-          <div class="badges"><span class="badge">JS</span><span class="badge">Data viz</span></div>
-          <div class="links"><a href="/projects/ai-autoskola.html">Case study</a></div>
+        <article class='card'>
+          <figure class='thumb thumb--skeleton'>
+            <!-- <img src='/assets/img/projects/ai-autoskola-thumb.png' alt='AI Autoškola – náhled' loading='lazy'> -->
+          </figure>
+          <h3><a href='/projects/ai-autoskola.html'>AI Autoškola</a></h3>
+          <p>Procvičování a testy nanečisto, statistiky, vlastní balíčky a AI nápověda přes backend proxy.</p>
+          <div class='badges'><span class='badge'>TypeScript</span><span class='badge'>Tailwind</span><span class='badge'>Docker</span></div>
+          <div class='links'><a href='/projects/ai-autoskola.html'>Case study</a></div>
         </article>
 
-        <article class="card">
-          <h3><a href="/projects/kopirovani-struktury.html">Kopírování struktury složek</a></h3>
-          <p>Jednoúčelový nástroj, který vytvoří kopii adresářového stromu bez souborů. Windows portable EXE, výběr zdroje/cíle, náhled stromu, průběh.</p>
-          <div class="badges"><span class="badge">PS/Node</span><span class="badge">CLI</span></div>
-          <div class="links"><a href="/projects/kopirovani-struktury.html">Case study</a></div>
+        <article class='card'>
+          <figure class='thumb thumb--skeleton'>
+            <!-- <img src='/assets/img/projects/kopirovani-struktury-thumb.png' alt='Kopírování struktury – náhled' loading='lazy'> -->
+          </figure>
+          <h3><a href='/projects/kopirovani-struktury.html'>Kopírování struktury složek</a></h3>
+          <p>Jednoúčelový nástroj pro klon adresářového stromu bez souborů. Windows portable EXE, náhled a progress.</p>
+          <div class='badges'><span class='badge'>Python/Tk</span><span class='badge'>EXE</span></div>
+          <div class='links'><a href='/projects/kopirovani-struktury.html'>Case study</a></div>
         </article>
 
-        <article class="card">
-          <h3><a href="/projects/autoskola-top.html">Stránky Autoškola TOP</a></h3>
-          <p>Redesign homepage s jasnou nabídkou kurzů a ostrým CTA. Cíl: zkrátit cestu „vidím nabídku → pošlu kontakt“, zvýšit počet poptávek.</p>
-          <div class="badges"><span class="badge">UX</span><span class="badge">Web</span></div>
-          <div class="links"><a href="/projects/autoskola-top.html">Case study</a></div>
+        <article class='card'>
+          <figure class='thumb thumb--skeleton'>
+            <!-- <img src='/assets/img/projects/autoskola-top-thumb.png' alt='Autoškola TOP – náhled' loading='lazy'> -->
+          </figure>
+          <h3><a href='/projects/autoskola-top.html'>Stránky Autoškola TOP</a></h3>
+          <p>Redesign homepage s jasnou nabídkou kurzů a ostrým CTA. Cíl: zkrátit cestu „vidím nabídku → pošlu kontakt“.</p>
+          <div class='badges'><span class='badge'>UX</span><span class='badge'>IA</span></div>
+          <div class='links'><a href='/projects/autoskola-top.html'>Case study</a></div>
         </article>
 
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container">
-      <small>&copy; <span id="y"></span> David Kučera</small>
+  <footer class='footer'>
+    <div class='container'>
+      <small>&copy; <span id='y'></span> David Kučera · <span class='mono'>daviocz.github.io</span></small>
     </div>
   </footer>
 
-  <script src="/assets/js/main.js" defer></script>
   <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
