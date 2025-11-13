@@ -62,44 +62,28 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:var(--fz-2)}
 /* end */
 
-.contact-pop{position:relative;margin-top:12px;border:1px solid var(--border);background:var(--muted);border-radius:var(--radius);padding:12px;max-width:520px;box-shadow:var(--shadow)}
-.contact-label{margin:0 0 6px;color:rgba(127,127,127,.95);font-size:var(--fz-2)}
-.copy-pill{display:flex;align-items:center;gap:8px;padding:10px 12px;border-radius:999px;border:1px solid var(--border);background:var(--muted-2);font-weight:600;cursor:pointer}
-.copy-pill:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-.copy-text{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace}
-.hint{margin:8px 0 0;color:rgba(127,127,127,.8);font-size:var(--fz-2)}
-.toast{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);padding:10px 14px;border-radius:10px;background:var(--muted);border:1px solid var(--border);box-shadow:var(--shadow);z-index:50}
-.toast[hidden]{display:none}
-
-/* --- Kontakt popover --- */
+/* Popover kompaktní */
 .contact-pop{
-  position: relative;
-  margin-top: 12px;
-  border: 1px solid var(--border);
-  background: var(--muted);
-  border-radius: var(--radius);
-  padding: 12px;
-  max-width: 520px;
-  box-shadow: var(--shadow);
+  position:relative;margin-top:12px;border:1px solid var(--border);
+  background:var(--muted);border-radius:var(--radius);padding:10px 12px;
+  max-width:520px;box-shadow:var(--shadow)
 }
 .contact-label{margin:0 0 6px;color:rgba(127,127,127,.95);font-size:var(--fz-2)}
+
+/* Řádek s e-mailem a GitHubem vedle sebe */
+.contact-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+
+/* E-mail pilulka menší */
 .copy-pill{
   display:flex;align-items:center;gap:8px;
-  padding:10px 12px;border-radius:999px;
+  padding:8px 10px;border-radius:999px;
   border:1px solid var(--border);background:var(--muted-2);
   font-weight:600;cursor:pointer
 }
 .copy-pill:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 .copy-text{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace}
 
-/* Hint pod adresou */
-.hint{margin:8px 0 0;color:rgba(127,127,127,.8);font-size:var(--fz-2)}
-
-/* --- Toast --- */
-.toast{
-  position: fixed; left: 50%; bottom: 18px; transform: translateX(-50%);
-  padding:10px 14px; border-radius:10px;
-  background: var(--muted); border:1px solid var(--border);
-  box-shadow: var(--shadow); z-index: 50;
-}
-.toast[hidden]{display:none}
+/* GitHub tlačítko vzhledově sjednocené */
+.btn--icon{display:inline-flex;align-items:center;gap:8px}
+.gh-link{background:var(--muted-2);border:1px solid var(--border)}
+/* Toast beze změn */
