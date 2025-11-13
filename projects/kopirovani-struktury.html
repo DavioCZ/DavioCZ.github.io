@@ -1,11 +1,82 @@
-<!doctype html><html lang="cs"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Kopírování struktury složek — Case study</title><link rel="stylesheet" href="/assets/css/main.css"/></head>
-<body><header class="header"><div class="container"><a href="/">← Zpět</a></div></header>
-<main class="main container"><h1>Kopírování struktury složek</h1>
-<h2>Přehled</h2><p>Nástroj pro zrcadlení adresářové struktury bez souborů.</p>
-<h2>Technologie</h2><ul><li>PowerShell / Node (volitelně)</li></ul>
-<h2>Funkce</h2><ul><li>Rekurzivní průchod</li><li>Ignore list</li></ul>
-<h2>Screenshoty</h2><p><em>Brzy doplním</em></p>
-<h2>Co jsem se naučil</h2><ul><li>...</li></ul>
-</main><footer class="footer"><div class="container"><small>&copy; <span id="y"></span> David Kučera</small></div></footer>
-<script>document.getElementById('y').textContent = new Date().getFullYear();</script></body></html>
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kopírování struktury složek — Windows portable EXE</title>
+  <meta name="description" content="Jedno-EXE nástroj na klonování adresářové struktury bez souborů. Výběr zdroje/cíle, náhled stromu, progress.">
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Kopírování struktury složek — Windows portable EXE" />
+  <meta property="og:description" content="Jednoúčelový nástroj pro klon kostry adresářů bez souborů. Výběr zdroje/cíle, náhled stromu, průběh." />
+  <meta property="og:url" content="https://daviocz.github.io/projects/kopirovani-struktury.html" />
+</head>
+<body>
+  <header class="header">
+    <div class="container"><a href="/">← Zpět</a></div>
+  </header>
+
+  <main class="main container" id="content" tabindex="-1">
+    <h1>Kopírování struktury složek (Windows, portable)</h1>
+
+    <p><strong>Jednoúčelový desktop nástroj</strong>, který vytvoří kopii adresářového stromu <em>bez souborů</em>. Vybereš zdroj a cíl, zkontroluješ strom v náhledu a spustíš kopírování. Zobrazuje průběh, na konci souhrn. <strong>Bez instalace</strong>, jediné EXE.</p>
+
+    <h2>Problém</h2>
+    <p>Zakládání projektů nebo klientských “kosterních” adresářů ručně je pomalé, chybové a často nechtěně natahá i data, která nechceš.</p>
+
+    <h2>Řešení</h2>
+    <ul>
+      <li><strong>Výběr zdroje a cíle</strong> přes systémové dialogy.</li>
+      <li><strong>Náhled stromu</strong> před spuštěním (Treeview), ať je jasné, co vznikne.</li>
+      <li><strong>Průběh a stav</strong> během operace (TTK progress bar).</li>
+      <li><strong>Souhrn po dokončení</strong>: počet vytvořených složek, případné kolize.</li>
+      <li><strong>Bez instalace</strong>: jediné EXE; funguje i v uzamčeném firemním prostředí.</li>
+    </ul>
+
+    <h2>Klíčové funkce</h2>
+    <ul>
+      <li>Kopíruje výhradně <strong>složky</strong> (soubory ignoruje záměrně).</li>
+      <li><strong>Náhled struktury</strong> před spuštěním, přehledné čtení i u větších stromů.</li>
+      <li><strong>Průběh a status</strong> operace, přehledné hlášky v UI.</li>
+      <li><strong>Bez administrátorských práv</strong>, běží z uživatelského profilu.</li>
+    </ul>
+
+    <h2>Technologie</h2>
+    <ul>
+      <li>Windows desktop: <strong>Python 3 + Tk/Tkinter</strong>.</li>
+      <li>Zabalené do <strong>one-file EXE (PyInstaller)</strong>.</li>
+      <li>Systémové dialogy, <strong>Treeview</strong> pro náhled, <strong>TTK progress bar</strong> pro stav.</li>
+    </ul>
+
+    <h2>Kdy se hodí</h2>
+    <ul>
+      <li>Zakládání nových zakázek podle šablony složek.</li>
+      <li>Přesun projektů mezi disky bez tahání dat.</li>
+      <li>Vytváření čistých workspace struktur pro více týmů.</li>
+    </ul>
+
+    <h2>Limity</h2>
+    <ul>
+      <li>Úmyslně <strong>nekopíruje soubory</strong>.</li>
+      <li>Náhled extrémně velkých stromů může být pomalejší (síťové disky apod.).</li>
+    </ul>
+
+    <h2>Role & přínos</h2>
+    <p>Návrh UX (flow: vybrat → zkontrolovat → spustit), implementace, zabalení do portable EXE, testy na větších strukturách a síťových cestách.</p>
+
+    <h2>Ke stažení / zdrojový kód</h2>
+    <ul>
+      <li><em>EXE ke stažení:</em> <span>doplním odkaz</span></li>
+      <li><em>Repozitář:</em> <span>doplním odkaz</span></li>
+    </ul>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <small>&copy; <span id="y"></span> David Kučera</small>
+    </div>
+  </footer>
+
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
