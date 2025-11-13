@@ -1,11 +1,68 @@
-<!doctype html><html lang="cs"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>AI Autoškola — Case study</title><link rel="stylesheet" href="/assets/css/main.css"/></head>
-<body><header class="header"><div class="container"><a href="/">← Zpět</a></div></header>
-<main class="main container"><h1>AI Autoškola</h1>
-<h2>Přehled</h2><p>Trénink testů, heatmapy, SRS, deck-builder.</p>
-<h2>Technologie</h2><ul><li>JS + datové zpracování</li></ul>
-<h2>Funkce</h2><ul><li>Sledování chybovosti</li><li>Opakování dle SRS</li></ul>
-<h2>Screenshoty</h2><p><em>Brzy doplním</em></p>
-<h2>Co jsem se naučil</h2><ul><li>...</li></ul>
-</main><footer class="footer"><div class="container"><small>&copy; <span id="y"></span> David Kučera</small></div></footer>
-<script>document.getElementById('y').textContent = new Date().getFullYear();</script></body></html>
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AI Autoškola — trénink testů s AI nápovědou</title>
+  <meta name="description" content="Webová aplikace pro procvičování testů B: učení, testy nanečisto, statistiky, vlastní balíčky a AI nápověda přes backend proxy." />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="AI Autoškola — trénink testů s AI nápovědou" />
+  <meta property="og:description" content="Režimy učení i testu, přehled chyb, statistiky, vlastní balíčky a AI vysvětlení odpovědí." />
+  <meta property="og:url" content="https://daviocz.github.io/projects/ai-autoskola.html" />
+</head>
+<body>
+  <header class="header"><div class="container"><a href="/">← Zpět</a></div></header>
+  <main class="main container" id="content" tabindex="-1">
+    <h1>AI Autoškola — trénink testů s AI nápovědou</h1>
+
+    <p><strong>Webová appka pro skupinu B</strong>, která sjednocuje režim <em>Učení</em>, <em>Test nanečisto</em> a <em>Review chyb</em>. U každé otázky je k dispozici <strong>AI nápověda</strong> přes bezpečnou backendovou proxy. Statistiky ukazují progres a slabá témata, vlastní balíčky umožní cílený trénink.</p>
+
+    <h2>Co to řeší</h2>
+    <p>Klasické „klikátka“ testů moc nevysvětlují <em>proč</em>. Tady dostaneš vysvětlení hned u otázky, přehledné statistiky a možnost trénovat jen to, co pálí.</p>
+
+    <h2>Jak to funguje (tok uživatele)</h2>
+    <ol>
+      <li><strong>Výběr balíčku/okruhu</strong> a režimu: <em>Učení</em> nebo <em>Test nanečisto</em>.</li>
+      <li><strong>Učení</strong>: odpovíš, hned vidíš správnost, krátké vysvětlení a můžeš se <em>zeptat AI</em> na detail.</li>
+      <li><strong>Test</strong>: časovač, výsledky až na konci, potom <em>review</em> chybných otázek.</li>
+      <li><strong>Statistiky</strong>: úspěšnost po tématech, historie pokusů, trend.</li>
+      <li><strong>Vlastní balíčky</strong>: poskládáš si „deck“ (např. značky), uložíš a trénuješ opakovaně.</li>
+    </ol>
+
+    <h2>Hlavní funkce</h2>
+    <ul>
+      <li><strong>Režimy Učení/Test</strong> + <em>review</em> chyb.</li>
+      <li><strong>AI nápověda</strong> k libovolné otázce (backend proxy, aby se neschovávaly klíče ve frontendu).</li>
+      <li><strong>Statistiky</strong> podle okruhů, historie pokusů, trend.</li>
+      <li><strong>Vlastní decky</strong> otázek a jejich opakování.</li>
+      <li><strong>Lehká SRS</strong>: těžké otázky rotují častěji během učení.</li>
+    </ul>
+
+    <h2>Technologie a architektura</h2>
+    <ul>
+      <li><strong>Frontend</strong>: TypeScript (Vite build), Tailwind CSS, vlastní UI komponenty.</li>
+      <li><strong>Backend</strong>: malá Node/Express <em>proxy</em> pro AI chat (bezpečné volání, žádné klíče v prohlížeči).</li>
+      <li><strong>Data</strong>: relační schéma pro otázky, možné běžet na SQLite/Postgres lokálně dle prostředí.</li>
+      <li><strong>Docker</strong>: Dockerfile pro pohodlné spuštění (build frontendu + běh serveru).</li>
+    </ul>
+
+    <h2>Limity</h2>
+    <ul>
+      <li>AI vysvětlení je studijní pomůcka, ne právní výklad.</li>
+      <li>Datové sady nemusí být totožné s oficiálními eTesty.</li>
+    </ul>
+
+    <h2>Role & přínos</h2>
+    <p>Návrh UX toku (učení → test → review), implementace frontendu v TS, backend proxy pro AI nápovědu, návrh schématu a Dockerizace.</p>
+
+    <h2>Repo a nasazení</h2>
+    <ul>
+      <li><em>Repozitář:</em> <a href="https://github.com/DavioCZ/AI_Autoskola" rel="noopener">github.com/DavioCZ/AI_Autoskola</a></li>
+      <li><em>Demo:</em> <span>volitelně doplnit</span></li>
+    </ul>
+  </main>
+  <footer class="footer"><div class="container"><small>&copy; <span id="y"></span> David Kučera</small></div></footer>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
