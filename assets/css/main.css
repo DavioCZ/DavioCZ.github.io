@@ -81,3 +81,8 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 .copy-pill.copied .ico--check{display:inline-block}
 @keyframes pop{0%{transform:scale(1)}60%{transform:scale(1.08)}100%{transform:scale(1)}}
 @media (prefers-reduced-motion: reduce){.copy-pill.copied{animation:none}}
+
+.gallery{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin:12px 0 6px}
+.gallery figure{margin:0;border:1px solid var(--border);border-radius:12px;background:var(--muted);padding:8px}
+.gallery img{border-radius:8px;display:block;width:100%;height:auto}
+.gallery figcaption{font-size:var(--fz-2);color:rgba(127,127,127,.9);margin-top:6px}
