@@ -1,0 +1,19 @@
+:root{
+  /* světlo jako v původní appce */
+  --bg:#f6f8fb;
+  --panel:#ffffff;
+  --muted:#f2f5fa;
+  --border:#e6edf5;
+  --ink:#0e1726;
+  --ink2:#5b6b7c;
+
+  /* mint primární z portfolia může zůstat */
+  --accent:#8affc1;
+  --accent-ink:#053a2c;
+
+  /* donut */
+  --donut-bg:#eef2f7;
+  --donut-thickness:16; /* šířka prstence jako v originálu */
+}
+
+body{ color-scheme: light; }

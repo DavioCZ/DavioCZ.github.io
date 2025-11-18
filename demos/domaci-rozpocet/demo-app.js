@@ -141,24 +141,45 @@ window.addEventListener('DOMContentLoaded', () => {
 
   function drawDonut(parts){
     chart.innerHTML = '';
-    const size = 240; const r = 90; const c = size/2;
+
+    const css = getComputedStyle(document.documentElement);
+    const THICK = parseFloat(css.getPropertyValue('--donut-thickness')) || 16;
+    const DONUT_BG = (css.getPropertyValue('--donut-bg') || '#eef2f7').trim();
+
+    const size = 380;            // mírně větší plátno jako na screenu
+    const r = 120;               // poloměr prstence
+    const c = size/2;
+
     const total = parts.reduce((a,b)=>a+b.value,0) || 1;
     let prev = 0;
-    const svg = elSVG('svg'); svg.setAttribute('viewBox',`0 0 ${size} ${size}`); svg.classList.add('donut');
-    // šedé pozadí
-    svg.appendChild(circle(c,c,r,'#1f2634', 18));
+
+    const svg = elSVG('svg');
+    svg.setAttribute('viewBox',`0 0 ${size} ${size}`);
+    svg.classList.add('donut');
+
+    // pozadí prstence
+    svg.appendChild(circle(c,c,r, DONUT_BG, THICK));
+
+    // barevné segmenty
     for (const p of parts){
       const frac = p.value/total;
       const dash = 2*Math.PI*r*frac;
       const gap  = 2*Math.PI*r*(1-frac);
-      const arc = circle(c,c,r,p.color, 18);
+      const arc = circle(c,c,r, p.color, THICK);
       arc.setAttribute('stroke-dasharray', `${dash} ${gap}`);
       arc.setAttribute('transform', `rotate(${prev*360-90} ${c} ${c})`);
       svg.appendChild(arc);
       prev += frac;
     }
-    // střed
-    svg.appendChild(circle(c,c,60, 'var(--panel)', 60));
+
+    // výplň středu (čistý bílý „stůl“ karet)
+    const fill = elSVG('circle');
+    fill.setAttribute('cx', c);
+    fill.setAttribute('cy', c);
+    fill.setAttribute('r', r - THICK/2);
+    fill.setAttribute('fill', 'var(--panel)');
+    svg.appendChild(fill);
+
     chart.appendChild(svg);
   }
 
@@ -166,8 +187,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const e = elSVG('circle');
     e.setAttribute('cx',cx); e.setAttribute('cy',cy); e.setAttribute('r',r);
     e.setAttribute('fill','transparent'); e.setAttribute('stroke', stroke);
-    e.setAttribute('stroke-width', w);
-    e.setAttribute('stroke-linecap','butt');
+    e.setAttribute('stroke-width', w); e.setAttribute('stroke-linecap','butt');
     return e;
   }
   function elSVG(tag){ return document.createElementNS('http://www.w3.org/2000/svg', tag); }
