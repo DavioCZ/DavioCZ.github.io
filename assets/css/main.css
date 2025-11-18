@@ -204,7 +204,38 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 
 .projects-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));
   gap:22px;
-  align-items:stretch; /* karty budou stejně vysoké */
+  align-items:stretch;
 }
+
+/* karta */
+.project-card{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  background:#0f1418;
+  border:1px solid #1c232b;
+  border-radius:16px;
+  padding:18px;
+  box-shadow: 0 1px 0 rgba(255,255,255,.02) inset;
+  height:100%;
+}
+.project-card__thumb{
+  display:block;
+  width:100%;
+  aspect-ratio:16/9;
+  border-radius:12px;
+  overflow:hidden;
+  background:linear-gradient(180deg,#1b222a 0%,#0f1418 100%);
+}
+.project-card__thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
+.project-card__thumb--ph{ width:100%; height:100%; background:#1a2026; }
+
+.project-card__title{ margin:2px 0 0; font-size:18px; font-weight:700; line-height:1.25; }
+.project-card__title a{ text-decoration:none; color:inherit; }
+.project-card__title a:hover{ text-decoration:underline; }
+
+.project-card__desc{ color:#b6c2cf; min-height:64px; }
+.project-card__tags{ display:flex; flex-wrap:wrap; gap:6px; }
+.project-card__actions{ margin-top:auto; display:flex; gap:14px; align-items:center; }
