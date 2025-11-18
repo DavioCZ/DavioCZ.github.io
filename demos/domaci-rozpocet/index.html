@@ -73,14 +73,14 @@
         <select id="txCategory" required></select>
       </label>
       <label>Částka (Kč) <input type="number" id="txAmount" step="1" min="0" required></label>
-      <div class="dialog-actions">
-        <button value="cancel" class="btn">Zrušit</button>
-        <button id="txSubmit" class="btn-accent">Přidat</button>
-      </div>
+<div class="dialog-actions">
+  <button id="txCancel" type="button" class="btn" formnovalidate>Zrušit</button>
+  <button id="txSubmit" type="submit" class="btn-accent">Přidat</button>
+</div>
       <p class="muted">V demu se data neukládají. Všechno zmizí po obnovení stránky.</p>
     </form>
   </dialog>
 
-  <script src="./demo-app.js?v=3" defer></script>
+<script src="./demo-app.js?v=4" defer></script>
 </body>
 </html>

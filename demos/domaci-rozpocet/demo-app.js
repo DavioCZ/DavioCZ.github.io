@@ -54,6 +54,18 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  // Cancel zavře dialog bez validace
+  document.getElementById('txCancel').addEventListener('click', (e) => {
+    e.preventDefault();
+    closeDialog();
+  });
+
+  // ESC také zavře (nativně u <dialog>), ve fallbacku to sjednotíme
+  dialog.addEventListener('cancel', (e) => {
+    e.preventDefault();
+    closeDialog();
+  });
+
   // init select kategorií
   const catSelect = el('txCategory');
   CATS.forEach(c => {
