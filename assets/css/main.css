@@ -138,34 +138,73 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 .btn--ghost{ background: transparent; border: 1px solid var(--border); }
 .links-inline{ list-style: none; padding: 0; margin: 8px 0 16px; display: flex; gap: 8px; flex-wrap: wrap; }
 
-/* 16:9 náhled v kartě */
-.card-thumb {
+/* Karta – základ */
+.project-card{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  background:#0f1418;                 /* ladí s dark tématem */
+  border:1px solid #1c232b;
+  border-radius:16px;
+  padding:18px;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.02) inset;
+  height:100%;                         /* nechá grownout uvnitř gridu */
+}
+
+/* Náhled nahoře – vždy stejné proporce */
+.project-card__thumb{
   display:block;
   width:100%;
-  height:auto;
+  aspect-ratio:16/9;                   /* sjednotí výšku napříč kartami */
   border-radius:12px;
+  overflow:hidden;
+  background:linear-gradient(180deg,#1b222a 0%,#0f1418 100%);
+}
+.project-card__thumb img{
+  width:100%;
+  height:100%;
+  object-fit:cover;                    /* bez toho budou náhledy „plavat“ */
+  display:block;
 }
 
-/* fallback placeholder, než dodáš obrázek */
-.card-thumb.placeholder {
-  aspect-ratio: 16 / 9;
-  background: var(--surface-2);
-  border-radius:12px;
-  position: relative;
-  overflow: hidden;
+/* Titulek */
+.project-card__title{
+  margin:2px 0 0;
+  font-size:18px;
+  font-weight:700;
+  line-height:1.25;
 }
-.card-thumb.placeholder::after {
-  content:"";
-  position:absolute; inset:0;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,.06), transparent);
-  transform: translateX(-100%);
-  animation: ph-shimmer 1.4s infinite;
+.project-card__title a{
+  text-decoration:none;
 }
-@keyframes ph-shimmer { to { transform: translateX(100%); } }
+.project-card__title a:hover{
+  text-decoration:underline;
+}
 
-/* klikací název má vypadat jako ostatní */
-.card-title a { color: inherit; text-decoration: none; }
-.card-title a:hover { text-decoration: underline; }
+/* Popisek s fixní minimální výškou, aby se karty srovnaly */
+.project-card__desc{
+  color:#b6c2cf;
+  min-height:64px;                     /* drobný buffer, uprav dle délky textů */
+}
 
-/* pro jistotu konzistentní spacing v akcích */
-.card-actions { display:flex; gap:.5rem; align-items:center; }
+/* Tagy (pilulky) */
+.project-card__tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+}
+
+/* Spodek karty drž u dna, ať mají všechny stejnou výšku */
+.project-card__actions{
+  margin-top:auto;
+  display:flex;
+  gap:14px;
+  align-items:center;
+}
+
+.projects-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:22px;
+  align-items:stretch; /* karty budou stejně vysoké */
+}

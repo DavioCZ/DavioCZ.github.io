@@ -63,86 +63,127 @@
 
     <section aria-labelledby='projekty'>
       <h2 id='projekty' class='visually-hidden'>Projekty</h2>
-      <div class='grid'>
+      <div class='projects-grid'>
 
-        <article class='card'>
-          <figure class="thumb">
-            <img
-              src="/assets/img/projects/domaci-rozpocet/screen-01-dashboard-1600.jpg"
-              alt="Domácí rozpočet: dashboard s kartami a donut grafem"
-              loading="lazy" decoding="async">
-          </figure>
-          <h3><a href='/projects/domaci-rozpocet.html'>Domácí rozpočet</a></h3>
-          <p>Jednoduchý tracker příjmů a výdajů s měsíčním přepínáním, kategoriemi, filtry a rychlými souhrny.</p>
-          <div class='badges'><span class='badge'>HTML/CSS/JS</span><span class='badge'>Export CSV</span></div>
-          <div class='links'>
-            <a class='btn' href='/projects/domaci-rozpocet.html'>Case study</a>
-            <a class='btn btn--accent' href='/demos/domaci-rozpocet/' target='_blank' rel='noopener'>Demo</a>
+        <article class="project-card" data-project="domaci-rozpocet">
+          <a class="project-card__thumb" href="/projects/domaci-rozpocet.html" aria-label="Detail projektu: Domácí rozpočet">
+            <img src="/assets/img/projects/domaci-rozpocet/screen-01-dashboard-1600.jpg" alt="Domácí rozpočet: dashboard s kartami a donut grafem" loading="lazy">
+          </a>
+
+          <h3 class="project-card__title">
+            <a href="/projects/domaci-rozpocet.html">Domácí rozpočet</a>
+          </h3>
+
+          <p class="project-card__desc">
+            Jednoduchý tracker příjmů a výdajů s měsíčním přepínáním, kategoriemi, filtry a rychlými souhrny.
+          </p>
+
+          <div class="project-card__tags">
+            <span class="pill">HTML/CSS/JS</span>
+            <span class="pill">Export CSV</span>
+          </div>
+
+          <div class="project-card__actions">
+            <a class="link" href="/projects/domaci-rozpocet.html">Case study</a>
+            <a class="btn" href="/demos/domaci-rozpocet/" target="_blank" rel="noopener">Demo</a>
           </div>
         </article>
 
-        <article class='card'>
-          <figure class='thumb thumb--skeleton'>
-            <!-- <img src='/assets/img/projects/ai-autoskola-thumb.png' alt='AI Autoškola – náhled' loading='lazy'> -->
-          </figure>
-          <h3><a href='/projects/ai-autoskola.html'>AI Autoškola</a></h3>
-          <p>Procvičování a testy nanečisto, statistiky, vlastní balíčky a AI nápověda přes backend proxy.</p>
-          <div class='badges'><span class='badge'>TypeScript</span><span class='badge'>Tailwind</span><span class='badge'>Docker</span></div>
-          <div class='links'><a href='/projects/ai-autoskola.html'>Case study</a></div>
-        </article>
-
-        <article class='card'>
-          <figure class="thumb">
-            <img
-              src="/assets/img/projects/kopirovani-struktury-slozek/screen-01-dashboard.jpg"
-              alt="Kopírování struktury složek: hlavní okno s výběrem zdroje a cíle"
-              loading="lazy" decoding="async">
-          </figure>
-          <h3><a href='/projects/kopirovani-struktury.html'>Kopírování struktury složek</a></h3>
-          <p>Jednoúčelový nástroj pro klon adresářového stromu bez souborů. Windows portable EXE, náhled a progress.</p>
-          <div class='badges'><span class='badge'>Python/Tk</span><span class='badge'>EXE</span></div>
-          <div class='links'><a href='/projects/kopirovani-struktury.html'>Case study</a></div>
-        </article>
-
-        <article class='card'>
-          <figure class='thumb thumb--skeleton'>
-            <!-- <img src='/assets/img/projects/autoskola-top-thumb.png' alt='Autoškola TOP – náhled' loading='lazy'> -->
-          </figure>
-          <h3><a href='/projects/autoskola-top.html'>Stránky Autoškola TOP</a></h3>
-          <p>Redesign homepage s jasnou nabídkou kurzů a ostrým CTA. Cíl: zkrátit cestu „vidím nabídku → pošlu kontakt“.</p>
-          <div class='badges'><span class='badge'>UX</span><span class='badge'>IA</span></div>
-          <div class='links'><a href='/projects/autoskola-top.html'>Case study</a></div>
-        </article>
-
-        <article class="card">
-          <a href="/projects/kodi-plugins.html" class="card-thumb-link" aria-label="Kodi doplňky – detail">
-            <!-- dočasná šedá placeholder placka, až bude fotka, vyměníš za <img> -->
-            <div class="card-thumb placeholder"></div>
-            <!-- PŘÍPADNĚ budoucí obrázek:
-            <img class="card-thumb" src="/assets/img/projects/kodi-plugins/cover-16x9.jpg"
-                 width="640" height="360" alt="Kodi doplňky – náhled" loading="lazy">
-            -->
+        <article class="project-card" data-project="ai-autoskola">
+          <a class="project-card__thumb" href="/projects/ai-autoskola.html" aria-label="Detail projektu: AI Autoškola">
+            <!-- Dočasný placeholder; až budeš mít obrázek, vyměň src -->
+            <img src="/assets/img/thumbs/placeholder-16x9.jpg" alt="" loading="lazy">
           </a>
 
-          <div class="card-body">
-            <h3 class="card-title">
-              <a href="/projects/kodi-plugins.html">Kodi doplňky</a>
-            </h3>
+          <h3 class="project-card__title">
+            <a href="/projects/ai-autoskola.html">AI Autoškola</a>
+          </h3>
 
-            <p class="card-text">
-              Video add-ony v ZIP pro ruční instalaci. Jednoduché, bez závislosti na GUI repozitářích.
-            </p>
+          <p class="project-card__desc">
+            Procvičování a testy nanečisto, statistiky, vlastní balíčky a AI nápověda přes backend proxy.
+          </p>
 
-            <div class="pill-row">
-              <span class="pill">Kodi</span>
-              <span class="pill">Python</span>
-              <span class="pill">ZIP</span>
-            </div>
+          <div class="project-card__tags">
+            <span class="pill">TypeScript</span>
+            <span class="pill">Tailwind</span>
+            <span class="pill">Docker</span>
+          </div>
 
-            <div class="card-actions">
-              <a class="btn-link" href="/projects/kodi-plugins.html">Case study</a>
-              <!-- žádný odkaz na /kodi/ sem už nepatří -->
-            </div>
+          <div class="project-card__actions">
+            <a class="link" href="/projects/ai-autoskola.html">Case study</a>
+          </div>
+        </article>
+
+        <article class="project-card" data-project="kopirovani-struktury">
+          <a class="project-card__thumb" href="/projects/kopirovani-struktury.html" aria-label="Detail projektu: Kopírování struktury složek">
+            <img src="/assets/img/projects/kopirovani-struktury-slozek/screen-01-dashboard.jpg" alt="Kopírování struktury složek: hlavní okno s výběrem zdroje a cíle" loading="lazy">
+          </a>
+
+          <h3 class="project-card__title">
+            <a href="/projects/kopirovani-struktury.html">Kopírování struktury složek</a>
+          </h3>
+
+          <p class="project-card__desc">
+            Jednoúčelový nástroj pro klon adresářového stromu bez souborů. Windows portable EXE, náhled a progress.
+          </p>
+
+          <div class="project-card__tags">
+            <span class="pill">Python/Tk</span>
+            <span class="pill">EXE</span>
+          </div>
+
+          <div class="project-card__actions">
+            <a class="link" href="/projects/kopirovani-struktury.html">Case study</a>
+          </div>
+        </article>
+
+        <article class="project-card" data-project="autoskola-top">
+          <a class="project-card__thumb" href="/projects/autoskola-top.html" aria-label="Detail projektu: Stránky Autoškola TOP">
+            <!-- Dočasný placeholder; až budeš mít obrázek, vyměň src -->
+            <img src="/assets/img/thumbs/placeholder-16x9.jpg" alt="" loading="lazy">
+          </a>
+
+          <h3 class="project-card__title">
+            <a href="/projects/autoskola-top.html">Stránky Autoškola TOP</a>
+          </h3>
+
+          <p class="project-card__desc">
+            Redesign homepage s jasnou nabídkou kurzů a ostrým CTA. Cíl: zkrátit cestu „vidím nabídku → pošlu kontakt“.
+          </p>
+
+          <div class="project-card__tags">
+            <span class="pill">UX</span>
+            <span class="pill">IA</span>
+          </div>
+
+          <div class="project-card__actions">
+            <a class="link" href="/projects/autoskola-top.html">Case study</a>
+          </div>
+        </article>
+
+        <article class="project-card" data-project="kodi-plugins">
+          <a class="project-card__thumb" href="/projects/kodi-plugins.html" aria-label="Detail projektu: Kodi doplňky">
+            <!-- Dočasný placeholder; až budeš mít obrázek, vyměň src -->
+            <img src="/assets/img/thumbs/placeholder-16x9.jpg" alt="" loading="lazy">
+          </a>
+
+          <div class="project-card__title">
+            <a href="/projects/kodi-plugins.html">Kodi doplňky</a>
+          </div>
+
+          <p class="project-card__desc">
+            Video add-ony v ZIP pro ruční instalaci. Jednoduché, bez závislostí na GUI repozitářích.
+          </p>
+
+          <div class="project-card__tags">
+            <span class="pill">Python</span>
+            <span class="pill">Kodi</span>
+            <span class="pill">ZIP</span>
+          </div>
+
+          <div class="project-card__actions">
+            <a class="link" href="/projects/kodi-plugins.html">Case study</a>
+            <!-- Tady úmyslně žádné downloady a odkazy na /kodi/, jak sis přál. -->
           </div>
         </article>
 
