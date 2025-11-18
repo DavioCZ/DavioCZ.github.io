@@ -137,3 +137,35 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 .btn--accent:hover{ filter: brightness(0.95); }
 .btn--ghost{ background: transparent; border: 1px solid var(--border); }
 .links-inline{ list-style: none; padding: 0; margin: 8px 0 16px; display: flex; gap: 8px; flex-wrap: wrap; }
+
+/* 16:9 náhled v kartě */
+.card-thumb {
+  display:block;
+  width:100%;
+  height:auto;
+  border-radius:12px;
+}
+
+/* fallback placeholder, než dodáš obrázek */
+.card-thumb.placeholder {
+  aspect-ratio: 16 / 9;
+  background: var(--surface-2);
+  border-radius:12px;
+  position: relative;
+  overflow: hidden;
+}
+.card-thumb.placeholder::after {
+  content:"";
+  position:absolute; inset:0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.06), transparent);
+  transform: translateX(-100%);
+  animation: ph-shimmer 1.4s infinite;
+}
+@keyframes ph-shimmer { to { transform: translateX(100%); } }
+
+/* klikací název má vypadat jako ostatní */
+.card-title a { color: inherit; text-decoration: none; }
+.card-title a:hover { text-decoration: underline; }
+
+/* pro jistotu konzistentní spacing v akcích */
+.card-actions { display:flex; gap:.5rem; align-items:center; }

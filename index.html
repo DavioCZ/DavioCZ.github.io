@@ -115,27 +115,33 @@
         </article>
 
         <article class="card">
-          <!-- náhled/placeholder v poměru 16:9 jako u ostatních -->
-          <a class="card-media" href="projects/kodi-plugins.html" aria-label="Case study: Kodi doplňky">
-            <!-- pokud máš cover, použij ho; jinak nech prázdný placeholder -->
-            <!-- <img src="assets/img/projects/kodi/cover-640.jpg" alt="Kodi doplňky – náhled" loading="lazy" width="640" height="360"> -->
-            <div class="media-placeholder" aria-hidden="true"></div>
+          <a href="/projects/kodi-plugins.html" class="card-thumb-link" aria-label="Kodi doplňky – detail">
+            <!-- dočasná šedá placeholder placka, až bude fotka, vyměníš za <img> -->
+            <div class="card-thumb placeholder"></div>
+            <!-- PŘÍPADNĚ budoucí obrázek:
+            <img class="card-thumb" src="/assets/img/projects/kodi-plugins/cover-16x9.jpg"
+                 width="640" height="360" alt="Kodi doplňky – náhled" loading="lazy">
+            -->
           </a>
 
           <div class="card-body">
-            <h3>Kodi doplňky</h3>
-            <p>
+            <h3 class="card-title">
+              <a href="/projects/kodi-plugins.html">Kodi doplňky</a>
+            </h3>
+
+            <p class="card-text">
               Video add-ony v ZIP pro ruční instalaci. Jednoduché, bez závislosti na GUI repozitářích.
             </p>
 
-            <div class="tags">
-              <span class="tag">Kodi</span>
-              <span class="tag">Video add-on</span>
-              <span class="tag">ZIP</span>
+            <div class="pill-row">
+              <span class="pill">Kodi</span>
+              <span class="pill">Python</span>
+              <span class="pill">ZIP</span>
             </div>
 
             <div class="card-actions">
               <a class="btn-link" href="/projects/kodi-plugins.html">Case study</a>
+              <!-- žádný odkaz na /kodi/ sem už nepatří -->
             </div>
           </div>
         </article>
