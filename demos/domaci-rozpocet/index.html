@@ -1,18 +1,85 @@
 ﻿<!doctype html>
 <html lang="cs">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex">
-<title>Domácí rozpočet  Demo</title>
-<link rel="stylesheet" href="./demo.css">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Domácí rozpočet — Demo (lite)</title>
+  <link rel="stylesheet" href="./demo.css" />
+  <link rel="stylesheet" href="./demo-lite.css" />
+</head>
 <body>
-<div class="demo-bar">
-  <span class="demo-badge">Demo mód</span><span class="spacer"></span>
-  <a class="btn" href="/projects/domaci-rozpocet.html">Zpět na projekt</a>
-  <a class="btn" href="/">Zpět na portfolio</a>
-</div>
-<h1 style="padding:16px">Demo placeholder</h1>
-<p style="padding:0 16px 16px">Sem vlož později vlastní HTML/CSS/JS rozpočtu.</p>
-<script src="./demo-shim.js" defer></script>
+  <div class="demo-bar">
+    <span class="demo-badge">Demo mód</span>
+    <span class="spacer"></span>
+    <a class="btn" href="/projects/domaci-rozpocet.html">Zpět na projekt</a>
+    <a class="btn" href="/">Zpět na portfolio</a>
+  </div>
+
+  <main class="wrap">
+    <header class="toolbar">
+      <div class="title">Domácí rozpočet — Lite demo</div>
+      <label class="month">
+        Měsíc
+        <select id="monthSelect" aria-label="Měsíc">
+          <option value="2025-09">září 2025</option>
+          <option value="2025-10" selected>říjen 2025</option>
+          <option value="2025-11">listopad 2025</option>
+        </select>
+      </label>
+      <button id="addBtn" class="btn-accent">+ Transakce</button>
+    </header>
+
+    <section class="cards">
+      <div class="card"><div class="k">Příjmy (měsíc)</div><div id="incomes" class="v">0 Kč</div></div>
+      <div class="card"><div class="k">Výdaje (měsíc)</div><div id="expenses" class="v">0 Kč</div></div>
+      <div class="card"><div class="k">Saldo</div><div id="balance" class="v">0 Kč</div></div>
+    </section>
+
+    <section class="chart-row">
+      <div class="chart-card">
+        <div class="k">Rozdělení výdajů (podle kategorií)</div>
+        <div id="chart"></div>
+      </div>
+      <aside class="legend" id="legend"></aside>
+    </section>
+
+    <section>
+      <table class="table" aria-label="Seznam transakcí">
+        <thead>
+          <tr>
+            <th>Datum</th><th>Popis</th><th>Kategorie</th><th>Typ</th><th class="r">Částka</th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <!-- Modál pro přidání transakce -->
+  <dialog id="txDialog">
+    <form id="txForm" method="dialog">
+      <h3>Přidat transakci</h3>
+      <label>Datum <input type="date" id="txDate" required></label>
+      <label>Popis <input type="text" id="txNote" placeholder="např. Nákup potravin"></label>
+      <label>Typ
+        <select id="txType">
+          <option value="expense">Výdaj</option>
+          <option value="income">Příjem</option>
+        </select>
+      </label>
+      <label>Kategorie
+        <select id="txCategory" required></select>
+      </label>
+      <label>Částka (Kč) <input type="number" id="txAmount" step="1" min="0" required></label>
+      <div class="dialog-actions">
+        <button value="cancel" class="btn">Zrušit</button>
+        <button id="txSubmit" class="btn-accent">Přidat</button>
+      </div>
+      <p class="muted">V demu se data neukládají. Všechno zmizí po obnovení stránky.</p>
+    </form>
+  </dialog>
+
+  <script src="./demo-app.js" defer></script>
 </body>
 </html>
