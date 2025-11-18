@@ -10,8 +10,6 @@
 <body class="page">
 <header class="page-header">
   <a class="back" href="/">← Zpět na portfolio</a>
-  <h1>Kodi doplňky</h1>
-  <p class="lede">Lehké video doplňky pro Kodi. Distribuce v ZIP, instalace ručně ze souboru ZIP.</p>
   <div class="pill-row">
     <span class="pill">Kodi</span>
     <span class="pill">Python</span>
@@ -25,119 +23,124 @@
   </nav>
 </header>
 
-<main class="page-content">
+<main class="container project">
+  <header class="project-hero">
+    <h1 class="h1">Kodi doplňky</h1>
+    <p class="lead">Video add-ony v ZIP pro ruční instalaci. Jednoduché, bez repozitářů.</p>
+  </header>
 
-  <!-- =================== Kodíček =================== -->
-  <section id="kodicek">
-    <h2>Kodíček</h2>
-    <p><strong>2025</strong> &middot; Role: návrh + kód (Kodi addon) &middot; Stack: <em>Python / Kodi API / TMDB / Webshare</em></p>
+  <article class="project-content prose">
+    <!-- =================== Kodíček =================== -->
+    <section id="kodicek">
+      <h2>Kodíček</h2>
+      <p><strong>2025</strong> &middot; Role: návrh + kód (Kodi addon) &middot; Stack: <em>Python / Kodi API / TMDB / Webshare</em></p>
 
-    <p>Minimalistický Kodi plugin pro pohodlné vyhledávání a přehrávání filmů a seriálů z uživatelského účtu Webshare.cz.
-    Soustředí se na chytré párování výsledků, historii přehrávání a čisté UX v češtině.</p>
+      <p>Minimalistický Kodi plugin pro pohodlné vyhledávání a přehrávání filmů a seriálů z uživatelského účtu Webshare.cz.
+      Soustředí se na chytré párování výsledků, historii přehrávání a čisté UX v češtině.</p>
 
-    <h3>Co to řeší</h3>
-    <p>Běžné doplňky často zobrazují dlouhé seznamy nejasně pojmenovaných souborů. Kodíček nejdřív najde titul přes TMDB
-    a teprve potom k němu hledá odpovídající video soubory na tvém vlastním Webshare účtu. Plugin žádný obsah sám nešíří
-    ani neukládá; pracuje jen s tím, k čemu máš přístup ty (přihlášení do Webshare).</p>
+      <h3>Co to řeší</h3>
+      <p>Běžné doplňky často zobrazují dlouhé seznamy nejasně pojmenovaných souborů. Kodíček nejdřív najde titul přes TMDB
+      a teprve potom k němu hledá odpovídající video soubory na tvém vlastním Webshare účtu. Plugin žádný obsah sám nešíří
+      ani neukládá; pracuje jen s tím, k čemu máš přístup ty (přihlášení do Webshare).</p>
 
-    <h3>Tok uživatele</h3>
-    <ol class="steps">
-      <li>Spuštění doplňku → „Vyhledat film/seriál“.</li>
-      <li>Zadáš název (např. „Spider-Man 3“, „Pán prstenů 2001“).</li>
-      <li>TMDB vrátí titul, rok, popis, poster.</li>
-      <li>Vybereš titul → nabídnou se zdroje z Webshare (u seriálu série/epizody).</li>
-      <li>Klik → Kodi přehrává video ze tvého Webshare účtu.</li>
-    </ol>
+      <h3>Tok uživatele</h3>
+      <ol class="steps">
+        <li>Spuštění doplňku → „Vyhledat film/seriál“.</li>
+        <li>Zadáš název (např. „Spider-Man 3“, „Pán prstenů 2001“).</li>
+        <li>TMDB vrátí titul, rok, popis, poster.</li>
+        <li>Vybereš titul → nabídnou se zdroje z Webshare (u seriálu série/epizody).</li>
+        <li>Klik → Kodi přehrává video ze tvého Webshare účtu.</li>
+      </ol>
 
-    <h3>Klíčové funkce</h3>
-    <ul class="bullet">
-      <li><strong>TMDB integrace</strong>: vyhledávání filmů i seriálů, metadata a obrázky.</li>
-      <li><strong>Chytré párování Webshare</strong>: normalizace názvů, rok, kvalita, jazyk; filtrování jen na video soubory.</li>
-      <li><strong>Historie</strong>: lokální JSON pro přehrávané tituly i vyhledávání.</li>
-      <li><strong>Seriály</strong>: série → epizody, dotaz na Webshare podle S/E.</li>
-      <li><strong>UX & CZ</strong>: kompletně česky, hlášky pro chybové stavy.</li>
-    </ul>
+      <h3>Klíčové funkce</h3>
+      <ul class="bullet">
+        <li><strong>TMDB integrace</strong>: vyhledávání filmů i seriálů, metadata a obrázky.</li>
+        <li><strong>Chytré párování Webshare</strong>: normalizace názvů, rok, kvalita, jazyk; filtrování jen na video soubory.</li>
+        <li><strong>Historie</strong>: lokální JSON pro přehrávané tituly i vyhledávání.</li>
+        <li><strong>Seriály</strong>: série → epizody, dotaz na Webshare podle S/E.</li>
+        <li><strong>UX & CZ</strong>: kompletně česky, hlášky pro chybové stavy.</li>
+      </ul>
 
-    <h3>Technologie</h3>
-    <ul class="bullet">
-      <li>Kodi plugin (Python: <code>xbmc</code>, <code>xbmcplugin</code>, <code>xbmcgui</code>).</li>
-      <li>Webshare API pro práci s uživatelským účtem.</li>
-      <li>TMDB API pro metadata a obrázky.</li>
-      <li>Lokální JSON (<code>history.json</code>, <code>search_history.json</code>).</li>
-      <li>Připraveno na integraci s <em>Up Next</em>.</li>
-    </ul>
+      <h3>Technologie</h3>
+      <ul class="bullet">
+        <li>Kodi plugin (Python: <code>xbmc</code>, <code>xbmcplugin</code>, <code>xbmcgui</code>).</li>
+        <li>Webshare API pro práci s uživatelským účtem.</li>
+        <li>TMDB API pro metadata a obrázky.</li>
+        <li>Lokální JSON (<code>history.json</code>, <code>search_history.json</code>).</li>
+        <li>Připraveno na integraci s <em>Up Next</em>.</li>
+      </ul>
 
-    <h3>Limity</h3>
-    <ul class="bullet">
-      <li>Funguje pouze s platným přihlášením k <strong>tvému Webshare účtu</strong>.</li>
-      <li>Nezaručuje dostupnost konkrétního titulu; záleží na výsledcích Webshare.</li>
-      <li>Neobsahuje vlastní katalog obsahu, nic nešíří.</li>
-    </ul>
+      <h3>Limity</h3>
+      <ul class="bullet">
+        <li>Funguje pouze s platným přihlášením k <strong>tvému Webshare účtu</strong>.</li>
+        <li>Nezaručuje dostupnost konkrétního titulu; záleží na výsledcích Webshare.</li>
+        <li>Neobsahuje vlastní katalog obsahu, nic nešíří.</li>
+      </ul>
 
-    <h3>Repo a stažení</h3>
-    <p>Instalační ZIP je dostupný mimo veřejnou navigaci. Distribuce pouze pro uživatele, kteří znají adresu.</p>
-  </section>
+      <h3>Repo a stažení</h3>
+      <p>Instalační ZIP je dostupný mimo veřejnou navigaci. Distribuce pouze pro uživatele, kteří znají adresu.</p>
+    </section>
 
-  <hr class="sep">
+    <hr class="sep">
 
-  <!-- =================== Simpsonovi =================== -->
-  <section id="simpsonovi">
-    <h2>Simpsonovi (Elementum helper)</h2>
-    <p><strong>2025</strong> &middot; Role: návrh + kód (Kodi addon) &middot; Stack: <em>Python / Kodi API / Elementum / bencode</em></p>
+    <!-- =================== Simpsonovi =================== -->
+    <section id="simpsonovi">
+      <h2>Simpsonovi (Elementum helper)</h2>
+      <p><strong>2025</strong> &middot; Role: návrh + kód (Kodi addon) &middot; Stack: <em>Python / Kodi API / Elementum / bencode</em></p>
 
-    <p>Malý specializovaný doplněk, který z jednoho velkého torrentu se seriálem udělá přehledné menu
-    „Série → Epizody“. Nesahá na síť, jen čte lokální torrent metadata a předává správný index do doplňku
-    Elementum, které řeší samotné přehrávání.</p>
+      <p>Malý specializovaný doplněk, který z jednoho velkého torrentu se seriálem udělá přehledné menu
+      „Série → Epizody“. Nesahá na síť, jen čte lokální torrent metadata a předává správný index do doplňku
+      Elementum, které řeší samotné přehrávání.</p>
 
-    <h3>Co to řeší</h3>
-    <p>U vícesouborového torrentu končíš v přehrávači s dlouhým bezejmenným seznamem. Tenhle doplněk nad Elementum
-    staví jednoduché rozhraní: vybereš sérii/epizodu a on k ní dohledá správný soubor.</p>
+      <h3>Co to řeší</h3>
+      <p>U vícesouborového torrentu končíš v přehrávači s dlouhým bezejmenným seznamem. Tenhle doplněk nad Elementum
+      staví jednoduché rozhraní: vybereš sérii/epizodu a on k ní dohledá správný soubor.</p>
 
-    <h3>Tok uživatele</h3>
-    <ol class="steps">
-      <li>Spuštění doplňku „Simpsonovi“.</li>
-      <li>Seznam sérií 1–34 → epizody.</li>
-      <li>Klik na epizodu: podle <code>map.json</code> se najde index souboru v torrentu a sestaví se
-        <code>plugin://plugin.video.elementum/…</code> URL.</li>
-    </ol>
+      <h3>Tok uživatele</h3>
+      <ol class="steps">
+        <li>Spuštění doplňku „Simpsonovi“.</li>
+        <li>Seznam sérií 1–34 → epizody.</li>
+        <li>Klik na epizodu: podle <code>map.json</code> se najde index souboru v torrentu a sestaví se
+          <code>plugin://plugin.video.elementum/…</code> URL.</li>
+      </ol>
 
-    <h3>Klíčové funkce</h3>
-    <ul class="bullet">
-      <li><strong>Přehledné menu</strong> (série → epizody).</li>
-      <li><strong>Mapování epizod</strong> přes <code>map.json</code>.</li>
-      <li><strong>Integrace s Elementum</strong>: doplněk nic nestahuje, jen předává vstup Elementu.</li>
-      <li><strong>Lokální provoz</strong>: čtení <code>.torrent</code> metadat přes <code>bencode</code>.</li>
-    </ul>
+      <h3>Klíčové funkce</h3>
+      <ul class="bullet">
+        <li><strong>Přehledné menu</strong> (série → epizody).</li>
+        <li><strong>Mapování epizod</strong> přes <code>map.json</code>.</li>
+        <li><strong>Integrace s Elementum</strong>: doplněk nic nestahuje, jen předává vstup Elementu.</li>
+        <li><strong>Lokální provoz</strong>: čtení <code>.torrent</code> metadat přes <code>bencode</code>.</li>
+      </ul>
 
-    <h3>Technologie</h3>
-    <ul class="bullet">
-      <li>Kodi plugin (Python: <code>xbmc</code>, <code>xbmcplugin</code>, <code>xbmcgui</code>, <code>xbmcaddon</code>).</li>
-      <li><code>bencode</code> pro parsování <code>.torrent</code>.</li>
-      <li>Integrace s <code>plugin.video.elementum</code> přes <code>plugin://</code> URL.</li>
-    </ul>
+      <h3>Technologie</h3>
+      <ul class="bullet">
+        <li>Kodi plugin (Python: <code>xbmc</code>, <code>xbmcplugin</code>, <code>xbmcgui</code>, <code>xbmcaddon</code>).</li>
+        <li><code>bencode</code> pro parsování <code>.torrent</code>.</li>
+        <li>Integrace s <code>plugin.video.elementum</code> přes <code>plugin://</code> URL.</li>
+      </ul>
 
-    <h3>Limity</h3>
-    <ul class="bullet">
-      <li>Navázané na konkrétní strukturu lokálního <code>.torrent</code> souboru (případně upravit <code>map.json</code>).</li>
-      <li>Bez nainstalovaného a nastaveného Elementum nepřehraje nic.</li>
-      <li>Žádný katalog/obsah; čistě technická nadstavba pro osobní archiv.</li>
-    </ul>
-  </section>
+      <h3>Limity</h3>
+      <ul class="bullet">
+        <li>Navázané na konkrétní strukturu lokálního <code>.torrent</code> souboru (případně upravit <code>map.json</code>).</li>
+        <li>Bez nainstalovaného a nastaveného Elementum nepřehraje nic.</li>
+        <li>Žádný katalog/obsah; čistě technická nadstavba pro osobní archiv.</li>
+      </ul>
+    </section>
 
-  <hr class="sep">
+    <hr class="sep">
 
-  <!-- =================== Instalace =================== -->
-  <section id="instalace">
-    <h2>Instalace ze ZIP</h2>
-    <ol class="steps">
-      <li><em>Nastavení → Systém → Doplňky</em>: povol <strong>Neznámé zdroje</strong>.</li>
-      <li><em>Doplňky → Instalovat ze souboru ZIP</em> → vyber stažený <code>plugin.video.*.zip</code>.</li>
-      <li>Doplněk najdeš v <em>Doplňky → Video doplňky</em>.</li>
-    </ol>
-    <p class="note">Sekce <code>/kodi/</code> je záměrně mimo navigaci a s <code>noindex, nofollow</code>. Použití doplňků je na
-      vlastní zodpovědnost.</p>
-  </section>
-
+    <!-- =================== Instalace =================== -->
+    <section id="instalace">
+      <h2>Instalace ze ZIP</h2>
+      <ol class="steps">
+        <li><em>Nastavení → Systém → Doplňky</em>: povol <strong>Neznámé zdroje</strong>.</li>
+        <li><em>Doplňky → Instalovat ze souboru ZIP</em> → vyber stažený <code>plugin.video.*.zip</code>.</li>
+        <li>Doplněk najdeš v <em>Doplňky → Video doplňky</em>.</li>
+      </ol>
+      <p class="note">Sekce <code>/kodi/</code> je záměrně mimo navigaci a s <code>noindex, nofollow</code>. Použití doplňků je na
+        vlastní zodpovědnost.</p>
+    </section>
+  </article>
 </main>
 
 <footer class="page-footer">
