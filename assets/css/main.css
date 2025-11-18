@@ -122,3 +122,18 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 @media (prefers-reduced-motion: reduce){
   .lightbox{backdrop-filter:none}
 }
+
+:root{
+  --accent: #8affc1;
+  --accent-ink: #0b1f18; /* čitelné písmo na té mint */
+}
+
+.btn--accent{
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  color: var(--accent-ink);
+  font-weight: 600;
+}
+.btn--accent:hover{ filter: brightness(0.95); }
+.btn--ghost{ background: transparent; border: 1px solid var(--border); }
+.links-inline{ list-style: none; padding: 0; margin: 8px 0 16px; display: flex; gap: 8px; flex-wrap: wrap; }
