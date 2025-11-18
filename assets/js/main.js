@@ -43,28 +43,64 @@
 })();
 
 (() => {
-  const imgs = document.querySelectorAll('.gallery img');
-  if (!imgs.length) return;
+  const thumbs = Array.from(document.querySelectorAll('.gallery img'));
+  if (!thumbs.length) return;
 
-  const lb = document.createElement('div');
-  lb.id = 'lightbox';
-  lb.className = 'lightbox';
-  lb.setAttribute('hidden','');
-  lb.innerHTML = '<img alt="">';
-  document.body.appendChild(lb);
+  // Overlay DOM
+  const overlay = document.createElement('div');
+  overlay.className = 'lightbox';
+  overlay.setAttribute('role','dialog');
+  overlay.setAttribute('aria-modal','true');
+  overlay.setAttribute('hidden','');
 
-  const imgTag = lb.querySelector('img');
+  overlay.innerHTML = `
+    <img class="lightbox__img" alt="">
+    <button class="lightbox__btn lightbox__prev" aria-label="Předchozí (šipka vlevo)">&#x2039;</button>
+    <button class="lightbox__btn lightbox__next" aria-label="Další (šipka vpravo)">&#x203A;</button>
+    <button class="lightbox__btn lightbox__close" aria-label="Zavřít (Esc)">&#x2715;</button>
+  `;
+  document.body.appendChild(overlay);
 
-  imgs.forEach(img => {
-    img.style.cursor = 'zoom-in';
-    img.addEventListener('click', () => {
-      imgTag.src = img.src;
-      lb.removeAttribute('hidden');
-      imgTag.style.cursor = 'zoom-out';
-    });
+  const img = overlay.querySelector('.lightbox__img');
+  const btnPrev = overlay.querySelector('.lightbox__prev');
+  const btnNext = overlay.querySelector('.lightbox__next');
+  const btnClose = overlay.querySelector('.lightbox__close');
+
+  let idx = 0;
+  const srcFor = (el) => el.dataset.full || el.currentSrc || el.src;
+
+  const open = (i) => {
+    idx = i;
+    img.src = srcFor(thumbs[idx]);
+    overlay.removeAttribute('hidden');
+    document.documentElement.style.overflow = 'hidden';
+    btnClose.focus();
+  };
+  const close = () => {
+    overlay.setAttribute('hidden','');
+    img.src = '';
+    document.documentElement.style.overflow = '';
+  };
+  const prev = () => open((idx - 1 + thumbs.length) % thumbs.length);
+  const next = () => open((idx + 1) % thumbs.length);
+
+  thumbs.forEach((t, i) => {
+    t.addEventListener('click', () => open(i));
   });
 
-  const close = () => lb.setAttribute('hidden','');
-  lb.addEventListener('click', close);
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+  // Interakce
+  overlay.addEventListener('click', (e) => {
+    // klik mimo obrázek = zavřít
+    if (e.target === overlay) close();
+  });
+  btnClose.addEventListener('click', close);
+  btnPrev.addEventListener('click', (e) => { e.stopPropagation(); prev(); });
+  btnNext.addEventListener('click', (e) => { e.stopPropagation(); next(); });
+
+  document.addEventListener('keydown', (e) => {
+    if (overlay.hasAttribute('hidden')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') prev();
+    if (e.key === 'ArrowRight') next();
+  });
 })();
