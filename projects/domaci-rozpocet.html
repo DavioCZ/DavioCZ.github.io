@@ -78,35 +78,40 @@
       <li><a class="btn btn--accent" href="/demos/domaci-rozpocet/" target="_blank" rel="noopener">Spustit demo</a></li>
     </ul>
 
-    <section class="section section--screenshots">
-      <h2 class="section__title">Screenshoty</h2>
-    
-      <div class="gallery">
-        <button class="gallery__item"
-                type="button"
-                data-full="/assets/img/projects/domaci-rozpocet/screen-01-dashboard-1600.jpg"
-                data-caption="Dashboard měsíce: karty Příjmy, Výdaje, Saldo a shrnutí kategorií.">
-          <img src="/assets/img/projects/domaci-rozpocet/screen-01-dashboard-1600.jpg"
-               alt="Dashboard měsíce – přehled příjmů, výdajů a salda">
-          <span class="gallery__label">Dashboard měsíce</span>
+<section class="project-gallery" data-gallery-id="domaci-rozpocet">
+      <h2>Screenshoty</h2>
+      <div class="project-gallery__grid">
+        <button
+          class="project-gallery__item"
+          data-gallery-index="0"
+          data-gallery-caption="Dashboard měsíce – přehled příjmů, výdajů a salda."
+        >
+          <img
+            src="/assets/img/projects/domaci-rozpocet/screen-01-dashboard-1600.jpg"
+            alt="Dashboard měsíce"
+          />
         </button>
     
-        <button class="gallery__item"
-                type="button"
-                data-full="/assets/img/projects/domaci-rozpocet/screen-02-add-transaction-1600.jpg"
-                data-caption="Formulář pro rychlé přidání nové transakce.">
-          <img src="/assets/img/projects/domaci-rozpocet/screen-02-add-transaction-1600.jpg"
-               alt="Formulář nové transakce v domácím rozpočtu">
-          <span class="gallery__label">Přidání transakce</span>
+        <button
+          class="project-gallery__item"
+          data-gallery-index="1"
+          data-gallery-caption="Formulář nové transakce."
+        >
+          <img
+            src="/assets/img/projects/domaci-rozpocet/screen-02-add-transaction-1600.jpg"
+            alt="Formulář nové transakce"
+          />
         </button>
     
-        <button class="gallery__item"
-                type="button"
-                data-full="/assets/img/projects/domaci-rozpocet/screen-03-recurring-1600.jpg"
-                data-caption="Seznam pravidelných plateb, jako je nájem nebo předplatné.">
-          <img src="/assets/img/projects/domaci-rozpocet/screen-03-recurring-1600.jpg"
-               alt="Seznam pravidelných plateb v aplikaci">
-          <span class="gallery__label">Pravidelné pohyby</span>
+        <button
+          class="project-gallery__item"
+          data-gallery-index="2"
+          data-caption="Seznam pravidelných plateb."
+        >
+          <img
+            src="/assets/img/projects/domaci-rozpocet/screen-03-recurring-1600.jpg"
+            alt="Seznam pravidelných plateb"
+          />
         </button>
       </div>
     </section>
@@ -115,8 +120,6 @@
   <footer class="site-footer">
     © David Kučera · daviocz.github.io
   </footer>
-
-  <script src="/assets/js/main.js" defer></script>
 
   <div class="gallery-modal" hidden>
     <div class="gallery-modal__backdrop"></div>

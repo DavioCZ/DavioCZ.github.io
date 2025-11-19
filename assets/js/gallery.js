@@ -44,7 +44,11 @@
   }
 
   items.forEach((item, index) => {
-    item.addEventListener('click', () => openModal(index));
+    item.addEventListener('click', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      openModal(index);
+    });
   });
 
   closeBtn.addEventListener('click', closeModal);

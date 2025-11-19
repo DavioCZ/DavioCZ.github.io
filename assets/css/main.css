@@ -99,29 +99,6 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 /* Volitelně: udělej jeden screenshot přes dva sloupce */
 .gallery figure.wide{grid-column: span 2;}
 
-/* --- Lightbox --- */
-.gallery img{cursor: zoom-in; pointer-events:auto}
-
-.lightbox{position:fixed; inset:0; z-index:1000;
-  display:grid; place-items:center; padding:24px;
-  background:rgba(0,0,0,.84); backdrop-filter:saturate(120%) blur(2px)}
-.lightbox[hidden]{display:none}
-
-.lightbox__img{max-width:min(96vw,1600px); max-height:92vh; border-radius:14px; box-shadow:0 10px 40px rgba(0,0,0,.5); cursor: zoom-out}
-
-/* Ovládání */
-.lightbox__btn{position:absolute; top:50%; transform:translateY(-50%);
-  display:flex; align-items:center; justify-content:center;
-  width:44px; height:44px; border-radius:999px; border:1px solid rgba(255,255,255,.25);
-  background:rgba(0,0,0,.35); color:#fff; user-select:none}
-.lightbox__btn:hover{background:rgba(255,255,255,.1)}
-.lightbox__prev{left:18px}
-.lightbox__next{right:18px}
-.lightbox__close{top:18px; right:18px; transform:none}
-
-@media (prefers-reduced-motion: reduce){
-  .lightbox{backdrop-filter:none}
-}
 
 :root{
   --accent: #8affc1;
