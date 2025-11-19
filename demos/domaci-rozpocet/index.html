@@ -10,14 +10,18 @@
   <link rel="stylesheet" href="./demo-theme-original.css" />
 </head>
 <body>
-  <div class="demo-bar">
-    <span class="demo-badge">Demo mód</span>
-    <span class="spacer"></span>
-    <a class="btn" href="/projects/domaci-rozpocet.html">Zpět na projekt</a>
-    <a class="btn" href="/">Zpět na portfolio</a>
-  </div>
+  <a href="#main" class="skip-link">Přeskočit na obsah</a>
 
-  <main class="wrap">
+  <header class="site-header">
+    <a href="/" class="site-header__brand">David Kučera</a>
+  </header>
+
+  <main id="main" class="page">
+    <nav class="page-back page-back--dual">
+      <a href="/projects/domaci-rozpocet.html" class="page-back__link">← Zpět na projekt</a>
+      <a href="/" class="page-back__link">Portfolio</a>
+    </nav>
+
     <header class="toolbar">
       <div class="title">Domácí rozpočet — Lite demo</div>
       <label class="month">
@@ -56,6 +60,10 @@
       </table>
     </section>
   </main>
+
+  <footer class="site-footer">
+    © David Kučera · daviocz.github.io
+  </footer>
 
   <!-- Modál pro přidání transakce -->
   <dialog id="txDialog">

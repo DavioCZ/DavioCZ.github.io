@@ -18,9 +18,16 @@
   <meta property="og:url" content="https://daviocz.github.io/projects/domaci-rozpocet.html" />
 </head>
 <body>
-  <header class="header"><div class="container"><a href="/">← Zpět</a></div></header>
+  <a href="#main" class="skip-link">Přeskočit na obsah</a>
 
-  <main class="main container project" id="content" tabindex="-1">
+  <header class="site-header">
+    <a href="/" class="site-header__brand">David Kučera</a>
+  </header>
+
+  <main id="main" class="page">
+    <nav class="page-back">
+      <a href="/" class="page-back__link">← Zpět na portfolio</a>
+    </nav>
     <h1>Domácí rozpočet</h1>
 <section class='meta' aria-label='metadata'>
   <span class='badge'>2025</span>
@@ -91,13 +98,10 @@
 </div>
   </main>
 
-  <footer class="footer">
-    <div class="container">
-      <small>&copy; <span id="y"></span> David Kučera</small>
-    </div>
+  <footer class="site-footer">
+    © David Kučera · daviocz.github.io
   </footer>
 
   <script src="/assets/js/main.js" defer></script>
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>

@@ -21,16 +21,13 @@
   <meta property='og:url' content='https://daviocz.github.io/' />
 </head>
 <body>
-  <a class='visually-hidden' href='#content'>Přeskočit na obsah</a>
-  <header class='header'>
-    <div class='container'>
-      <nav aria-label='Hlavní navigace'>
-        <a href='/' aria-current='page'><strong>David Kučera</strong></a>
-      </nav>
-    </div>
+  <a href="#main" class="skip-link">Přeskočit na obsah</a>
+
+  <header class="site-header">
+    <a href="/" class="site-header__brand">David Kučera</a>
   </header>
 
-  <main class='main container' id='content' tabindex='-1'>
+  <main id="main" class="page">
     <section class='hero'>
       <span class='kicker'>Portfolio</span>
       <h1>Mini-aplikace a UX řešení, co šetří čas</h1>
@@ -149,13 +146,10 @@
     </section>
   </main>
 
-  <footer class='footer'>
-    <div class='container'>
-      <small>&copy; <span id='y'></span> David Kučera · <span class='mono'>daviocz.github.io</span></small>
-    </div>
+  <footer class="site-footer">
+    © David Kučera · daviocz.github.io
   </footer>
 
   <script src="assets/js/main.js?v=contact-popover2" defer></script>
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
