@@ -9,3 +9,11 @@
 .gallery figure { margin:0; }
 .gallery img { width:100%; height:auto; border-radius:12px; border:1px solid var(--border); }
 .gallery figcaption { font-size:12px; opacity:.8; margin-top:6px; }
+
+.gallery-grid{
+  display:grid; gap:16px;
+  grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
+}
+.gallery-grid a{ position:relative; display:block; background:#0f0f10; border-radius:12px; overflow:hidden; }
+.gallery-grid img{ width:100%; height:auto; display:block; }
+.gallery-grid .caption{ display:block; padding:8px 12px; font-size:.9rem; opacity:.8; }

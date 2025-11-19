@@ -16,6 +16,17 @@
   <!-- Styles -->
   <link rel="stylesheet" href="/assets/css/main.css" />
   <link rel="stylesheet" href="/assets/vendor/glightbox/glightbox.min.css">
+<script src="/assets/vendor/glightbox/glightbox.min.js" defer></script>
+<script defer>
+  document.addEventListener('DOMContentLoaded', () => {
+    GLightbox({
+      selector: '.glightbox[data-gallery="kodi"]',
+      loop: true,
+      touchNavigation: true,
+      closeButton: true
+    });
+  });
+</script>
 </head>
 <body>
   <header class="header"><div class="container"><a href="/">← Zpět</a></div></header>
@@ -110,99 +121,66 @@
         <li>Napojení na přehrávač přes plugin URL a ošetření chybových stavů.</li>
       </ul>
 
-      <section id="screenshots" class="screens">
-        <h3>Screenshots</h3>
-      
-        <div class="screens-grid">
-          <!-- Kodíček: domovská obrazovka -->
-          <a class="screen glightbox"
-             href="/assets/img/projects/kodi-plugins/screen-01-kodicek-home-1600.jpg"
-             data-gallery="kodi-plugins"
-             data-title="Kodíček — Domovská obrazovka">
-            <img loading="lazy"
-                 src="/assets/img/projects/kodi-plugins/screen-01-kodicek-home-1600.jpg"
-                 alt="Kodíček — domovská obrazovka">
-            <span class="caption">Domovská obrazovka</span>
-          </a>
-      
-          <!-- Kodíček: vyhledávání -->
-          <a class="screen glightbox"
-             href="/assets/img/projects/kodi-plugins/screen-02-kodicek-search-1600.jpg"
-             data-gallery="kodi-plugins"
-             data-title="Kodíček — Vyhledávání">
-            <img loading="lazy"
-                 src="/assets/img/projects/kodi-plugins/screen-02-kodicek-search-1600.jpg"
-                 alt="Kodíček — vyhledávání">
-            <span class="caption">Vyhledávání</span>
-          </a>
-      
-          <!-- Kodíček: detail TMDB -->
-          <a class="screen glightbox"
-             href="/assets/img/projects/kodi-plugins/screen-03-kodicek-tmdb-detail-1600.jpg"
-             data-gallery="kodi-plugins"
-             data-title="Kodíček — Detail titulu z TMDB">
-            <img loading="lazy"
-                 src="/assets/img/projects/kodi-plugins/screen-03-kodicek-tmdb-detail-1600.jpg"
-                 alt="Kodíček — detail TMDB">
-            <span class="caption">Detail z TMDB</span>
-          </a>
-      
-          <!-- Kodíček: zdroje z Webshare -->
-          <a class="screen glightbox"
-             href="/assets/img/projects/kodi-plugins/screen-04-kodicek-sources-1600.jpg"
-             data-gallery="kodi-plugins"
-             data-title="Kodíček — Zdroje z Webshare">
-            <img loading="lazy"
-                 src="/assets/img/projects/kodi-plugins/screen-04-kodicek-sources-1600.jpg"
-                 alt="Kodíček — seznam zdrojů z Webshare">
-            <span class="caption">Zdroje z Webshare</span>
-          </a>
-      
-          <!-- Kodíček: historie -->
-          <a class="screen glightbox"
-             href="/assets/img/projects/kodi-plugins/screen-05-kodicek-history-1600.jpg"
-             data-gallery="kodi-plugins"
-             data-title="Kodíček — Historie">
-            <img loading="lazy"
-                 src="/assets/img/projects/kodi-plugins/screen-05-kodicek-history-1600.jpg"
-                 alt="Kodíček — historie">
-            <span class="caption">Historie</span>
-          </a>
-      
-          <!-- Simpsonovi: domů -->
-          <a class="screen glightbox"
-             href="/assets/img/projects/kodi-plugins/screen-08-simpsonovi-home-1600.jpg"
-             data-gallery="kodi-plugins"
-             data-title="Simpsonovi — Přehled sérií">
-            <img loading="lazy"
-                 src="/assets/img/projects/kodi-plugins/screen-08-simpsonovi-home-1600.jpg"
-                 alt="Simpsonovi — přehled sérií">
-            <span class="caption">Přehled sérií</span>
-          </a>
-      
-          <!-- Simpsonovi: epizody -->
-          <a class="screen glightbox"
-             href="/assets/img/projects/kodi-plugins/screen-09-simpsonovi-episodes-1600.jpg"
-             data-gallery="kodi-plugins"
-             data-title="Simpsonovi — Epizody">
-            <img loading="lazy"
-                 src="/assets/img/projects/kodi-plugins/screen-09-simpsonovi-episodes-1600.jpg"
-                 alt="Simpsonovi — epizody">
-            <span class="caption">Epizody</span>
-          </a>
-      
-          <!-- Elementum handoff -->
-          <a class="screen glightbox"
-             href="/assets/img/projects/kodi-plugins/screen-10-simpsonovi-elementum-handoff-1600.jpg"
-             data-gallery="kodi-plugins"
-             data-title="Simpsonovi — Předání do Elementum">
-            <img loading="lazy"
-                 src="/assets/img/projects/kodi-plugins/screen-10-simpsonovi-elementum-handoff-1600.jpg"
-                 alt="Simpsonovi — předání přehrávání do Elementum">
-            <span class="caption">Elementum: handoff</span>
-          </a>
-        </div>
-      </section>
+<h2>Screenshots</h2>
+<div class="gallery-grid">
+  <!-- Kodíček -->
+  <a class="glightbox" data-gallery="kodi" 
+     href="/assets/img/projects/kodi-plugins/screen-01-kodicek-home-1600.jpg" 
+     data-title="Domovská obrazovka (Kodíček)">
+    <img src="/assets/img/projects/kodi-plugins/screen-01-kodicek-home-1600.jpg" alt="Domovská obrazovka Kodíček" loading="lazy">
+    <span class="caption">Domovská obrazovka</span>
+  </a>
+
+  <a class="glightbox" data-gallery="kodi" 
+     href="/assets/img/projects/kodi-plugins/screen-02-kodicek-search-1600.jpg" 
+     data-title="Vyhledávání titulu (Kodíček)">
+    <img src="/assets/img/projects/kodi-plugins/screen-02-kodicek-search-1600.jpg" alt="Vyhledávání v Kodíčku" loading="lazy">
+    <span class="caption">Vyhledávání titulu</span>
+  </a>
+
+  <a class="glightbox" data-gallery="kodi" 
+     href="/assets/img/projects/kodi-plugins/screen-03-kodicek-tmdb-detail-1600.jpg" 
+     data-title="Detail z TMDB (Kodíček)">
+    <img src="/assets/img/projects/kodi-plugins/screen-03-kodicek-tmdb-detail-1600.jpg" alt="Detail TMDB Kodíček" loading="lazy">
+    <span class="caption">Detail z TMDB</span>
+  </a>
+
+  <a class="glightbox" data-gallery="kodi" 
+     href="/assets/img/projects/kodi-plugins/screen-04-kodicek-sources-1600.jpg" 
+     data-title="Nalezené zdroje (Kodíček)">
+    <img src="/assets/img/projects/kodi-plugins/screen-04-kodicek-sources-1600.jpg" alt="Zdroje pro přehrání" loading="lazy">
+    <span class="caption">Nalezené zdroje</span>
+  </a>
+
+  <a class="glightbox" data-gallery="kodi" 
+     href="/assets/img/projects/kodi-plugins/screen-05-kodicek-history-1600.jpg" 
+     data-title="Historie sledování (Kodíček)">
+    <img src="/assets/img/projects/kodi-plugins/screen-05-kodicek-history-1600.jpg" alt="Historie Kodíček" loading="lazy">
+    <span class="caption">Historie sledování</span>
+  </a>
+
+  <!-- Simpsonovi helper -->
+  <a class="glightbox" data-gallery="kodi" 
+     href="/assets/img/projects/kodi-plugins/screen-08-simpsonovi-home-1600.jpg" 
+     data-title="Domovská obrazovka (Simpsonovi helper)">
+    <img src="/assets/img/projects/kodi-plugins/screen-08-simpsonovi-home-1600.jpg" alt="Simpsonovi helper domovská" loading="lazy">
+    <span class="caption">Simpsonovi: Domovská obrazovka</span>
+  </a>
+
+  <a class="glightbox" data-gallery="kodi" 
+     href="/assets/img/projects/kodi-plugins/screen-09-simpsonovi-episodes-1600.jpg" 
+     data-title="Seznam epizod (Simpsonovi helper)">
+    <img src="/assets/img/projects/kodi-plugins/screen-09-simpsonovi-episodes-1600.jpg" alt="Simpsonovi helper epizody" loading="lazy">
+    <span class="caption">Simpsonovi: Epizody</span>
+  </a>
+
+  <a class="glightbox" data-gallery="kodi" 
+     href="/assets/img/projects/kodi-plugins/screen-10-simpsonovi-elementum-handoff-1600.jpg" 
+     data-title="Handoff do Elementum (Simpsonovi helper)">
+    <img src="/assets/img/projects/kodi-plugins/screen-10-simpsonovi-elementum-handoff-1600.jpg" alt="Elementum handoff" loading="lazy">
+    <span class="caption">Handoff do Elementum</span>
+  </a>
+</div>
     </article>
   </main>
 
@@ -212,8 +190,6 @@
     </div>
   </footer>
 
-  <script src="/assets/vendor/glightbox/glightbox.min.js"></script>
-  <script>GLightbox({ selector: '.glightbox', touchNavigation: true, closeButton: true });</script>
   <script src="/assets/js/main.js" defer></script>
   <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
