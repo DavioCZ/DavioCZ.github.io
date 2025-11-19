@@ -239,3 +239,203 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 .project-card__desc{ color:#b6c2cf; min-height:64px; }
 .project-card__tags{ display:flex; flex-wrap:wrap; gap:6px; }
 .project-card__actions{ margin-top:auto; display:flex; gap:14px; align-items:center; }
+
+/* Layout wrapper */
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 3rem;
+}
+
+/* Hlavička */
+.site-header {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  margin-bottom: 1rem;
+}
+
+.site-header__brand {
+  font-weight: 600;
+  text-decoration: none;
+  color: inherit;
+  font-size: 1rem;
+}
+
+/* Patička */
+.site-footer {
+  padding: 1.5rem 1.25rem 2rem;
+  border-top: 1px solid rgba(0,0,0,0.08);
+  font-size: 0.85rem;
+  opacity: 0.7;
+  text-align: center;
+}
+
+/* Sekce */
+.section {
+  margin-top: 2.5rem;
+}
+
+.section__title {
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+}
+
+.section__list {
+  margin-left: 1.25rem;
+  line-height: 1.6;
+}
+
+/* Přeskakovací odkaz pro přístupnost */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  padding: 0.5rem 1rem;
+  background: #000;
+  color: #fff;
+  z-index: 1000;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+}
+
+.project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  font-size: 0.9rem;
+  opacity: 0.85;
+  margin-bottom: 1rem;
+}
+
+.project-meta__year {
+  font-weight: 600;
+}
+
+.page-back {
+  margin-bottom: 1rem;
+}
+
+.page-back__link {
+  font-size: 0.9rem;
+  text-decoration: none;
+  opacity: 0.8;
+}
+
+.page-back--dual .page-back__link + .page-back__link {
+  margin-left: 1rem;
+}
+
+.section--screenshots {
+  margin-top: 2.5rem;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.gallery__item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  background: #fff;
+  cursor: pointer;
+}
+
+.gallery__item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0.3rem;
+  margin-bottom: 0.4rem;
+}
+
+.gallery__label {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+/* Modal */
+.gallery-modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.gallery-modal[hidden] {
+  display: none;
+}
+
+.gallery-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+}
+
+.gallery-modal__body {
+  position: relative;
+  z-index: 1;
+  max-width: 960px;
+  width: 100%;
+  margin: 1rem;
+  background: #111;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  color: #fff;
+}
+
+.gallery-modal__image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0.5rem;
+}
+
+.gallery-modal__caption {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.gallery-modal__close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  font-size: 1.4rem;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.gallery-modal__nav {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.gallery-modal__prev,
+.gallery-modal__next {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 999px;
+  padding: 0.35rem 0.9rem;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
