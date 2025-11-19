@@ -7,38 +7,27 @@
   <meta name="description" content="Video doplňky zaměřené na UX a přehlednost. Důraz na rychlé vyhledání správného titulu, jasnou navigaci a minimum slepých uliček." />
   
   <!-- Favicons -->
-  <link rel="icon" href="/assets/icons/favicon.svg?v=2" type="image/svg+xml">
-  <link rel="alternate icon" href="/assets/icons/favicon-32.png" sizes="32x32">
-  <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicons/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32.png">
+  <link rel="apple-touch-icon" href="/assets/favicons/apple-touch-icon.png">
   <link rel="manifest" href="/assets/icons/site.webmanifest">
   <meta name="theme-color" content="#0b0b0b">
 
   <!-- Styles -->
   <link rel="stylesheet" href="/assets/css/main.css" />
-  <link rel="stylesheet" href="/assets/vendor/glightbox/glightbox.min.css">
-<script src="/assets/vendor/glightbox/glightbox.min.js" defer></script>
-<script defer>
-  document.addEventListener('DOMContentLoaded', () => {
-    GLightbox({
-      selector: '.glightbox[data-gallery="kodi"]',
-      loop: true,
-      touchNavigation: true,
-      closeButton: true
-    });
-  });
-</script>
+  <link rel="stylesheet" href="/assets/vendor/glightbox.min.css">
 </head>
 <body>
-  <header class="header"><div class="container"><a href="/">← Zpět</a></div></header>
-
-  <main class="main container project" id="content" tabindex="-1">
-    <h1>Kodi doplňky</h1>
-    <section class='meta' aria-label='metadata'>
-      <span class='badge'>2025</span>
-      <span class='badge'>Role: návrh + kód</span>
-      <span class='badge'>Stack: Python / Kodi API</span>
-      <span class='badge'>Čtení: 3 min</span>
-    </section>
+  <main class="page page-project">
+    <div class="container">
+      <a href="/" class="backlink">← Zpět</a>
+      <h1>Kodi doplňky</h1>
+      <ul class="meta">
+        <li>2025</li>
+        <li>Role: návrh + kód</li>
+        <li>Stack: Python / Kodi API</li>
+        <li>Čtení: 3 min</li>
+      </ul>
 
     <article class="project-content">
       <p>Video doplňky zaměřené na UX a přehlednost. Důraz na rychlé vyhledání správného titulu, jasnou navigaci a minimum slepých uliček.</p>
@@ -121,76 +110,95 @@
         <li>Napojení na přehrávač přes plugin URL a ošetření chybových stavů.</li>
       </ul>
 
-<h2>Screenshots</h2>
-<div class="gallery-grid">
-  <!-- Kodíček -->
-  <a class="glightbox" data-gallery="kodi" 
-     href="/assets/img/projects/kodi-plugins/screen-01-kodicek-home-1600.jpg" 
-     data-title="Domovská obrazovka (Kodíček)">
-    <img src="/assets/img/projects/kodi-plugins/screen-01-kodicek-home-1600.jpg" alt="Domovská obrazovka Kodíček" loading="lazy">
-    <span class="caption">Domovská obrazovka</span>
-  </a>
+<section id="screenshots">
+  <h2>Screenshots</h2>
 
-  <a class="glightbox" data-gallery="kodi" 
-     href="/assets/img/projects/kodi-plugins/screen-02-kodicek-search-1600.jpg" 
-     data-title="Vyhledávání titulu (Kodíček)">
-    <img src="/assets/img/projects/kodi-plugins/screen-02-kodicek-search-1600.jpg" alt="Vyhledávání v Kodíčku" loading="lazy">
-    <span class="caption">Vyhledávání titulu</span>
-  </a>
+  <div class="shot-grid">
+    <figure class="shot">
+      <a class="glb" data-gallery="kodi" data-title="Domovská obrazovka — Kodíček"
+         href="/assets/img/projects/kodi-plugins/screen-01-kodicek-home-1600.jpg">
+        <img src="/assets/img/projects/kodi-plugins/screen-01-kodicek-home-1600.jpg"
+             alt="Domovská obrazovka — Kodíček" loading="lazy">
+      </a>
+      <figcaption>Domovská obrazovka</figcaption>
+    </figure>
 
-  <a class="glightbox" data-gallery="kodi" 
-     href="/assets/img/projects/kodi-plugins/screen-03-kodicek-tmdb-detail-1600.jpg" 
-     data-title="Detail z TMDB (Kodíček)">
-    <img src="/assets/img/projects/kodi-plugins/screen-03-kodicek-tmdb-detail-1600.jpg" alt="Detail TMDB Kodíček" loading="lazy">
-    <span class="caption">Detail z TMDB</span>
-  </a>
+    <figure class="shot">
+      <a class="glb" data-gallery="kodi" data-title="Vyhledávání — Kodíček"
+         href="/assets/img/projects/kodi-plugins/screen-02-kodicek-search-1600.jpg">
+        <img src="/assets/img/projects/kodi-plugins/screen-02-kodicek-search-1600.jpg"
+             alt="Vyhledávání — Kodíček" loading="lazy">
+      </a>
+      <figcaption>Vyhledávání</figcaption>
+    </figure>
 
-  <a class="glightbox" data-gallery="kodi" 
-     href="/assets/img/projects/kodi-plugins/screen-04-kodicek-sources-1600.jpg" 
-     data-title="Nalezené zdroje (Kodíček)">
-    <img src="/assets/img/projects/kodi-plugins/screen-04-kodicek-sources-1600.jpg" alt="Zdroje pro přehrání" loading="lazy">
-    <span class="caption">Nalezené zdroje</span>
-  </a>
+    <figure class="shot">
+      <a class="glb" data-gallery="kodi" data-title="Detail z TMDB — Kodíček"
+         href="/assets/img/projects/kodi-plugins/screen-03-kodicek-tmdb-detail-1600.jpg">
+        <img src="/assets/img/projects/kodi-plugins/screen-03-kodicek-tmdb-detail-1600.jpg"
+             alt="Detail z TMDB — Kodíček" loading="lazy">
+      </a>
+      <figcaption>Detail z TMDB</figcaption>
+    </figure>
 
-  <a class="glightbox" data-gallery="kodi" 
-     href="/assets/img/projects/kodi-plugins/screen-05-kodicek-history-1600.jpg" 
-     data-title="Historie sledování (Kodíček)">
-    <img src="/assets/img/projects/kodi-plugins/screen-05-kodicek-history-1600.jpg" alt="Historie Kodíček" loading="lazy">
-    <span class="caption">Historie sledování</span>
-  </a>
+    <figure class="shot">
+      <a class="glb" data-gallery="kodi" data-title="Nalezené zdroje z Webshare — Kodíček"
+         href="/assets/img/projects/kodi-plugins/screen-04-kodicek-sources-1600.jpg">
+        <img src="/assets/img/projects/kodi-plugins/screen-04-kodicek-sources-1600.jpg"
+             alt="Nalezené zdroje z Webshare — Kodíček" loading="lazy">
+      </a>
+      <figcaption>Zdroje z Webshare</figcaption>
+    </figure>
 
-  <!-- Simpsonovi helper -->
-  <a class="glightbox" data-gallery="kodi" 
-     href="/assets/img/projects/kodi-plugins/screen-08-simpsonovi-home-1600.jpg" 
-     data-title="Domovská obrazovka (Simpsonovi helper)">
-    <img src="/assets/img/projects/kodi-plugins/screen-08-simpsonovi-home-1600.jpg" alt="Simpsonovi helper domovská" loading="lazy">
-    <span class="caption">Simpsonovi: Domovská obrazovka</span>
-  </a>
+    <figure class="shot">
+      <a class="glb" data-gallery="kodi" data-title="Historie vyhledávání — Kodíček"
+         href="/assets/img/projects/kodi-plugins/screen-05-kodicek-history-1600.jpg">
+        <img src="/assets/img/projects/kodi-plugins/screen-05-kodicek-history-1600.jpg"
+             alt="Historie vyhledávání — Kodíček" loading="lazy">
+      </a>
+      <figcaption>Historie vyhledávání</figcaption>
+    </figure>
 
-  <a class="glightbox" data-gallery="kodi" 
-     href="/assets/img/projects/kodi-plugins/screen-09-simpsonovi-episodes-1600.jpg" 
-     data-title="Seznam epizod (Simpsonovi helper)">
-    <img src="/assets/img/projects/kodi-plugins/screen-09-simpsonovi-episodes-1600.jpg" alt="Simpsonovi helper epizody" loading="lazy">
-    <span class="caption">Simpsonovi: Epizody</span>
-  </a>
+    <figure class="shot">
+      <a class="glb" data-gallery="kodi" data-title="Seznam sérií — Simpsonovi helper"
+         href="/assets/img/projects/kodi-plugins/screen-08-simpsonovi-home-1600.jpg">
+        <img src="/assets/img/projects/kodi-plugins/screen-08-simpsonovi-home-1600.jpg"
+             alt="Seznam sérií — Simpsonovi helper" loading="lazy">
+      </a>
+      <figcaption>Simpsonovi: série</figcaption>
+    </figure>
 
-  <a class="glightbox" data-gallery="kodi" 
-     href="/assets/img/projects/kodi-plugins/screen-10-simpsonovi-elementum-handoff-1600.jpg" 
-     data-title="Handoff do Elementum (Simpsonovi helper)">
-    <img src="/assets/img/projects/kodi-plugins/screen-10-simpsonovi-elementum-handoff-1600.jpg" alt="Elementum handoff" loading="lazy">
-    <span class="caption">Handoff do Elementum</span>
-  </a>
-</div>
+    <figure class="shot">
+      <a class="glb" data-gallery="kodi" data-title="Epizody — Simpsonovi helper"
+         href="/assets/img/projects/kodi-plugins/screen-09-simpsonovi-episodes-1600.jpg">
+        <img src="/assets/img/projects/kodi-plugins/screen-09-simpsonovi-episodes-1600.jpg"
+             alt="Epizody — Simpsonovi helper" loading="lazy">
+      </a>
+      <figcaption>Simpsonovi: epizody</figcaption>
+    </figure>
+
+    <figure class="shot">
+      <a class="glb" data-gallery="kodi" data-title="Předání do Elementum — Simpsonovi helper"
+         href="/assets/img/projects/kodi-plugins/screen-10-simpsonovi-elementum-handoff-1600.jpg">
+        <img src="/assets/img/projects/kodi-plugins/screen-10-simpsonovi-elementum-handoff-1600.jpg"
+             alt="Předání do Elementum — Simpsonovi helper" loading="lazy">
+      </a>
+      <figcaption>Předání do Elementum</figcaption>
+    </figure>
+  </div>
+</section>
     </article>
   </main>
 
-  <footer class="footer">
-    <div class="container">
-      <small>&copy; <span id="y"></span> David Kučera</small>
-    </div>
-  </footer>
-
-  <script src="/assets/js/main.js" defer></script>
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  <script src="/assets/vendor/glightbox.min.js"></script>
+  <script>
+    const lb = GLightbox({
+      selector: '.glb',
+      touchNavigation: true,
+      loop: true,
+      openEffect: 'fade',
+      closeEffect: 'fade'
+    });
+  </script>
 </body>
 </html>
