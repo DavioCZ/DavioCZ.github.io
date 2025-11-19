@@ -4,3 +4,8 @@
 .meta-badges { display:flex; gap:8px; flex-wrap:wrap; margin:0 0 12px; padding:0; list-style:none; }
 .badge { font-size:12px; padding:4px 10px; border-radius:999px; background:#0e1116; border:1px solid #2a2f3a; }
 .lede { margin:0 0 24px; color:var(--muted); max-width:70ch; }
+
+.gallery { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:16px; }
+.gallery figure { margin:0; }
+.gallery img { width:100%; height:auto; border-radius:12px; border:1px solid var(--border); }
+.gallery figcaption { font-size:12px; opacity:.8; margin-top:6px; }
