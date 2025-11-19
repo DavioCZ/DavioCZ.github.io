@@ -82,39 +82,55 @@
       <p>Návrh UX (flow: vybrat → zkontrolovat → spustit), implementace, zabalení do portable EXE, testy na větších strukturách a síťových cestách.</p>
     </section>
 
-    <section id="screenshots">
-<h2>Screenshoty</h2>
-<div class="gallery">
-  <figure class="wide">
-    <img src="/assets/img/projects/kopirovani-struktury-slozek/screen-01-dashboard.jpg"
-         alt="Dashboard aplikace">
-    <figcaption>Dashboard aplikace</figcaption>
-  </figure>
+<section class="section section--screenshots">
+  <h2 class="section__title">Screenshoty</h2>
 
-  <figure>
-    <img src="/assets/img/projects/kopirovani-struktury-slozek/screen-02-structure-01.jpg"
-         alt="Náhled struktury (hlavní složky)">
-    <figcaption>Náhled struktury (hlavní složky)</figcaption>
-  </figure>
+  <div class="gallery">
+    <button class="gallery__item"
+            type="button"
+            data-full="/assets/img/projects/kopirovani-struktury-slozek/screen-01-dashboard.jpg"
+            data-caption="Dashboard aplikace">
+      <img src="/assets/img/projects/kopirovani-struktury-slozek/screen-01-dashboard.jpg"
+           alt="Dashboard aplikace">
+      <span class="gallery__label">Dashboard aplikace</span>
+    </button>
 
-  <figure>
-    <img src="/assets/img/projects/kopirovani-struktury-slozek/screen-03-deep-menu.jpg"
-         alt="Volba hloubky zobrazení">
-    <figcaption>Volba hloubky zobrazení</figcaption>
-  </figure>
+    <button class="gallery__item"
+            type="button"
+            data-full="/assets/img/projects/kopirovani-struktury-slozek/screen-02-structure-01.jpg"
+            data-caption="Náhled struktury (hlavní složky)">
+      <img src="/assets/img/projects/kopirovani-struktury-slozek/screen-02-structure-01.jpg"
+           alt="Náhled struktury (hlavní složky)">
+      <span class="gallery__label">Náhled struktury (hlavní složky)</span>
+    </button>
 
-  <figure>
-    <img src="/assets/img/projects/kopirovani-struktury-slozek/screen-04-structure-02.jpg"
-         alt="Náhled hluboké struktury">
-    <figcaption>Náhled hluboké struktury</figcaption>
-  </figure>
+    <button class="gallery__item"
+            type="button"
+            data-full="/assets/img/projects/kopirovani-struktury-slozek/screen-03-deep-menu.jpg"
+            data-caption="Volba hloubky zobrazení">
+      <img src="/assets/img/projects/kopirovani-struktury-slozek/screen-03-deep-menu.jpg"
+           alt="Volba hloubky zobrazení">
+      <span class="gallery__label">Volba hloubky zobrazení</span>
+    </button>
+    
+    <button class="gallery__item"
+            type="button"
+            data-full="/assets/img/projects/kopirovani-struktury-slozek/screen-04-structure-02.jpg"
+            data-caption="Náhled hluboké struktury">
+      <img src="/assets/img/projects/kopirovani-struktury-slozek/screen-04-structure-02.jpg"
+           alt="Náhled hluboké struktury">
+      <span class="gallery__label">Náhled hluboké struktury</span>
+    </button>
 
-  <figure>
-    <img src="/assets/img/projects/kopirovani-struktury-slozek/screen-05-finish.jpg"
-         alt="Kopírování dokončeno">
-    <figcaption>Kopírování dokončeno</figcaption>
-  </figure>
-</div>
+    <button class="gallery__item"
+            type="button"
+            data-full="/assets/img/projects/kopirovani-struktury-slozek/screen-05-finish.jpg"
+            data-caption="Kopírování dokončeno">
+      <img src="/assets/img/projects/kopirovani-struktury-slozek/screen-05-finish.jpg"
+           alt="Kopírování dokončeno">
+      <span class="gallery__label">Kopírování dokončeno</span>
+    </button>
+  </div>
 </section>
   </main>
 
@@ -123,5 +139,19 @@
   </footer>
 
   <script src="/assets/js/main.js" defer></script>
+
+  <div class="gallery-modal" hidden>
+    <div class="gallery-modal__backdrop"></div>
+    <figure class="gallery-modal__body">
+      <button class="gallery-modal__close" type="button" aria-label="Zavřít">×</button>
+      <img class="gallery-modal__image" src="" alt="">
+      <figcaption class="gallery-modal__caption"></figcaption>
+      <div class="gallery-modal__nav">
+        <button class="gallery-modal__prev" type="button">Předchozí</button>
+        <button class="gallery-modal__next" type="button">Další</button>
+      </div>
+    </figure>
+  </div>
+  <script src="/assets/js/gallery.js"></script>
 </body>
 </html>
