@@ -1,80 +1,107 @@
-<h1>Kodi doplňky</h1>
-<p>Video doplňky zaměřené na UX a přehlednost. Důraz na rychlé vyhledání správného titulu, jasnou navigaci a minimum slepých uliček.</p>
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kodi doplňky | Portfolio</title>
+  <link rel="icon" href="/assets/favicon/favicon.ico">
+  <link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png">
+  <link rel="manifest" href="/assets/favicon/site.webmanifest">
+  <link rel="stylesheet" href="/assets/site.css?v=2025-11-19">
+</head>
+<body>
+  <main class="container content-narrow">
+    <a href="/" class="back-link">← Zpět na portfolio</a>
 
-<h2>Kodíček</h2>
-<p>Minimalistický doplněk pro pohodlné vyhledávání filmů a seriálů. Funguje tak, že nejdřív najde titul přes TMDB, pak k němu spáruje odpovídající video soubory dostupné uživateli a nabídne je k přehrání v Kodi. Celé rozhraní je česky a staví na čistém UX.</p>
+    <h1 class="page-title">Kodi doplňky</h1>
+    <ul class="meta-badges">
+      <li class="badge">2025</li>
+      <li class="badge">Role: návrh + kód (Kodi add-on)</li>
+      <li class="badge">Stack: Python / Kodi API</li>
+      <li class="badge">Čtení: 3 min</li>
+    </ul>
 
-<h3>Jak to funguje</h3>
-<ol>
-  <li>Uživatel zadá název filmu/seriálu (může doplnit rok).</li>
-  <li>Doplněk přes TMDB vyhledá titul a zobrazí základní informace (název, rok, popis, artwork).</li>
-  <li>U filmu zobrazí dostupné zdroje; u seriálu pokračuje na série a epizody.</li>
-  <li>Po výběru zdroje předá Kodi přehrávání.</li>
-</ol>
+    <article class="prose">
+      <p>Video doplňky zaměřené na UX a přehlednost. Důraz na rychlé vyhledání správného titulu, jasnou navigaci a minimum slepých uliček.</p>
 
-<h3>Klíčové funkce</h3>
-<ul>
-  <li><strong>TMDB integrace</strong> (metadata, obrázky, lepší párování názvu/roku).</li>
-  <li><strong>Chytré párování zdrojů</strong> (normalizace názvů, filtrace jen na video soubory, zohlednění kvality/jazyka).</li>
-  <li><strong>Historie</strong> (přehrávané tituly a vyhledávací dotazy v lokálním JSON).</li>
-  <li><strong>Seriály</strong> (Série → Epizody, srozumitelný drill-down).</li>
-  <li><strong>UX & CZ</strong> (české texty, srozumitelná hlášení chyb, minimum kroků navíc).</li>
-</ul>
+      <h2>Kodíček</h2>
+      <p>Minimalistický doplněk pro pohodlné vyhledávání filmů a seriálů. Funguje tak, že nejdřív najde titul přes TMDB, pak k němu spáruje odpovídající video soubory dostupné uživateli a nabídne je k přehrání v Kodi. Celé rozhraní je česky a staví na čistém UX.</p>
 
-<h3>Technologie</h3>
-<ul>
-  <li>Kodi API (Python: <code>xbmc</code>, <code>xbmcplugin</code>, <code>xbmcgui</code>).</li>
-  <li>TMDB API pro metadata a artwork.</li>
-  <li>Lokální JSON soubory pro historii.</li>
-</ul>
+      <h3>Jak to funguje</h3>
+      <ol>
+        <li>Uživatel zadá název filmu/seriálu (může doplnit rok).</li>
+        <li>Doplněk přes TMDB vyhledá titul a zobrazí základní informace (název, rok, popis, artwork).</li>
+        <li>U filmu zobrazí dostupné zdroje; u seriálu pokračuje na série a epizody.</li>
+        <li>Po výběru zdroje předá Kodi přehrávání.</li>
+      </ol>
 
-<h3>Limity</h3>
-<ul>
-  <li>Dostupnost zdrojů se může lišit (doplněk pracuje jen s tím, k čemu má uživatel přístup).</li>
-  <li>Neobsahuje vlastní katalog ani distribuční logiku; řeší ovládání, vyhledávání a párování.</li>
-</ul>
+      <h3>Klíčové funkce</h3>
+      <ul>
+        <li><strong>TMDB integrace</strong> (metadata, obrázky, lepší párování názvu/roku).</li>
+        <li><strong>Chytré párování zdrojů</strong> (normalizace názvů, filtrace jen na video soubory, zohlednění kvality/jazyka).</li>
+        <li><strong>Historie</strong> (přehrávané tituly a vyhledávací dotazy v lokálním JSON).</li>
+        <li><strong>Seriály</strong> (Série → Epizody, srozumitelný drill-down).</li>
+        <li><strong>UX & CZ</strong> (české texty, srozumitelná hlášení chyb, minimum kroků navíc).</li>
+      </ul>
 
-<h3>Role & přínos</h3>
-<ul>
-  <li>Návrh struktury doplňku (flow, menu, historie).</li>
-  <li>Implementace párování titulů a zdrojů, historie přehrávání/vyhledávání.</li>
-  <li>UX ladění (omezení slepých uliček, chování klávesnice, stavové hlášky).</li>
-</ul>
+      <h3>Technologie</h3>
+      <ul>
+        <li>Kodi API (Python: <code>xbmc</code>, <code>xbmcplugin</code>, <code>xbmcgui</code>).</li>
+        <li>TMDB API pro metadata a artwork.</li>
+        <li>Lokální JSON soubory pro historii.</li>
+      </ul>
 
-<hr>
+      <h3>Limity</h3>
+      <ul>
+        <li>Dostupnost zdrojů se může lišit (doplněk pracuje jen s tím, k čemu má uživatel přístup).</li>
+        <li>Neobsahuje vlastní katalog ani distribuční logiku; řeší ovládání, vyhledávání a párování.</li>
+      </ul>
 
-<h2>Simpsonovi (Elementum helper)</h2>
-<p>Lehký helper, který z jednoho velkého torrentu se seriálem vytvoří přehlednou navigaci „Série → Epizody“. Nesahá na síťovou část – pracuje pouze s lokálními metadaty a správnou epizodu mapuje na konkrétní soubor.</p>
+      <h3>Role & přínos</h3>
+      <ul>
+        <li>Návrh struktury doplňku (flow, menu, historie).</li>
+        <li>Implementace párování titulů a zdrojů, historie přehrávání/vyhledávání.</li>
+        <li>UX ladění (omezení slepých uliček, chování klávesnice, stavové hlášky).</li>
+      </ul>
 
-<h3>Jak to funguje</h3>
-<ol>
-  <li>Uživatel otevře doplněk a zvolí sérii.</li>
-  <li>Zobrazí se epizody dané série.</li>
-  <li>Po kliknutí na epizodu doplněk podle mapy (např. <code>map.json</code>) určí správný soubor a předá ho přehrávači.</li>
-</ol>
+      <hr>
 
-<h3>Klíčové funkce</h3>
-<ul>
-  <li><strong>Generované menu</strong> (série 1–N, epizody na klik).</li>
-  <li><strong>Mapování epizod na soubory</strong> (převod SxxExx → index souboru v metadatech).</li>
-  <li><strong>Jednoduchost</strong> (české UI, jasná hlášení chyb při nevalidních datech).</li>
-</ul>
+      <h2>Simpsonovi (Elementum helper)</h2>
+      <p>Lehký helper, který z jednoho velkého torrentu se seriálem vytvoří přehlednou navigaci „Série → Epizody“. Nesahá na síťovou část – pracuje pouze s lokálními metadaty a správnou epizodu mapuje na konkrétní soubor.</p>
 
-<h3>Technologie</h3>
-<ul>
-  <li>Kodi API (Python: <code>xbmc</code>, <code>xbmcplugin</code>, <code>xbmcgui</code>, <code>xbmcaddon</code>).</li>
-  <li><code>bencode</code> pro čtení torrent metadat.</li>
-  <li><code>map.json</code> pro mapování epizod na soubory.</li>
-</ul>
+      <h3>Jak to funguje</h3>
+      <ol>
+        <li>Uživatel otevře doplněk a zvolí sérii.</li>
+        <li>Zobrazí se epizody dané série.</li>
+        <li>Po kliknutí na epizodu doplněk podle mapy (např. <code>map.json</code>) určí správný soubor a předá ho přehrávači.</li>
+      </ol>
 
-<h3>Limity</h3>
-<ul>
-  <li>Vázané na konkrétní strukturu metadat; při odlišné struktuře je potřeba upravit mapování.</li>
-  <li>Neřeší síť/streaming – doplněk je zaměřený čistě na navigaci a mapování.</li>
-</ul>
+      <h3>Klíčové funkce</h3>
+      <ul>
+        <li><strong>Generované menu</strong> (série 1–N, epizody na klik).</li>
+        <li><strong>Mapování epizod na soubory</strong> (převod SxxExx → index souboru v metadatech).</li>
+        <li><strong>Jednoduchost</strong> (české UI, jasná hlášení chyb při nevalidních datech).</li>
+      </ul>
 
-<h3>Role & přínos</h3>
-<ul>
-  <li>Návrh a implementace mapovací logiky.</li>
-  <li>Napojení na přehrávač přes plugin URL a ošetření chybových stavů.</li>
-</ul>
+      <h3>Technologie</h3>
+      <ul>
+        <li>Kodi API (Python: <code>xbmc</code>, <code>xbmcplugin</code>, <code>xbmcgui</code>, <code>xbmcaddon</code>).</li>
+        <li><code>bencode</code> pro čtení torrent metadat.</li>
+        <li><code>map.json</code> pro mapování epizod na soubory.</li>
+      </ul>
+
+      <h3>Limity</h3>
+      <ul>
+        <li>Vázané na konkrétní strukturu metadat; při odlišné struktuře je potřeba upravit mapování.</li>
+        <li>Neřeší síť/streaming – doplněk je zaměřený čistě na navigaci a mapování.</li>
+      </ul>
+
+      <h3>Role & přínos</h3>
+      <ul>
+        <li>Návrh a implementace mapovací logiky.</li>
+        <li>Napojení na přehrávač přes plugin URL a ošetření chybových stavů.</li>
+      </ul>
+    </article>
+  </main>
+</body>
+</html>
