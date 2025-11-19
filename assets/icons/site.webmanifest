@@ -1,0 +1,19 @@
+{
+    "name": "David Kucera - Portfolio",
+    "short_name": "DK",
+    "theme_color": "#0b0b0b",
+    "background_color": "#0b0b0b",
+    "display": "standalone",
+    "icons": [
+        {
+            "src": "/assets/icons/favicon-32.png",
+            "sizes": "32x32",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/icons/apple-touch-icon.png",
+            "sizes": "180x180",
+            "type": "image/png"
+        }
+    ]
+}
