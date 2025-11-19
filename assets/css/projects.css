@@ -1,0 +1,6 @@
+.project-page { max-width: 1080px; margin: 0 auto; padding: 0 24px 64px; }
+.backlink { display:inline-block; margin: 24px 0 8px; opacity:.8; }
+.page-header h1 { font-size: clamp(28px, 3.2vw, 40px); margin: 8px 0 12px; }
+.meta-badges { display:flex; gap:8px; flex-wrap:wrap; margin:0 0 12px; padding:0; list-style:none; }
+.badge { font-size:12px; padding:4px 10px; border-radius:999px; background:#0e1116; border:1px solid #2a2f3a; }
+.lede { margin:0 0 24px; color:var(--muted); max-width:70ch; }
