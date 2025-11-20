@@ -188,12 +188,12 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 }
 
 .project-card:hover{
-  border-color:rgba(114,240,189,0.9);
+  border-color: rgba(120, 230, 255, 0.85);
   box-shadow:
-    0 0 0 1px rgba(114,240,189,0.7),
-    0 0 32px rgba(114,240,189,0.55),
-    0 12px 32px rgba(0,0,0,0.9);
-  transform:translateY(-2px);
+    0 0 0 1px rgba(120, 230, 255, 0.35),    /* jemnější linka */
+    0 0 22px rgba(120, 230, 255, 0.28),     /* menší a měkčí glow */
+    0 12px 32px rgba(0, 0, 0, 0.9);         /* stín dolů jako dřív */
+  transform: translateY(-2px);
 }
 
 .project-card__thumb{
@@ -505,11 +505,11 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
   transition: opacity 0.2s ease-out;
   background: radial-gradient(
     circle,
-    rgba(120, 230, 255, 0.9) 0%,
-    rgba(120, 230, 255, 0.55) 25%,
-    transparent 60%
+    rgba(120, 230, 255, 0.35) 0%,
+    rgba(120, 230, 255, 0.18) 30%,
+    transparent 70%
   );
-  filter: blur(26px);
+  filter: blur(34px);
   mix-blend-mode: screen; /* “svítí” do karet */
   z-index: 0;
 }
