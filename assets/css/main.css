@@ -181,40 +181,50 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
   align-items:stretch;
 }
 
-/* Karta – základ */
 .project-card{
   position: relative;
-  isolation: isolate;                  /* vlastní stack, aby halo bylo pod kartou */
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-  background:#0f1418;
-  border:1px solid #1c232b;
-  border-radius:16px;
-  padding:18px;
-  box-shadow: 0 1px 0 rgba(255,255,255,0.02) inset;
-  height:100%;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: #0f1418;
+  border-radius: 16px;
+  border: 1px solid #1c232b;
+  padding: 18px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.7);
+  overflow: hidden; /* ať glow neuteče mimo */
+  transition:
+    transform .16s ease-out;
 }
 
-/* Jemný glow kolem karty podle kurzoru */
+.project-card:hover{
+  transform: translateY(-2px); /* jestli nechceš ani tohle, klidně smaž */
+}
+
+/* Glow ohraničený kartou, reaguje na pozici kurzoru */
 .project-card::before{
   content:"";
   position:absolute;
-  inset:-14px; /* jak moc má halo lézt ven z karty */
-  border-radius:22px; /* trochu větší než karta */
+  inset:0;                  /* přesně hranice karty */
+  border-radius:inherit;
+  pointer-events:none;
+  opacity:0;
+  mix-blend-mode:screen;
+  transition:opacity .16s ease-out;
+
+  /* “prstenec” – uvnitř průhledné, světlo jen u hrany kolem kurzoru */
   background:radial-gradient(
     circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(114, 240, 189, 0.18), /* cca 18 % – můžeš klidně snížit na 0.12 */
-    transparent 60%
+    transparent 0,
+    transparent 55%,
+    rgba(114,240,189,0.22) 78%,  /* hlavní záře u hrany */
+    transparent 100%
   );
-  opacity:0;
-  pointer-events:none;
-  z-index:-1;                          /* pod kartou, nad pozadím stránky */
-  transition:opacity .18s ease-out;
 }
 
+/* zapnutí efektu */
 .project-card--glow-active::before{
-  opacity:1;
+  opacity: 1;
 }
 
 /* Volitelné: na touch zařízeních efekt vypnout (tam kurzor stejně není) */
