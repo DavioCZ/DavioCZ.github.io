@@ -416,3 +416,12 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 .no-scroll {
   overflow: hidden;
 }
+
+.project-card__cover {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: block;
+  border-radius: 12px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
