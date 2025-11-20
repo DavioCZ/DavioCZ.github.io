@@ -80,18 +80,6 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 .project{ --max: 1200px; }              /* šířka obsahu pro projekty */
 @media (min-width: 1400px){ .project{ --max: 1320px; } }
 
-/* Galerie: místo 3 úzkých → 2 široké sloupce */
-.gallery{
-  display:grid; gap:16px;
-  grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
-  margin:12px 0 6px;
-}
-.gallery figure{margin:0;border:1px solid var(--border);border-radius:12px;background:var(--muted);padding:8px}
-.gallery img{border-radius:8px;display:block;width:100%;height:auto}
-.gallery figcaption{font-size:var(--fz-2);color:rgba(127,127,127,.9);margin-top:6px}
-
-/* Volitelně: udělej jeden screenshot přes dva sloupce */
-.gallery figure.wide{grid-column: span 2;}
 
 
 :root{
@@ -302,6 +290,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
   margin-top: 2.5rem;
 }
 
+/* GRID galerie */
 .photo-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -309,34 +298,33 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
   margin-top: 16px;
 }
 
-/* karta – jen klikací plocha, žádný “panel navíc” */
+/* jednotlivý screenshot – žádné bílé kartičky okolo */
 .photo-gallery__item {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 0;                  /* žádný vnitřní padding */
-  background: transparent;     /* pryč tmavý panel */
-  border: none;                /* pryč border na kartě */
+  padding: 0;
+  background: transparent;
+  border: none;
   cursor: pointer;
 }
 
-/* samotný screenshot */
+/* obrázek – sjednocené ratio, žádné prázdné kusy */
 .photo-gallery__item img {
   display: block;
   width: 100%;
-  height: 100%;
-  aspect-ratio: 16 / 9;        /* VŠECHNY stejné ratio */
-  object-fit: cover;           /* lehce ořízne, žádné “prázdno” */
+  aspect-ratio: 16 / 9;   /* nebo 1 / 1, když chceš čtverce */
+  object-fit: cover;
   border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.06);  /* jemný rámeček */
-  box-shadow: 0 10px 30px rgba(0,0,0,0.45);  /* screenshot víc “sedí” do dark tématu */
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.45);
   margin-bottom: 6px;
 }
 
-/* popisek pod screenshotem */
+/* popisek pod náhledem */
 .photo-gallery__label {
   font-size: var(--fz-2);
-  color: rgba(199, 204, 214, .9);
+  color: rgba(199, 204, 214, 0.9);
   padding-left: 2px;
 }
 
