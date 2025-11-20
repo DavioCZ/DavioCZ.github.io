@@ -1,9 +1,9 @@
 /* ===== Design tokens ===== */
 :root{
   --bg:#0f1115; --fg:#e7e7ea; --muted:#171a21; --muted-2:#1d2129;
-  --border:#23262d; --accent:#8affc1; --danger:#ff7a90;
+  --border:#23262d; --accent:#72f0bd; --danger:#ff7a90;
   --max:1040px; --pad:24px; --radius:14px;
-  --fz-1:12px; --fz-2:14px; --fz-3:16px; --fz-4:18px; --fz-5:22px; --fz-6:28px;
+  --fz-1:12px; --fz-2:14px; --fz-3:16px; --fz-4:18px; --fz-5:22px; --fz-6:32px;
   --lh:1.6; --shadow:0 1px 0 rgba(255,255,255,.02) inset, 0 1px 8px rgba(0,0,0,.25);
 }
 /* ===== Base ===== */
@@ -22,18 +22,19 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 .main{min-height:40vh;padding:32px 0}
 
 /* ===== Hero ===== */
-.hero{padding:8px 0 16px;display:grid;gap:12px}
-.hero h1{font-size:var(--fz-6);margin:0 0 4px}
+.hero{padding:16px 0 8px;display:grid;gap:16px}
+.hero h1{font-size:var(--fz-6);margin:0 0 4px;letter-spacing:-0.02em}
 .hero p{margin:0;color:rgba(127,127,127,.9)}
 .actions{display:flex;gap:12px;flex-wrap:wrap}
 .btn{display:inline-block;padding:10px 14px;border-radius:10px;border:1px solid var(--border);background:var(--muted)}
 .btn--primary{background:var(--accent);color:#0a0a0a;border-color:transparent}
 
 /* ===== Cards grid ===== */
-.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));margin-top:24px}
-.card{border:1px solid var(--border);border-radius:var(--radius);padding:16px;background:var(--muted);box-shadow:var(--shadow)}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));margin-top:32px}
+.card{border:1px solid var(--border);border-radius:var(--radius);padding:16px;background:var(--muted);box-shadow:var(--shadow);transition:transform .16s ease-out, box-shadow .16s ease-out, border-color .16s ease-out}
+.card:hover{transform:translateY(-2px);border-color:var(--accent);box-shadow:0 12px 30px rgba(0,0,0,.45)}
 .card h3{margin:0 0 8px;font-size:var(--fz-4)}
-.card p{margin:0 0 12px;color:rgba(127,127,127,.95)}
+.card p{margin:0 0 12px;color:#c5cad3}
 .badges{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 12px}
 .badge{font-size:var(--fz-1);padding:4px 8px;border-radius:999px;border:1px solid var(--border);background:var(--muted-2)}
 .card .links{display:flex;gap:12px}
@@ -94,7 +95,6 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 
 
 :root{
-  --accent: #8affc1;
   --accent-ink: #0b1f18; /* čitelné písmo na té mint */
 }
 
@@ -302,14 +302,14 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
   margin-top: 2.5rem;
 }
 
-.gallery {
+.photo-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 1rem;
   margin-top: 1rem;
 }
 
-.gallery__item {
+.photo-gallery__item {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -320,7 +320,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
   cursor: pointer;
 }
 
-.gallery__item img {
+.photo-gallery__item img {
   display: block;
   width: 100%;
   height: auto;
@@ -328,7 +328,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
   margin-bottom: 0.4rem;
 }
 
-.gallery__label {
+.photo-gallery__label {
   font-size: 0.85rem;
   opacity: 0.8;
 }

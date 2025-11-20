@@ -1,5 +1,5 @@
 (function () {
-  const items = Array.from(document.querySelectorAll('.gallery__item'));
+  const items = Array.from(document.querySelectorAll('.photo-gallery__item'));
   const modal = document.querySelector('.gallery-modal');
 
   if (!items.length || !modal) {
@@ -22,7 +22,7 @@
     currentIndex = index;
 
     const fullSrc = item.getAttribute('data-full') || item.querySelector('img').src;
-    const caption = item.getAttribute('data-caption') || item.querySelector('.gallery__label')?.textContent || '';
+    const caption = item.getAttribute('data-caption') || item.getAttribute('data-gallery-caption') || item.querySelector('.photo-gallery__label')?.textContent || '';
 
     imageEl.src = fullSrc;
     imageEl.alt = caption || item.querySelector('img').alt || '';
