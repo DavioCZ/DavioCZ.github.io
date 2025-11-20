@@ -345,7 +345,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 .gallery-modal__backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(0, 0, 0, 0.78);
   backdrop-filter: blur(4px);
 }
 
@@ -355,9 +355,9 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
   max-width: 1040px;
   width: 100%;
   margin: 1rem;
-  background: #101214;
-  border-radius: 0.9rem;
-  padding: 1.25rem 1.5rem 1rem;
+  background: #111;
+  border-radius: 0.85rem;
+  padding: 1.1rem 1.6rem 1rem;
   color: #fff;
   box-shadow: 0 18px 60px rgba(0, 0, 0, 0.75);
 }
@@ -377,8 +377,8 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 
 .gallery-modal__close {
   position: absolute;
-  top: 0.5rem;
-  right: 0.75rem;
+  top: 0.55rem;
+  right: 0.8rem;
   font-size: 1.4rem;
   background: none;
   border: none;
@@ -386,16 +386,17 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
   cursor: pointer;
 }
 
-/* Šipky po stranách obrázku */
+/* Šipky mimo plochu obrázku / karty */
 .gallery-modal__nav {
   position: absolute;
-  inset: 0;
+  top: 0;
+  bottom: 0;
+  left: -64px;   /* posuneme šipky ven z karty */
+  right: -64px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 1.25rem;
-  margin-top: 0;
-  pointer-events: none; /* ať neblokuje kliknutí mimo tlačítka */
+  pointer-events: none; /* kliká se jen na tlačítka */
 }
 
 .gallery-modal__prev,
@@ -407,77 +408,44 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.65);
   border: 1px solid rgba(255, 255, 255, 0.4);
   color: #fff;
   font-size: 1.6rem;
   cursor: pointer;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
   transition: background 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
 }
 
 .gallery-modal__prev:hover,
 .gallery-modal__next:hover {
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(0, 0, 0, 0.8);
   transform: translateY(-1px);
   border-color: rgba(255, 255, 255, 0.7);
 }
 
-@media (max-width: 640px) {
+/* Mobil – šipky blíž k okraji, menší */
+@media (max-width: 768px) {
   .gallery-modal__body {
     margin: 0.5rem;
-    padding: 0.9rem;
+    padding: 0.8rem;
+  }
+
+  .gallery-modal__nav {
+    left: -20px;
+    right: -20px;
+  }
+
+  .gallery-modal__prev,
+  .gallery-modal__next {
+    width: 32px;
+    height: 32px;
+    font-size: 1.3rem;
   }
 }
 
-/* Nav šipky přes celý modal, zarovnané doprostřed stran */
-.gallery-modal__nav {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 1.5rem;
-  pointer-events: none;  /* kliky projdou jen na tlačítka */
-}
-
-/* Levá/pravá šipka */
-.gallery-modal__prev,
-.gallery-modal__next {
-  pointer-events: auto;
-  width: 44px;
-  height: 44px;
-  border-radius: 999px;
-  border: none;
-  background: rgba(0,0,0,0.55);
-  color: #fff;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-size: 0;          /* schová text "Předchozí / Další" */
-}
-
-/* Ikony šipek */
-.gallery-modal__prev::before,
-.gallery-modal__next::before {
-  font-size: 22px;
-  line-height: 1;
-}
-
-.gallery-modal__prev::before {
-  content: "‹";
-}
-
-.gallery-modal__next::before {
-  content: "›";
-}
-
-@media (hover:hover) {
-  .gallery-modal__prev:hover,
-  .gallery-modal__next:hover {
-    background: rgba(0,0,0,0.8);
-  }
+.no-scroll {
+  overflow: hidden;
 }
 
 .project-card__cover {
