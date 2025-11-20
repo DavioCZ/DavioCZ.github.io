@@ -456,3 +456,14 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
   object-fit: cover;
   margin-bottom: 1rem;
 }
+
+/* Telefony – šipky úplně schovat, ovládání jen klikem na obrázek */
+@media (max-width: 640px) {
+  .gallery-modal__nav {
+    display: none;
+  }
+}
+
+.gallery-modal__image {
+  cursor: pointer;
+}
