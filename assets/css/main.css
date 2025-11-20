@@ -345,32 +345,34 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 .gallery-modal__backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
 }
 
 .gallery-modal__body {
   position: relative;
   z-index: 1;
-  max-width: 960px;
+  max-width: 1040px;
   width: 100%;
   margin: 1rem;
-  background: #111;
-  border-radius: 0.75rem;
-  padding: 1rem;
+  background: #101214;
+  border-radius: 0.9rem;
+  padding: 1.25rem 1.5rem 1rem;
   color: #fff;
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.75);
 }
 
 .gallery-modal__image {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
 }
 
 .gallery-modal__caption {
-  margin-top: 0.5rem;
+  margin-top: 0.75rem;
   font-size: 0.9rem;
-  opacity: 0.85;
+  opacity: 0.9;
 }
 
 .gallery-modal__close {
@@ -384,23 +386,62 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
   cursor: pointer;
 }
 
+/* Šipky po stranách obrázku */
 .gallery-modal__nav {
-  margin-top: 0.5rem;
+  position: absolute;
+  inset: 0;
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  padding: 0 1.25rem;
+  margin-top: 0;
+  pointer-events: none; /* ať neblokuje kliknutí mimo tlačítka */
 }
 
 .gallery-modal__prev,
 .gallery-modal__next {
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.2);
+  pointer-events: auto;
+  width: 40px;
+  height: 40px;
   border-radius: 999px;
-  padding: 0.35rem 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.4);
   color: #fff;
+  font-size: 1.6rem;
   cursor: pointer;
-  font-size: 0.9rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+  transition: background 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
 }
 
+.gallery-modal__prev:hover,
+.gallery-modal__next:hover {
+  background: rgba(0, 0, 0, 0.75);
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+@media (max-width: 640px) {
+  .gallery-modal__body {
+    margin: 0.5rem;
+    padding: 0.9rem;
+  }
+
+  .gallery-modal__nav {
+    padding: 0 0.6rem;
+  }
+
+  .gallery-modal__prev,
+  .gallery-modal__next {
+    width: 32px;
+    height: 32px;
+    font-size: 1.3rem;
+  }
+}
+
+/* blokování scrollu na pozadí */
 .no-scroll {
   overflow: hidden;
 }
