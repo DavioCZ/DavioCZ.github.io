@@ -45,12 +45,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 }
 
 .card:hover {
-  border-color: rgba(72, 207, 255, 0.9); /* neon okraj */
-  box-shadow:
-    0 0 0 1px rgba(72, 207, 255, 0.9),
-    0 0 32px rgba(72, 207, 255, 0.65),
-    0 18px 40px rgba(0, 0, 0, 0.85);
-  transform: translateY(-2px);
+  /* Vizuální změny na hoveru jsou odstraněny, ponechán pouze glow efekt řízený JS */
 }
 .card h3{margin:0 0 8px;font-size:var(--fz-4)}
 .card p{margin:0 0 12px;color:#c5cad3}
