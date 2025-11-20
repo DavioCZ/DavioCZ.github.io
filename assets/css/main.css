@@ -304,36 +304,40 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 
 .photo-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 16px;
   margin-top: 16px;
 }
 
-/* kartička */
+/* karta – jen klikací plocha, žádný “panel navíc” */
 .photo-gallery__item {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  border-radius: 12px;
-  padding: 8px;
-  background: var(--muted);           /* místo #fff */
-  border: 1px solid var(--border);
+  padding: 0;                  /* žádný vnitřní padding */
+  background: transparent;     /* pryč tmavý panel */
+  border: none;                /* pryč border na kartě */
   cursor: pointer;
 }
 
-/* obrázek */
+/* samotný screenshot */
 .photo-gallery__item img {
   display: block;
   width: 100%;
-  height: auto;
-  border-radius: 8px;
+  height: 100%;
+  aspect-ratio: 16 / 9;        /* VŠECHNY stejné ratio */
+  object-fit: cover;           /* lehce ořízne, žádné “prázdno” */
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.06);  /* jemný rámeček */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.45);  /* screenshot víc “sedí” do dark tématu */
   margin-bottom: 6px;
 }
 
-/* popisek */
+/* popisek pod screenshotem */
 .photo-gallery__label {
   font-size: var(--fz-2);
   color: rgba(199, 204, 214, .9);
+  padding-left: 2px;
 }
 
 /* Modal */
