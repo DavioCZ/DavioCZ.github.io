@@ -101,4 +101,27 @@
       rafId = null;
     }
   });
+
+  // === Hover glow kolem karet projektů ===
+  const projectCards = document.querySelectorAll(".project-card");
+
+  projectCards.forEach((card) => {
+    card.addEventListener("mousemove", (event) => {
+      const rect = card.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+
+      // uložíme pozici kurzoru jako CSS proměnné
+      card.style.setProperty("--mouse-x", `${x}px`);
+      card.style.setProperty("--mouse-y", `${y}px`);
+    });
+
+    card.addEventListener("mouseenter", () => {
+      card.classList.add("project-card--glow-active");
+    });
+
+    card.addEventListener("mouseleave", () => {
+      card.classList.remove("project-card--glow-active");
+    });
+  });
 })();
