@@ -110,18 +110,6 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 .btn--ghost{ background: transparent; border: 1px solid var(--border); }
 .links-inline{ list-style: none; padding: 0; margin: 8px 0 16px; display: flex; gap: 8px; flex-wrap: wrap; }
 
-/* Karta – základ */
-.project-card{
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-  background:#0f1418;                 /* ladí s dark tématem */
-  border:1px solid #1c232b;
-  border-radius:16px;
-  padding:18px;
-  box-shadow: 0 1px 0 rgba(255,255,255,0.02) inset;
-  height:100%;                         /* nechá grownout uvnitř gridu */
-}
 
 /* Náhled nahoře – vždy stejné proporce */
 .project-card__thumb{
@@ -184,55 +172,30 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 .project-card{
   position: relative;
   isolation: isolate;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  background: #0f1418;
-  border-radius: 16px;
-  border: 1px solid #1c232b;
-  padding: 18px;
-  box-shadow: 0 12px 32px rgba(0,0,0,0.7);
-  overflow: hidden; /* ať glow neuteče mimo */
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  background:#0f1418;
+  border-radius:16px;
+  border:1px solid #1c232b;
+  padding:18px;
+  box-shadow:0 12px 32px rgba(0,0,0,0.7);
+  overflow:hidden;
   transition:
+    border-color .16s ease-out,
+    box-shadow .16s ease-out,
     transform .16s ease-out;
 }
 
 .project-card:hover{
-  transform: translateY(-2px); /* jestli nechceš ani tohle, klidně smaž */
+  border-color:rgba(114,240,189,0.9);
+  box-shadow:
+    0 0 0 1px rgba(114,240,189,0.7),
+    0 0 32px rgba(114,240,189,0.55),
+    0 12px 32px rgba(0,0,0,0.9);
+  transform:translateY(-2px);
 }
 
-/* Glow ohraničený kartou, reaguje na pozici kurzoru */
-.project-card::before{
-  content:"";
-  position:absolute;
-  inset:0;                  /* přesně hranice karty */
-  border-radius:inherit;
-  pointer-events:none;
-  opacity:0;
-  mix-blend-mode:screen;
-  transition:opacity .16s ease-out;
-
-  /* “prstenec” – uvnitř průhledné, světlo jen u hrany kolem kurzoru */
-  background:radial-gradient(
-    circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    transparent 0,
-    transparent 55%,
-    rgba(114,240,189,0.22) 78%,  /* hlavní záře u hrany */
-    transparent 100%
-  );
-}
-
-/* zapnutí efektu */
-.project-card--glow-active::before{
-  opacity: 1;
-}
-
-/* Volitelné: na touch zařízeních efekt vypnout (tam kurzor stejně není) */
-@media (pointer: coarse){
-  .project-card::before{
-    display:none;
-  }
-}
 .project-card__thumb{
   display:block;
   width:100%;
