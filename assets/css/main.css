@@ -100,8 +100,14 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
   -webkit-background-clip: text;
   /* color: transparent; */
   
-  /* ZMĚNA: Přidáme trochu výšky řádku, aby se nadpis nelepil na popis */
-  line-height: 1.2; 
+  /* ZMĚNA: clamp() zajistí, že na mobilu to bude 2rem (32px) a na velkém monitoru až 3.5rem (56px) */
+  font-size: clamp(2rem, 5vw, 3.5rem); 
+  margin: 0;
+  letter-spacing: -0.02em;
+  background: linear-gradient(to bottom, #fff, #a5b4fc);
+  -webkit-background-clip: text;
+  /* color: transparent; */ /* Pokud chceš gradient text, odkomentuj toto */
+  line-height: 1.1; /* Trochu menší řádkování pro velké nadpisy vypadá lépe */
 }
 
 .hero p {
@@ -281,10 +287,26 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
   width: 100%;
   aspect-ratio: 16/9;
   border-radius: 12px;
-  overflow:hidden;
-  background:linear-gradient(180deg,#1b222a 0%,#0f1418 100%);
+  overflow: hidden; /* Důležité: ořízne obrázek, když se zvětší */
+  background: linear-gradient(180deg,#1b222a 0%,#0f1418 100%);
+  
+  /* ZMĚNA: Přidáme fix pro Safari, aby se rohy neořezávaly divně při animaci */
+  transform: translateZ(0); 
 }
-.project-card__thumb img { width:100%; height:100%; object-fit:cover; display:block; }
+.project-card__thumb img { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+  display: block;
+  
+  /* ZMĚNA: Přidáme plynulý přechod pro zoom */
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ZMĚNA: Efekt při najetí na celou kartu */
+.project-card:hover .project-card__thumb img {
+  transform: scale(1.06); /* Jemné zvětšení o 6 % */
+}
 
 .project-card__title {
   margin: 4px 0 2px;
