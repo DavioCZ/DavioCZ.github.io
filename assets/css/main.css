@@ -22,10 +22,43 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 .main{min-height:40vh;padding:32px 0}
 
 /* ===== Hero ===== */
-.hero{padding:16px 0 8px;display:grid;gap:16px;position: relative;z-index: 50;}
-.hero h1{font-size:var(--fz-6);margin:0 0 4px;letter-spacing:-0.02em}
-.hero p{margin:0;color:rgba(127,127,127,.9)}
-.actions{display:flex;gap:12px;flex-wrap:wrap}
+.hero {
+  padding: 16px 0 48px; /* Více místa dole */
+  display: grid;
+  gap: 24px; /* Větší rozestupy mezi řádky */
+  position: relative;
+  z-index: 50;
+  /* ZMĚNA: Zarovnání textu na střed */
+  text-align: center;
+  justify-items: center; /* Zarovná grid položky na střed */
+  max-width: 800px; /* Omezíme šířku textu, aby se lépe četl */
+  margin: 0 auto; /* Vycentrujeme celý blok */
+}
+
+.hero h1 {
+  font-size: var(--fz-6); /* Nebo klidně 3rem pro větší impact */
+  margin: 0;
+  letter-spacing: -0.02em;
+  background: linear-gradient(to bottom, #fff, #a5b4fc); /* Volitelné: gradient text */
+  -webkit-background-clip: text;
+  /* color: transparent; - odkomentuj pro gradient efekt */
+}
+
+.hero p {
+  margin: 0;
+  color: rgba(255,255,255,0.7); /* Světlejší šedá */
+  font-size: 1.1rem; /* Větší čitelnost */
+  line-height: 1.6;
+}
+
+/* Actions - zarovnání tlačítek */
+.actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center; /* Tlačítka na střed */
+  flex-wrap: wrap;
+}
+
 .btn{display:inline-block;padding:10px 14px;border-radius:10px;border:1px solid var(--border);background:var(--muted)}
 /* Upravené tlačítko - méně agresivní */
 .btn--primary {
@@ -362,19 +395,36 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
   padding: 1.5rem 1.25rem 3rem;
 }
 
-/* Hlavička */
+/* ===== Hlavička (Header) ===== */
 .site-header {
-  padding: 1rem 1.25rem;
-  border-bottom: 1px solid rgba(0,0,0,0.08);
-  margin-bottom: 1rem;
+  padding: 2rem 1.25rem; /* Více prostoru */
+  border-bottom: 1px solid rgba(255,255,255,0.05); /* Jemnější linka */
+  margin-bottom: 2rem;
+  /* ZMĚNA: Flexbox pro centrování */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
 }
 
 .site-header__brand {
-  font-weight: 800; /* Hodně tučné */
+  font-weight: 800;
   text-decoration: none;
-  color: #ffffff; /* Čistá bílá, aby to svítilo */
-  font-size: 1.5rem; /* Zvětšení z původních cca 1rem */
-  letter-spacing: -0.02em; /* Moderní "scvrknutí" písmen k sobě */
+  color: #ffffff;
+  font-size: 2rem; /* Ještě větší jméno */
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+/* Nový styl pro role pod jménem */
+.site-header__roles {
+  font-size: 0.9rem;
+  color: var(--accent); /* Použijeme tu mint barvu */
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  opacity: 0.9;
 }
 
 /* Patička */

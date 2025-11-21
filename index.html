@@ -23,8 +23,10 @@
 <body>
   <a href="#main" class="skip-link">Přeskočit na obsah</a>
 
+  <!-- ZMĚNA: Přidán kontejner pro role pod jménem -->
   <header class="site-header">
     <a href="/" class="site-header__brand">David Kučera</a>
+    <div class="site-header__roles">UX Design · Front-end · Python</div>
   </header>
 
   <main id="main" class="page">
@@ -32,10 +34,11 @@
       <span class='kicker'>Portfolio</span>
       <h1>Mini-aplikace a UX řešení, co šetří čas</h1>
       <p>Statické, rychlé a srozumitelné. Každý projekt má case-study a pár čísel. Žádný vendor-lock.</p>
+      
       <div class='actions'>
-        <a class='btn btn--primary' href='#projekty'>Projekty</a>
-        <button id="contactBtn" class="btn" type="button" aria-expanded="false" aria-controls="contactPopover">
-          Kontakt
+        <!-- ZMĚNA: Tlačítko "Projekty" odstraněno. Tlačítko Kontakt změněno na primary styl (svítivé) -->
+        <button id="contactBtn" class="btn btn--primary" type="button" aria-expanded="false" aria-controls="contactPopover">
+          Napište mi
         </button>
       </div>
     </section>
