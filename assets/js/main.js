@@ -37,70 +37,24 @@
 
 })();
 
-(function () {
-  const wrapper = document.querySelector('[data-cards-glow]');
-  if (!wrapper) return;
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".project-card");
+  const grid =
+    document.querySelector(".projects-grid") ||
+    document.querySelector(".grid");
 
-  // jen pro “normální” kurzor, ne mobil
-  const prefersFinePointer = window.matchMedia('(pointer: fine)').matches;
-  if (!prefersFinePointer) return;
+  if (!cards.length || !grid) return;
 
-  const glow = wrapper.querySelector('.cards-glow');
-  if (!glow) return;
+  grid.addEventListener("mousemove", (e) => {
+    const { clientX, clientY } = e;
 
-  let glowVisible = false;
-  let rafId = null;
+    cards.forEach((card) => {
+      const rect = card.getBoundingClientRect();
+      const x = clientX - rect.left;
+      const y = clientY - rect.top;
 
-  const state = {
-    x: 0,
-    y: 0,
-    targetX: 0,
-    targetY: 0,
-  };
-
-  function updateGlow() {
-    // jednoduchý “lerp” – aby se hezky zpožďoval
-    const lerpFactor = 0.18;
-    state.x += (state.targetX - state.x) * lerpFactor;
-    state.y += (state.targetY - state.y) * lerpFactor;
-
-    glow.style.transform = `translate3d(${state.x}px, ${state.y}px, 0)`;
-
-    // pokud je blob viditelný, pokračuj v animaci
-    if (glowVisible) {
-      rafId = window.requestAnimationFrame(updateGlow);
-    } else {
-      rafId = null;
-    }
-  }
-
-  wrapper.addEventListener('pointermove', (event) => {
-    const rect = wrapper.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
-
-    // posuneme glow tak, aby byl střed v místě kurzoru
-    state.targetX = x - glow.offsetWidth / 2;
-    state.targetY = y - glow.offsetHeight / 2;
-
-    if (!glowVisible) {
-      glowVisible = true;
-      glow.style.opacity = '1';
-      if (rafId == null) {
-        rafId = window.requestAnimationFrame(updateGlow);
-      }
-    }
+      card.style.setProperty("--x", `${x}px`);
+      card.style.setProperty("--y", `${y}px`);
+    });
   });
-
-  wrapper.addEventListener('pointerleave', () => {
-    glowVisible = false;
-    glow.style.opacity = '0';
-
-    if (rafId != null) {
-      window.cancelAnimationFrame(rafId);
-      rafId = null;
-    }
-  });
-
-  // === Hover glow kolem karet projektů ===
-})();
+});

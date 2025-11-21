@@ -169,31 +169,65 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
   align-items:stretch;
 }
 
-.project-card{
+.project-card {
   position: relative;
-  isolation: isolate;
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-  background:#0f1418;
-  border-radius:16px;
-  border:1px solid #1c232b;
-  padding:18px;
-  box-shadow:0 12px 32px rgba(0,0,0,0.7);
-  overflow:hidden;
-  transition:
-    border-color .16s ease-out,
-    box-shadow .16s ease-out,
-    transform .16s ease-out;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 18px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.7);
+
+  /* --- spotlight border trik --- */
+
+  /* 1) Border průhledný, aby skrz něj prosvítal gradient */
+  border: 1px solid transparent;
+
+  /* 2) Dvě vrstvy pozadí:
+        - horní: vnitřek karty (tmavé pozadí)
+        - spodní: svítící gradient pod borderem
+  */
+  background:
+    linear-gradient(#0f1418, #0f1418) padding-box,
+    radial-gradient(
+      600px circle at var(--x, 50%) var(--y, 50%),
+      rgba(120, 230, 255, 0.4),
+      transparent 40%
+    ) border-box;
+
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+
+  transition: transform 0.16s ease-out;
 }
 
-.project-card:hover{
-  border-color: rgba(120, 230, 255, 0.85);
-  box-shadow:
-    0 0 0 1px rgba(120, 230, 255, 0.35),    /* jemnější linka */
-    0 0 22px rgba(120, 230, 255, 0.28),     /* menší a měkčí glow */
-    0 12px 32px rgba(0, 0, 0, 0.9);         /* stín dolů jako dřív */
+/* Jemný posun na hover, bez změny bordera/box-shadow */
+.project-card:hover {
   transform: translateY(-2px);
+}
+
+/* Lehká vnitřní záře */
+.project-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  z-index: -1;
+  background: radial-gradient(
+    800px circle at var(--x, 50%) var(--y, 50%),
+    rgba(120, 230, 255, 0.06),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+/* Zobrazit vnitřní glow když se pohybuje myš nad gridem */
+.projects-grid:hover .project-card::before,
+.grid:hover .project-card::before {
+  opacity: 1;
 }
 
 .project-card__thumb{
@@ -483,48 +517,4 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 
 .gallery-modal__image {
   cursor: pointer;
-}
-
-/* Wrapper kolem gridu s kartami */
-.projects-glow-wrapper {
-  position: relative;
-  isolation: isolate; /* glow se drží jen v tomhle bloku */
-}
-
-/* Světelný blob sledující myš */
-.cards-glow {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 260px;
-  height: 260px;
-  border-radius: 999px;
-  pointer-events: none;
-  opacity: 0;
-  transform: translate3d(0, 0, 0);
-  transition: opacity 0.2s ease-out;
-  background: radial-gradient(
-    circle,
-    rgba(120, 230, 255, 0.35) 0%,
-    rgba(120, 230, 255, 0.18) 30%,
-    transparent 70%
-  );
-  filter: blur(34px);
-  mix-blend-mode: screen; /* “svítí” do karet */
-  z-index: 0;
-}
-
-/* Karty nad glowem */
-.projects-glow-wrapper .grid,
-.projects-glow-wrapper .projects-grid,
-.projects-glow-wrapper .card {
-  position: relative;
-  z-index: 1;
-}
-
-/* Bez efektu na mobilech */
-@media (pointer: coarse), (max-width: 768px) {
-  .cards-glow {
-    display: none;
-  }
 }
