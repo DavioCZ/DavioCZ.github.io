@@ -263,7 +263,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
     radial-gradient(
       600px circle at var(--x, 50%) var(--y, 50%),
       rgba(0, 208, 255, 0.4),
-      transparent 40%
+      transparent 20%
     ) border-box;
 
   background-origin: border-box;
@@ -588,3 +588,4 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 .gallery-modal__image {
   cursor: pointer;
 }
+
