@@ -70,7 +70,24 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:var(--fz-2)}
 /* end */
 
-.contact-pop{position:relative;margin-top:12px;border:1px solid var(--border);background:var(--muted);border-radius:var(--radius);padding:10px 12px;max-width:520px;box-shadow:var(--shadow);z-index: 100;}
+.contact-pop {
+  position: relative;
+  margin-top: 12px;
+  /* PŘIDÁNO: Odsazení zespodu, aby se karty nelepily */
+  margin-bottom: 24px;
+  
+  border: 1px solid var(--border);
+  background: var(--muted);
+  border-radius: var(--radius);
+  padding: 10px 12px;
+  
+  /* ZMĚNA: Místo fixních 520px se přizpůsobí obsahu */
+  width: fit-content;
+  max-width: 100%; 
+  
+  box-shadow: var(--shadow);
+  z-index: 100;
+}
 .contact-label{margin:0 0 6px;color:rgba(127,127,127,.95);font-size:var(--fz-2)}
 .contact-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
 .copy-pill{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:999px;border:1px solid var(--border);background:var(--muted-2);font-weight:600;cursor:pointer}
