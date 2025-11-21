@@ -224,7 +224,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 
 /* Jemný posun na hover, bez změny bordera/box-shadow */
 .project-card:hover {
-  transform: translateY(0px);
+  transform: translateY(-1px);
 }
 
 /* Lehká vnitřní záře */
@@ -232,7 +232,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
   content: "";
   position: absolute;
   inset: 0;
-  border-radius: 16px;
+  border-radius: 13px;
   z-index: -1;
   background: radial-gradient(
     800px circle at var(--x, 50%) var(--y, 50%),
