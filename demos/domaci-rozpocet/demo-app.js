@@ -141,21 +141,39 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     const parts = CATS.map(c => ({...c, value: byCat.get(c.id)||0})).filter(p => p.value>0);
     drawChart(parts); // Změna volání na drawChart
-    drawLegend(parts, exp);
+    generateLegend(expenseChart);
   }
 
-  function drawLegend(parts, total){
-    if (!parts.length){ legend.innerHTML = '<p class="muted">Žádné výdaje v měsíci.</p>'; return; }
-    legend.innerHTML = parts.map(p => {
-      const share = total ? Math.round(p.value/total*100) : 0;
-      return `
-        <div class="legend-item">
-            <div><span class="legend-color" style="background:${p.color}"></span> ${p.name}</div>
-            <strong>${share}%</strong>
-        </div>
-      `;
-    }).join('');
-  }
+function generateLegend(chart) {
+    const legendContainer = document.getElementById('categoryLegend');
+    legendContainer.innerHTML = '';
+
+    const data = chart.data;
+    
+    if (data.labels.length) {
+        data.labels.forEach((label, index) => {
+            const color = data.datasets[0].backgroundColor[index];
+            const value = data.datasets[0].data[index];
+            // Výpočet procent
+            const total = data.datasets[0].data.reduce((a, b) => a + b, 0);
+            const percentage = Math.round((value / total) * 100) + '%';
+
+            // Vytvoření řádku legendy
+            const item = document.createElement('div');
+            item.className = 'legend-item';
+            
+            item.innerHTML = `
+                <div class="legend-label">
+                    <span class="legend-color" style="background-color: ${color}"></span>
+                    ${label}
+                </div>
+                <div class="legend-value">${percentage}</div>
+            `;
+            
+            legendContainer.appendChild(item);
+        });
+    }
+}
 
   function drawChart(parts){
     if (expenseChart) {
