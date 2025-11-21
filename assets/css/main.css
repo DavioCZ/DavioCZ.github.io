@@ -44,14 +44,18 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 
 /* ===== Hlavička (Header - Homepage) ===== */
 .site-header {
-  padding: 2rem 1.25rem;
+  /* ZMĚNA: Méně prostoru nahoře a dole */
+  padding: 2rem 1.25rem 1.5rem; 
   border-bottom: 1px solid rgba(255,255,255,0.05);
-  margin-bottom: 2rem;
+  
+  /* ZMĚNA: Menší margin (byl 2rem), aby text PORTFOLIO nebyl tak daleko */
+  margin-bottom: 1rem; 
+  
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 8px;
+  gap: 8px; /* 8px = 1 jednotka gridu */
 }
 
 .site-header__brand {
@@ -74,9 +78,13 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 
 /* ===== Hero ===== */
 .hero {
-  padding: 16px 0 48px;
+  /* ZMĚNA: padding-top 0 (řeší margin hlavičky), dole 64px (8x8) pro vzduch před kartami */
+  padding: 0 0 64px; 
+  
   display: grid;
-  gap: 24px;
+  /* ZMĚNA: Menší gap (16px) drží Kicker, Nadpis a Popis více pohromadě */
+  gap: 16px; 
+  
   position: relative;
   z-index: 50;
   text-align: center;
@@ -91,7 +99,10 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
   letter-spacing: -0.02em;
   background: linear-gradient(to bottom, #fff, #a5b4fc);
   -webkit-background-clip: text;
-  /* color: transparent; */ /* Volitelně pro gradient */
+  /* color: transparent; */
+  
+  /* ZMĚNA: Přidáme trochu výšky řádku, aby se nadpis nelepil na popis */
+  line-height: 1.2; 
 }
 
 .hero p {
@@ -99,6 +110,8 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
   color: rgba(255,255,255,0.7);
   font-size: 1.1rem;
   line-height: 1.6;
+  /* ZMĚNA: Omezíme šířku textu pro lepší čitelnost na širokých monitorech */
+  max-width: 60ch; 
 }
 
 .actions {
@@ -114,11 +127,14 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 
 /* ===== Nová kontaktní sekce (ikony) ===== */
 .hero-contact {
-  margin-top: 32px;
+  /* ZMĚNA: 32px (4x8) odstup od textu - jasná vizuální pauza */
+  margin-top: 32px; 
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  
+  /* ZMĚNA: 16px mezi nápisem "Napište mi" a ikonami */
+  gap: 16px; 
 }
 
 .hero-contact__label {
