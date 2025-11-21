@@ -282,32 +282,27 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 }
 
 /* Project Card Content */
-.project-card__thumb {
+/* 1. Wrapper obrázku (odkaz) - musí mít overflow hidden */
+.project-card__link {
   display: block;
   width: 100%;
   aspect-ratio: 16/9;
   border-radius: 12px;
-  overflow: hidden; /* Důležité: ořízne obrázek, když se zvětší */
-  background: linear-gradient(180deg,#1b222a 0%,#0f1418 100%);
-  
-  /* ZMĚNA: Přidáme fix pro Safari, aby se rohy neořezávaly divně při animaci */
-  transform: translateZ(0); 
+  overflow: hidden; /* DŮLEŽITÉ: Ořízne obrázek při zvětšení */
+  background: linear-gradient(180deg, #1b222a 0%, #0f1418 100%);
+  transform: translateZ(0); /* Fix pro Safari */
 }
-.project-card__thumb img { 
+
+/* 2. Samotný obrázek - nastavíme mu animaci */
+.project-card__cover { 
   width: 100%; 
   height: 100%; 
   object-fit: cover; 
   display: block;
-  
-  /* ZMĚNA: Přidáme plynulý přechod pro zoom */
   transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* ZMĚNA: Efekt při najetí na celou kartu */
-.project-card:hover .project-card__thumb img {
-  transform: scale(1.06); /* Jemné zvětšení o 6 % */
-}
-
+/* 3. Titulek */
 .project-card__title {
   margin: 4px 0 2px;
   font-size: 1.25rem;
@@ -318,6 +313,11 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 }
 .project-card__title a { text-decoration: none; color: inherit; }
 .project-card__title a:hover { color: var(--accent); }
+
+/* 4. Trigger animace - při najetí na KARTU zvětši OBRÁZEK */
+.project-card:hover .project-card__cover {
+  transform: scale(1.06); /* Zvětšení o 6 % */
+}
 
 .project-card__desc {
   font-size: 0.9rem;
