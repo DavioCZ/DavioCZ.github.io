@@ -262,7 +262,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
     linear-gradient(#0f1418, #0f1418) padding-box,
     radial-gradient(
       600px circle at var(--x, 50%) var(--y, 50%),
-      rgba(120, 230, 255, 0.4),
+      rgba(0, 208, 255, 0.4),
       transparent 40%
     ) border-box;
 
