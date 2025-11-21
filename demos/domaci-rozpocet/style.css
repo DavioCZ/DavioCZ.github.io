@@ -47,9 +47,11 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 0;
+    /* ZMĚNA: Menší odsazení (bylo 8px) */
+    padding: 5px 0;
     border-bottom: 1px dashed var(--border-color);
-    font-size: 0.9rem;
+    /* ZMĚNA: Menší písmo */
+    font-size: 0.85rem;
 }
 
 .legend-item:last-child {
@@ -57,9 +59,10 @@ body {
 }
 
 .legend-indicator {
-    width: 10px;
-    height: 10px;
-    border-radius: 3px;
+    /* ZMĚNA: Menší tečka */
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
     display: inline-block;
     margin-right: 8px;
 }

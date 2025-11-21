@@ -93,8 +93,8 @@
                 <h5 class="card-title text-muted text-uppercase small fw-bold mb-4">Rozdělení výdajů</h5>
                 
                 <div class="row align-items-center">
-                    <!-- Graf -->
-                    <div class="col-md-5 col-lg-4 mb-4 mb-md-0 d-flex justify-content-center">
+                    <!-- Graf - Dáme mu trochu víc místa (z col-lg-4 na col-lg-5) -->
+                    <div class="col-md-5 col-lg-5 mb-4 mb-md-0 d-flex justify-content-center">
                         <div style="height: 260px; width: 260px; position: relative;">
                             <canvas id="expenseChart"></canvas>
                             <!-- Číslo uprostřed grafu -->
@@ -104,9 +104,11 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Legenda -->
-                    <div class="col-md-7 col-lg-8 ps-md-5">
-                        <div id="categoryLegend">
+                    
+                    <!-- Legenda - Zmenšíme sloupec (z col-lg-8 na col-lg-7) a omezíme šířku divu -->
+                    <div class="col-md-7 col-lg-7 ps-md-5">
+                        <!-- PŘIDÁNO: style="max-width: 350px;" zajistí, že řádky nebudou moc dlouhé -->
+                        <div id="categoryLegend" style="max-width: 350px;">
                             <!-- Zde se vygeneruje legenda -->
                         </div>
                     </div>
