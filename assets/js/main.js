@@ -82,23 +82,33 @@
 })();
 
 /* =========================================
-   2. SPOTLIGHT EFEKT NA KARTÁCH
+   2. SPOTLIGHT EFEKT (Optimalizovaný)
    ========================================= */
 document.addEventListener("DOMContentLoaded", () => {
   const cards = document.querySelectorAll(".project-card");
-
   if (!cards.length) return;
 
+  let isTicking = false; // Zámek pro requestAnimationFrame
+
   document.addEventListener("mousemove", (e) => {
-    const { clientX, clientY } = e;
+    if (!isTicking) {
+      window.requestAnimationFrame(() => {
+        const { clientX, clientY } = e;
+        
+        cards.forEach((card) => {
+          const rect = card.getBoundingClientRect();
+          const x = clientX - rect.left;
+          const y = clientY - rect.top;
+          
+          // Aktualizujeme proměnné
+          card.style.setProperty("--x", `${x}px`);
+          card.style.setProperty("--y", `${y}px`);
+        });
 
-    cards.forEach((card) => {
-      const rect = card.getBoundingClientRect();
-      const x = clientX - rect.left;
-      const y = clientY - rect.top;
-
-      card.style.setProperty("--x", `${x}px`);
-      card.style.setProperty("--y", `${y}px`);
-    });
+        isTicking = false;
+      });
+      
+      isTicking = true;
+    }
   });
 });

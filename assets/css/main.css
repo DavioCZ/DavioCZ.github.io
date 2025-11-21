@@ -262,7 +262,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
     linear-gradient(#0f1418, #0f1418) padding-box,
     radial-gradient(
       600px circle at var(--x, 50%) var(--y, 50%),
-      rgba(120, 230, 255, 0.4),
+      rgba(0, 208, 255, 0.4),
       transparent 40%
     ) border-box;
 
@@ -275,6 +275,12 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 /* Jemný posun na hover, bez změny bordera/box-shadow */
 .project-card:hover {
   transform: translateY(-1px);
+}
+
+/* Když je focus uvnitř karty (třeba na odkazu), karta se lehce rozsvítí */
+.project-card:focus-within {
+  border-color: rgba(120, 230, 255, 0.5);
+  box-shadow: 0 0 20px rgba(120, 230, 255, 0.15);
 }
 
 /* Lehká vnitřní záře */
@@ -587,4 +593,17 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 
 .gallery-modal__image {
   cursor: pointer;
+}
+
+/* POKUD zařízení nemá myš (mobily, tablety), dáme kartám fixní rámeček */
+@media (hover: none) {
+  .project-card {
+    border-color: rgba(255, 255, 255, 0.1);
+    background: #0f1418; /* Přepis spotlight efektu statickou barvou */
+  }
+  
+  /* Skryjeme vnitřní záři na mobilech, aby to nezatěžovalo baterii */
+  .project-card::before {
+    display: none;
+  }
 }
