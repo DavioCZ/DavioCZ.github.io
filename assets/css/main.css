@@ -22,7 +22,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 .main{min-height:40vh;padding:32px 0}
 
 /* ===== Hero ===== */
-.hero{padding:16px 0 8px;display:grid;gap:16px}
+.hero{padding:16px 0 8px;display:grid;gap:16px;position: relative;z-index: 50;}
 .hero h1{font-size:var(--fz-6);margin:0 0 4px;letter-spacing:-0.02em}
 .hero p{margin:0;color:rgba(127,127,127,.9)}
 .actions{display:flex;gap:12px;flex-wrap:wrap}
@@ -70,7 +70,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:var(--fz-2)}
 /* end */
 
-.contact-pop{position:relative;margin-top:12px;border:1px solid var(--border);background:var(--muted);border-radius:var(--radius);padding:10px 12px;max-width:520px;box-shadow:var(--shadow)}
+.contact-pop{position:relative;margin-top:12px;border:1px solid var(--border);background:var(--muted);border-radius:var(--radius);padding:10px 12px;max-width:520px;box-shadow:var(--shadow);z-index: 100;}
 .contact-label{margin:0 0 6px;color:rgba(127,127,127,.95);font-size:var(--fz-2)}
 .contact-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
 .copy-pill{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:999px;border:1px solid var(--border);background:var(--muted-2);font-weight:600;cursor:pointer}
