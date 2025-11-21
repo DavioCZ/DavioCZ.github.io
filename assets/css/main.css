@@ -72,9 +72,12 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 
 .contact-pop {
   position: relative;
-  margin-top: 12px;
-  /* PŘIDÁNO: Odsazení zespodu, aby se karty nelepily */
-  margin-bottom: 24px;
+  
+  /* ZMĚNA: Zvětšíme horní mezeru, aby to dýchalo od tlačítek */
+  margin-top: 20px; 
+  
+  /* ZMĚNA: Spodní mezeru dáme na 0. Karty pod tím už mají margin-top 32px, to stačí. */
+  margin-bottom: 0;
   
   border: 1px solid var(--border);
   background: var(--muted);
@@ -199,7 +202,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
   /* --- spotlight border trik --- */
 
   /* 1) Border průhledný, aby skrz něj prosvítal gradient */
-  border: 1px solid transparent;
+  border: 3px solid transparent;
 
   /* 2) Dvě vrstvy pozadí:
         - horní: vnitřek karty (tmavé pozadí)
@@ -221,7 +224,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 
 /* Jemný posun na hover, bez změny bordera/box-shadow */
 .project-card:hover {
-  transform: translateY(-2px);
+  transform: translateY(0px);
 }
 
 /* Lehká vnitřní záře */
