@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="./demo.css" />
   <link rel="stylesheet" href="./demo-lite.css" />
   <link rel="stylesheet" href="./demo-theme-original.css" />
+  <link rel="stylesheet" href="./style.css" /> <!-- Nový styl -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js CDN -->
 </head>
 <body>
   <a href="#main" class="skip-link">Přeskočit na obsah</a>
@@ -16,7 +18,7 @@
     <a href="/" class="site-header__brand">David Kučera</a>
   </header>
 
-  <main id="main" class="page">
+  <main id="main" class="container py-4" style="max-width: 1140px;"> <!-- Změna kontejneru -->
     <nav class="page-back page-back--dual">
       <a href="/projects/domaci-rozpocet.html" class="page-back__link">← Zpět na projekt</a>
       <a href="/" class="page-back__link">Portfolio</a>
@@ -41,10 +43,25 @@
       <div class="card"><div class="k">Saldo</div><div id="balance" class="v">0 Kč</div></div>
     </section>
 
+    <!-- Zkrocení sekce s grafem -->
     <section class="chart-row">
-      <div class="chart-card">
-        <div class="k">Rozdělení výdajů (podle kategorií)</div>
-        <div id="chart"></div>
+      <div class="card card-body">
+        <div class="k mb-4">Rozdělení výdajů (podle kategorií)</div>
+        <div class="row g-4 mb-4">
+            <!-- Levý sloupec: Graf -->
+            <div class="col-12 col-md-5 col-lg-4 d-flex align-items-center justify-content-center">
+                <div style="position: relative; height: 250px; width: 100%; max-width: 300px;">
+                    <canvas id="expenseChart"></canvas> <!-- Změna na canvas -->
+                </div>
+            </div>
+            
+            <!-- Pravý sloupec: Legenda / Seznam -->
+            <div class="col-12 col-md-7 col-lg-8">
+                <div id="categoryLegend" class="d-flex flex-column justify-content-center h-100">
+                    <!-- Zde se generuje legenda pomocí JS, to necháme -->
+                </div>
+            </div>
+        </div>
       </div>
       <aside class="legend" id="legend"></aside>
     </section>

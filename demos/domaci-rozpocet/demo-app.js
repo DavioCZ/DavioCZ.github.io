@@ -32,8 +32,9 @@ window.addEventListener('DOMContentLoaded', () => {
   const incomes = el('incomes');
   const expenses = el('expenses');
   const balance = el('balance');
-  const legend = el('legend');
-  const chart = el('chart');
+  const legend = el('categoryLegend'); // Změna id elementu legendy
+  const chartCanvas = document.getElementById('expenseChart'); // Odkaz na canvas pro Chart.js
+  let expenseChart; // Proměnná pro instanci grafu
 
   const dialog = document.getElementById('txDialog');
   const openDialog = () => {
@@ -139,70 +140,59 @@ window.addEventListener('DOMContentLoaded', () => {
       byCat.set(t.category, (byCat.get(t.category)||0) + t.amount);
     }
     const parts = CATS.map(c => ({...c, value: byCat.get(c.id)||0})).filter(p => p.value>0);
-    drawDonut(parts);
+    drawChart(parts); // Změna volání na drawChart
     drawLegend(parts, exp);
   }
 
   function drawLegend(parts, total){
     if (!parts.length){ legend.innerHTML = '<p class="muted">Žádné výdaje v měsíci.</p>'; return; }
-    legend.innerHTML = '<ul>' + parts.map(p => {
+    legend.innerHTML = parts.map(p => {
       const share = total ? Math.round(p.value/total*100) : 0;
-      return `<li><span><span class="dot" style="background:${p.color}"></span>${p.name}</span><strong>${share}%</strong></li>`;
-    }).join('') + '</ul>';
+      return `
+        <div class="legend-item">
+            <div><span class="legend-color" style="background:${p.color}"></span> ${p.name}</div>
+            <strong>${share}%</strong>
+        </div>
+      `;
+    }).join('');
   }
 
-  function drawDonut(parts){
-    chart.innerHTML = '';
-
-    const css = getComputedStyle(document.documentElement);
-    const THICK = parseFloat(css.getPropertyValue('--donut-thickness')) || 16;
-    const DONUT_BG = (css.getPropertyValue('--donut-bg') || '#eef2f7').trim();
-
-    const size = 380;            // mírně větší plátno jako na screenu
-    const r = 120;               // poloměr prstence
-    const c = size/2;
-
-    const total = parts.reduce((a,b)=>a+b.value,0) || 1;
-    let prev = 0;
-
-    const svg = elSVG('svg');
-    svg.setAttribute('viewBox',`0 0 ${size} ${size}`);
-    svg.classList.add('donut');
-
-    // pozadí prstence
-    svg.appendChild(circle(c,c,r, DONUT_BG, THICK));
-
-    // barevné segmenty
-    for (const p of parts){
-      const frac = p.value/total;
-      const dash = 2*Math.PI*r*frac;
-      const gap  = 2*Math.PI*r*(1-frac);
-      const arc = circle(c,c,r, p.color, THICK);
-      arc.setAttribute('stroke-dasharray', `${dash} ${gap}`);
-      arc.setAttribute('transform', `rotate(${prev*360-90} ${c} ${c})`);
-      svg.appendChild(arc);
-      prev += frac;
+  function drawChart(parts){
+    if (expenseChart) {
+      expenseChart.destroy(); // Zničení předchozí instance grafu
     }
 
-    // výplň středu (čistý bílý „stůl“ karet)
-    const fill = elSVG('circle');
-    fill.setAttribute('cx', c);
-    fill.setAttribute('cy', c);
-    fill.setAttribute('r', r - THICK/2);
-    fill.setAttribute('fill', 'var(--panel)');
-    svg.appendChild(fill);
+    const data = {
+      labels: parts.map(p => p.name),
+      datasets: [{
+        data: parts.map(p => p.value),
+        backgroundColor: parts.map(p => p.color),
+        borderWidth: 0, // Bez okrajů segmentů
+      }]
+    };
 
-    chart.appendChild(svg);
+    expenseChart = new Chart(chartCanvas, {
+      type: 'doughnut',
+      data: data,
+      options: {
+          responsive: true,
+          maintainAspectRatio: false, // Důležité, aby poslouchal výšku divu
+          cutout: '65%', // Udělá z koláče tenčí donut (v originálu je díra větší)
+          plugins: {
+              legend: {
+                  display: false // Skryjeme výchozí legendu nahoře/dole, protože máme vlastní vpravo
+              },
+              tooltip: {
+                  enabled: true
+              }
+          },
+          layout: {
+              padding: 0
+          }
+      }
+    });
   }
 
-  function circle(cx,cy,r, stroke, w){
-    const e = elSVG('circle');
-    e.setAttribute('cx',cx); e.setAttribute('cy',cy); e.setAttribute('r',r);
-    e.setAttribute('fill','transparent'); e.setAttribute('stroke', stroke);
-    e.setAttribute('stroke-width', w); e.setAttribute('stroke-linecap','butt');
-    return e;
-  }
-  function elSVG(tag){ return document.createElementNS('http://www.w3.org/2000/svg', tag); }
   function escapeHTML(s){ return s.replace(/[&<>\"']/g, m => ({'&':'&','<':'<','>':'>','\"':'"',"\'":'&#39;'}[m])); }
 
   // start

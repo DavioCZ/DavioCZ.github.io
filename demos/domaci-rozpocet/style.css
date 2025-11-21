@@ -1,0 +1,81 @@
+:root {
+    --bg-body: #f8f9fa;
+    --card-border: #e9ecef;
+    --text-primary: #212529;
+    --text-secondary: #6c757d;
+}
+
+body {
+    background-color: var(--bg-body);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--text-primary);
+}
+
+/* Karty - jemnější stíny a kulatější rohy jako v originálu */
+.card {
+    border: 1px solid var(--card-border);
+    border-radius: 0.75rem; /* 12px */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    background-color: #fff;
+    margin-bottom: 1rem;
+}
+
+.card-body {
+    padding: 1.25rem;
+}
+
+/* Typografie čísel */
+h2, .h2, .display-5, .display-6 {
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.text-muted {
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+/* Tabulka - styl originálu */
+.table {
+    margin-bottom: 0;
+}
+
+.table th {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-secondary);
+    font-weight: 600;
+    border-bottom-width: 1px;
+    background-color: #fff;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.table td {
+    vertical-align: middle;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+}
+
+/* Oprava legendy grafu, aby vypadala jako seznam vpravo */
+.legend-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #f1f3f5;
+    font-size: 0.9rem;
+}
+.legend-item:last-child {
+    border-bottom: none;
+}
+.legend-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    margin-right: 8px;
+    display: inline-block;
+}
