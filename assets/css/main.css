@@ -27,7 +27,24 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 .hero p{margin:0;color:rgba(127,127,127,.9)}
 .actions{display:flex;gap:12px;flex-wrap:wrap}
 .btn{display:inline-block;padding:10px 14px;border-radius:10px;border:1px solid var(--border);background:var(--muted)}
-.btn--primary{background:var(--accent);color:#0a0a0a;border-color:transparent}
+/* Upravené tlačítko - méně agresivní */
+.btn--primary {
+  /* Pozadí je jen 10% viditelné (průhledná zelená) */
+  background: rgba(114, 240, 189, 0.1);
+  /* Text je svítivě zelený */
+  color: var(--accent);
+  /* Rámeček je svítivě zelený */
+  border-color: var(--accent);
+  /* Přechod pro efekt při najetí */
+  transition: all 0.2s ease;
+}
+
+/* Po najetí myší se tlačítko rozsvítí (původní vzhled) */
+.btn--primary:hover {
+  background: var(--accent);
+  color: #0a0a0a;
+  box-shadow: 0 0 15px rgba(114, 240, 189, 0.4); /* Přidá i jemnou záři */
+}
 
 /* ===== Cards grid ===== */
 .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));margin-top:32px}
@@ -353,10 +370,11 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 }
 
 .site-header__brand {
-  font-weight: 600;
+  font-weight: 800; /* Hodně tučné */
   text-decoration: none;
-  color: inherit;
-  font-size: 1rem;
+  color: #ffffff; /* Čistá bílá, aby to svítilo */
+  font-size: 1.5rem; /* Zvětšení z původních cca 1rem */
+  letter-spacing: -0.02em; /* Moderní "scvrknutí" písmen k sobě */
 }
 
 /* Patička */
