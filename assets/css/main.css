@@ -78,13 +78,12 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 
 /* ===== Hero ===== */
 .hero {
-  /* ZMĚNA: padding-top 0 (řeší margin hlavičky), dole 64px (8x8) pro vzduch před kartami */
-  padding: 0 0 64px; 
+  /* ZMĚNA: Zmenšeno z 64px na 40px. Karty budou blíž. 
+     Ten prostor 40px stačí na to, aby se tam vešel ten plovoucí text, když se objeví. */
+  padding: 0 0 40px; 
   
   display: grid;
-  /* ZMĚNA: Menší gap (16px) drží Kicker, Nadpis a Popis více pohromadě */
-  gap: 16px; 
-  
+  gap: 16px;
   position: relative;
   z-index: 50;
   text-align: center;
@@ -127,14 +126,14 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 
 /* ===== Nová kontaktní sekce (ikony) ===== */
 .hero-contact {
-  /* ZMĚNA: 32px (4x8) odstup od textu - jasná vizuální pauza */
-  margin-top: 32px; 
+  margin-top: 32px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 16px;
   
-  /* ZMĚNA: 16px mezi nápisem "Napište mi" a ikonami */
-  gap: 16px; 
+  /* DŮLEŽITÉ: Toto musí být relative, aby se text pod tím orientoval podle tohoto bloku */
+  position: relative; 
 }
 
 .hero-contact__label {
@@ -184,14 +183,25 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
   color: var(--accent);
   font-weight: 600;
   opacity: 0;
-  transform: translateY(-5px);
+  
+  /* ZMĚNA: Absolutní pozice. Vyjmeme text z toku stránky. */
+  position: absolute;
+  top: 100%; /* Umístí se hned pod ikony */
+  left: 50%; /* Vycentrování */
+  width: max-content; /* Aby se text nezalamoval */
+  
+  /* Animace příletu: Kombinace centrování (X) a posunu (Y) */
+  transform: translate(-50%, -10px); 
   transition: all 0.3s ease;
-  height: 20px;
+  
+  /* ZMĚNA: Už nepotřebujeme fixní výšku, protože neposouvá obsah */
+  margin-top: 8px; /* Malý odstup od ikon (tvých 8px) */
 }
 
 .copy-feedback.visible {
   opacity: 1;
-  transform: translateY(0);
+  /* Finální pozice při zobrazení */
+  transform: translate(-50%, 0);
 }
 
 /* ===== Projects Grid & Cards ===== */
