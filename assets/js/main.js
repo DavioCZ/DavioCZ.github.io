@@ -1,55 +1,18 @@
-(() => {
-  // ===== Kontakt popover (jen pokud existuje) =====
-  const btn = document.getElementById('contactBtn');
-  const pop = document.getElementById('contactPopover');
-  const copyBtn = document.getElementById('copyEmailBtn');
-  const toast = document.getElementById('toast');
-
-  if (btn && pop) {
-    const open = () => { pop.hidden = false; btn.setAttribute('aria-expanded','true'); };
-    const close = () => { pop.hidden = true;  btn.setAttribute('aria-expanded','false'); };
-    btn.addEventListener('click', (e) => { e.preventDefault(); pop.hidden ? open() : close(); });
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
-    document.addEventListener('click', (e) => {
-      if (pop.hidden) return;
-      if (!pop.contains(e.target) && e.target !== btn) close();
-    });
-  }
-
-  if (copyBtn) {
-    const COPIED_MS = 1400; let t;
-    const showError = (msg='✖️ Nepodařilo se zkopírovat') => {
-      if (!toast) return;
-      toast.textContent = msg; toast.hidden = false;
-      clearTimeout(showError._t); showError._t = setTimeout(() => { toast.hidden = true; }, 1800);
-    };
-    copyBtn.addEventListener('click', async () => {
-      const email = copyBtn.dataset.email || copyBtn.querySelector('.copy-text')?.textContent?.trim();
-      if (!email) return;
-      try {
-        if (navigator.clipboard?.writeText) await navigator.clipboard.writeText(email);
-        else { const i = document.createElement('input'); i.value = email; document.body.appendChild(i); i.select(); document.execCommand('copy'); i.remove(); }
-        copyBtn.classList.add('copied'); copyBtn.setAttribute('aria-label', 'Zkopírováno');
-        clearTimeout(t); t = setTimeout(() => { copyBtn.classList.remove('copied'); copyBtn.setAttribute('aria-label', 'Zkopírovat e-mail'); }, COPIED_MS);
-      } catch { showError(); }
-    });
-  }
-
-})();
-
 document.addEventListener("DOMContentLoaded", () => {
   const cards = document.querySelectorAll(".project-card");
-  const grid =
-    document.querySelector(".projects-grid") ||
-    document.querySelector(".grid");
+  
+  // Zde už nepotřebujeme vybírat grid pro event listener,
+  // ale hodí se ověřit, zda vůbec máme karty, abychom neběželi zbytečně.
+  if (!cards.length) return;
 
-  if (!cards.length || !grid) return;
-
-  grid.addEventListener("mousemove", (e) => {
+  // ZMĚNA: Místo grid.addEventListener posloucháme na celém dokumentu
+  document.addEventListener("mousemove", (e) => {
     const { clientX, clientY } = e;
 
     cards.forEach((card) => {
       const rect = card.getBoundingClientRect();
+      
+      // Výpočet funguje i mimo element (vyjdou záporná čísla nebo čísla větší než šířka)
       const x = clientX - rect.left;
       const y = clientY - rect.top;
 
