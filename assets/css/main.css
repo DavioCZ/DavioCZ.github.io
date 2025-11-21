@@ -152,13 +152,25 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
   color: var(--accent); /* Při najetí zzelená */
 }
 
-/* Popisek - potlačený, menší písmo */
+/* Popisek - Sjednocení výšky obsahu */
 .project-card__desc {
-  font-size: 0.9rem; /* cca 14px */
+  font-size: 0.9rem;
   line-height: 1.5;
-  color: #94a3b8; /* Tlumená šedo-modrá */
-  margin-bottom: 12px;
-  flex-grow: 1; /* Roztáhne se, aby patička byla vždy dole */
+  color: #94a3b8;
+  margin-bottom: 16px;
+  
+  /* TRIK 1: Roztáhne se, aby tlačítka byla vždy dole */
+  flex-grow: 1; 
+  
+  /* TRIK 2: Omezíme text na max 3 řádky a zbytek skryjeme (...) */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  
+  /* TRIK 3: Nastavíme min. výšku odpovídající těm 3 řádkům.
+     Tím se i karta s málo textem bude tvářit "plná" a tlačítka budou v rovině. */
+  min-height: 4.5em; 
 }
 
 /* Tagy - moderní malé "pilulky" */
@@ -232,11 +244,12 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
   color: #000;
 }
 
-.projects-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));
-  gap:22px;
-  align-items:stretch;
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 22px;
+  /* ZMĚNA: Vrátíme stretch, aby byly karty stejně vysoké (zarovnané dno) */
+  align-items: stretch; 
 }
 
 .project-card {
