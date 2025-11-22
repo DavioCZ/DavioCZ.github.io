@@ -391,25 +391,54 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
   color: #000;
 }
 
-/* Buttons */
+/* ===== Components: Buttons ===== */
+.project-buttons {
+    display: flex;
+    gap: 16px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+}
+
 .btn {
-  display:inline-block;
-  padding:10px 14px;
-  border-radius:10px;
-  border:1px solid var(--border);
-  background:var(--muted);
-  cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600; /* Zvýrazněné písmo */
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    font-size: 0.95rem;
+    cursor: pointer;
+    border: 1px solid transparent; /* Příprava pro border */
 }
-.btn--primary {
-  background: rgba(114, 240, 189, 0.1);
-  color: var(--accent);
-  border-color: var(--accent);
-  transition: all 0.2s ease;
+
+/* Varianta: Primary (výrazná, např. Demo) */
+.btn-primary {
+    background-color: var(--accent);
+    color: #0f1115; /* Tmavé písmo pro kontrast na světlé barvě */
+    border-color: var(--accent);
 }
-.btn--primary:hover {
-  background: var(--accent);
-  color: #0a0a0a;
-  box-shadow: 0 0 15px rgba(114, 240, 189, 0.4);
+
+.btn-primary:hover {
+    background-color: #5ce0ad; /* O něco tmavší mint */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(114, 240, 189, 0.3);
+}
+
+/* Varianta: Outline (decentní, např. Repo) */
+.btn-outline {
+    background-color: transparent;
+    color: var(--fg); /* Barva textu z proměnné */
+    border-color: var(--border);
+}
+
+.btn-outline:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background-color: rgba(114, 240, 189, 0.05);
+    transform: translateY(-2px);
 }
 
 /* Skip link */
@@ -431,9 +460,9 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
     background: #0f1418;
   }
   .project-card::before {
-    display: none;
-  }
-  .cards-glow {
-    display: none;
-  }
+    border-color: var(--border);
 }
+
+.btn-outline:hover {
+    border-color: var(--accent);
+    color: var(--accent);
