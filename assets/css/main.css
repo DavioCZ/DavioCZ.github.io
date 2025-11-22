@@ -460,9 +460,6 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
     background: #0f1418;
   }
   .project-card::before {
-    border-color: var(--border);
+    display: none;
+  }
 }
-
-.btn-outline:hover {
-    border-color: var(--accent);
-    color: var(--accent);
