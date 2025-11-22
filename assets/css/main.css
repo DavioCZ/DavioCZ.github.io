@@ -391,46 +391,41 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
   color: #000;
 }
 
-/* ===== Components: Buttons (Clean Redefine) ===== */
+/* ===== Components: Buttons (Text Only) ===== */
 .project-buttons {
     display: flex;
-    gap: 16px;           /* Mezera mezi tlačítky */
-    margin-top: 24px;    /* Odstup od textu nad tím */
-    flex-wrap: wrap;     /* Aby se na mobilu zalomila pod sebe */
+    gap: 16px;
+    margin-top: 24px;
+    flex-wrap: wrap;
 }
 
 .btn {
-    /* Layout */
+    /* Flexbox zajistí dokonalé vycentrování textu */
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;           /* Čitelná mezera mezi ikonou a textem */
-    padding: 14px 28px;  /* Symetrický, prostorný padding */
+    
+    /* SYMETRICKÝ PADDING: Stejně místa nahoře/dole i vlevo/vpravo */
+    padding: 14px 32px; 
     
     /* Vzhled */
-    border-radius: 8px;  /* Stejné zaoblení jako jinde na webu */
-    border: 1px solid transparent; /* Příprava pro border */
+    border-radius: 8px;
+    border: 1px solid transparent;
     
-    /* Typografie */
+    /* Text */
     font-family: inherit;
     font-size: 1rem;
     font-weight: 600;
     text-decoration: none;
     line-height: 1.2;
     
-    /* Interakce */
     cursor: pointer;
     transition: all 0.2s ease;
 }
 
-/* Oprava pro ikony, aby "neskákaly" */
-.btn i {
-    font-size: 1.1em;
-    display: block;
-}
+/* Žádné styly pro ikony, žádné posouvání */
 
-/* --- Varianta 1: Primary (Demo) --- */
-/* Výrazná barva, tmavý text */
+/* Barvy */
 .btn-primary {
     background-color: var(--accent);
     color: #0f1115; 
@@ -438,14 +433,12 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 }
 
 .btn-primary:hover {
-    background-color: #5ce0ad; /* O něco sytější mint */
+    background-color: #5ce0ad;
     border-color: #5ce0ad;
-    transform: translateY(-2px); /* Jemný zdvih */
+    transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(114, 240, 189, 0.25);
 }
 
-/* --- Varianta 2: Outline (Repozitář) --- */
-/* Průhledná, světlý text, rámeček */
 .btn-outline {
     background-color: transparent;
     color: var(--fg);
@@ -455,7 +448,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 .btn-outline:hover {
     border-color: var(--accent);
     color: var(--accent);
-    background-color: rgba(114, 240, 189, 0.05); /* Velmi jemný podkres */
+    background-color: rgba(114, 240, 189, 0.05);
     transform: translateY(-2px);
 }
 
