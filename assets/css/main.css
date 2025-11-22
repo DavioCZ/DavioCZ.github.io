@@ -403,8 +403,14 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 10px; /* Mírně větší mezera mezi ikonou a textem */
-    padding: 12px 24px; /* Větší padding vypadá moderněji a lépe se centruje */
+    gap: 8px;
+    
+    /* ZMĚNA: Asymetrický padding pro vycentrování TEXTU 
+       Vlevo: 16px (menší mezera před ikonou)
+       Vpravo: 32px (velká mezera za textem, která vyvažuje ikonu) 
+       Výpočet: 16px (levý) + 16px (ikona) = 32px (pravý) */
+    padding: 12px 32px 12px 16px;
+    
     border-radius: 8px;
     font-weight: 600;
     text-decoration: none;
@@ -413,10 +419,10 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
     cursor: pointer;
     border: 1px solid transparent;
     
-    /* FIX CENTROVÁNÍ: */
-    line-height: 1.2; /* Nižší řádkování zabrání "plavání" textu */
-    height: 48px; /* Fixní výška zajistí, že obě tlačítka budou na pixel stejně vysoká */
-    box-sizing: border-box; /* Pro jistotu, aby padding neměnil výšku */
+    /* Fix výšky a řádkování */
+    line-height: 1.2;
+    height: 48px; 
+    box-sizing: border-box;
 }
 
 /* Varianta: Primary (výrazná, např. Demo) */
