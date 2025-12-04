@@ -7,13 +7,12 @@
   <meta name='description' content='Praktické mini-aplikace a UX řešení: AI Autoškola, Domácí rozpočet, Kopírování struktury, Autoškola TOP.' />
   <meta name='theme-color' content='#0f1115' />
   <link rel='preload' href='assets/css/main.css' as='style' />
-  <link rel='stylesheet' href='assets/css/main.css?v=20251113-2' />
-  <!-- Favicons -->
-<link rel="icon" href="/assets/icons/favicon.svg?v=2" type="image/svg+xml">
-<link rel="alternate icon" href="/assets/icons/favicon-32.png" sizes="32x32">
-<link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
-<link rel="manifest" href="/assets/icons/site.webmanifest">
-<meta name="theme-color" content="#0b0b0b">
+  <link rel='stylesheet' href='assets/css/main.css?v=20251113-4' />
+  <link rel="icon" href="/assets/icons/favicon.svg?v=2" type="image/svg+xml">
+  <link rel="alternate icon" href="/assets/icons/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/assets/icons/site.webmanifest">
+  <meta name="theme-color" content="#0b0b0b">
   <meta property='og:type' content='website' />
   <meta property='og:title' content='David Kučera — Portfolio' />
   <meta property='og:description' content='Mini nástroje, UX redesigny a webové appky.' />
@@ -23,43 +22,96 @@
 <body>
   <a href="#main" class="skip-link">Přeskočit na obsah</a>
 
-  <!-- ZMĚNA: Přidán kontejner pro role pod jménem -->
-  <header class="site-header">
+  <!-- 1. ČÁST: HLAVIČKA -->
+  <header class="site-header" style="
+    padding-bottom: 3rem; 
+    margin-bottom: 3rem; 
+    border-bottom: solid 1px rgba(255, 255, 255, 0.125);">
+    
     <a href="/" class="site-header__brand">David Kučera</a>
     <div class="site-header__roles">UX Design · Front-end · Python</div>
   </header>
 
-  <main id="main" class="page">
-    <section class='hero'>
-      <span class='kicker'>Portfolio</span>
-      <!-- ZMĚNA: Odstraněno slovo "Mini", působí to seriózněji -->
-      <h1>Praktické webové aplikace a UX design</h1>
+  <!-- 2. ČÁST: O MNĚ + KONTAKT -->
+  <div style="max-width: 720px; margin: 0 auto; padding: 0 1rem 3rem 1rem;">
       
-      <!-- ZMĚNA: Srozumitelnější popis bez žargonu jako "vendor-lock" -->
-      <p>Rychlá, přehledná a funkční řešení. U každého projektu najdete detailní postup vývoje, použitou technologii a reálné výsledky.</p>
+      <span class="kicker" style="display: block; text-align: center; margin-bottom: 2rem;">O mně</span>
       
-      <!-- Nová kontaktní sekce (ikony) -->
-      <div class="hero-contact">
+      <div style="text-align: left; line-height: 1.8; color: #a0a0a0; margin-bottom: 3rem;">
+          <p style="margin-bottom: 1.5rem;">
+              Jsem David Kučera a pomáhám firmám a projektům, jejichž web „zůstal někde v minulém desetiletí“, vypadat a fungovat jako v současnosti.
+          </p>
+
+          <p style="margin-bottom: 1.5rem;">
+              Soustředím se na návrh moderních, responzivních webových stránek a uživatelských rozhraní. Neřeším jen barvičky, ale hlavně to, aby uživatel rychle našel, co potřebuje: přihlásil se na kurz, objednal službu, napsal poptávku nebo si prostě odnesl jasnou informaci.
+          </p>
+
+          <p style="margin-bottom: 1.5rem;">
+              Zajímá mě UX, práce s obsahem a chování uživatelů – rád přemýšlím nad cestou, kterou na webu procházejí, a hledám místa, kde se dá něco zjednodušit nebo zviditelnit. Využívám i nástroje umělé inteligence, které urychlují část práce, ale finální rozhodnutí je vždy o zdravém rozumu a přehlednosti pro konkrétního člověka, který na web přijde.
+          </p>
+          
+          <p style="margin-bottom: 0;">
+              Spolupráci beru jako partnerství: klientům pomáhám pochopit, jak jejich web funguje, a společně hledáme řešení, která dávají smysl dlouhodobě, ne jen „na oko“.
+          </p>
+      </div>
+
+      <!-- KONTAKTNÍ TLAČÍTKA -->
+      <div class="hero-contact" style="margin-bottom: 3rem; justify-content: center;">
         <span class="hero-contact__label">Napište mi</span>
         <div class="hero-contact__icons">
           
-          <!-- Tlačítko pro kopírování emailu -->
-          <button id="copyEmailIcon" class="icon-btn" type="button" aria-label="Zkopírovat e-mail kucera.david98@gmail.com" data-email="kucera.david98@gmail.com">
-            <!-- Ikona obálky -->
+          <!-- EMAIL BUTTON -->
+          <button 
+            id="copyEmailIcon" 
+            class="icon-btn" 
+            type="button" 
+            aria-label="Zkopírovat e-mail kucera.david98@gmail.com" 
+            data-email="kucera.david98@gmail.com"
+            data-tooltip="kucera.david98@gmail.com"
+          >
+            <!-- 1. Obálka (Viditelná v klidu) -->
             <svg class="ico-mail" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-            <!-- Ikona fajfky (skrytá, ukáže se po kliku) -->
-            <svg class="ico-check" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><path d="M20 6 9 17l-5-5"/></svg>
+            
+            <!-- 2. Kopírování (Viditelné při hoveru - řídí CSS) -->
+            <svg class="ico-copy" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3H4v13"/><path d="M8 7h12v12a2 2 0 0 1-2 2h-8a2 2 0 0 1-2-2z"/></svg>
           </button>
 
-          <!-- Odkaz na GitHub -->
-          <a href="https://github.com/DavioCZ" target="_blank" rel="noopener" class="icon-btn" aria-label="Můj GitHub">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+          <!-- GITHUB BUTTON -->
+          <a 
+            href="https://github.com/DavioCZ" 
+            target="_blank" 
+            rel="noopener" 
+            class="icon-btn" 
+            aria-label="Můj GitHub"
+            data-tooltip="GitHub"
+          >
+            <!-- 1. Kočka -->
+            <svg class="ico-github" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+            
+            <!-- 2. Odkaz -->
+            <svg class="ico-link" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 8h2c1.333 0 4 .8 4 4s-2.667 4-4 4h-2M9 8H7c-1.333 0-4 .8-4 4s2.667 4 4 4h2m-1-4h8"/></svg>
           </a>
 
         </div>
-        <!-- Text pro zpětnou vazbu (objeví se pod ikonami) -->
         <div id="copyFeedback" class="copy-feedback">E-mail zkopírován!</div>
       </div>
+
+      <!-- Ukončovací čára -->
+      <hr style="
+        width: 100px; 
+        max-width: 100%;
+        border: 0; 
+        border-top: 1px solid rgba(255, 255, 255, 0.15); 
+        margin: 0 auto;" 
+      />
+  </div>
+
+  <!-- 3. ČÁST: PORTFOLIO -->
+  <main id="main" class="page">
+    <section class='hero'>
+      <span class='kicker'>Portfolio</span>
+      <h1>Praktické webové aplikace a UX design</h1>
+      <p>Rychlá, přehledná a funkční řešení. U každého projektu najdete detailní postup vývoje, použitou technologii a reálné výsledky.</p>
     </section>
 
     <section aria-labelledby='projekty'>
