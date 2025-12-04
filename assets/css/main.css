@@ -474,3 +474,56 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
     display: none;
   }
 }
+
+/* ===== Tooltipy a Interakce Ikon ===== */
+
+/* 1. Tooltipy (Bublinky) */
+.icon-btn[data-tooltip] {
+  position: relative;
+}
+
+.icon-btn[data-tooltip]:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #222;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: normal;
+  font-family: sans-serif;
+  padding: 6px 12px;
+  border-radius: 4px;
+  white-space: nowrap;
+  pointer-events: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  border: 1px solid rgba(255,255,255,0.1);
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  z-index: 100;
+}
+
+.icon-btn[data-tooltip]:hover::after {
+  opacity: 1;
+}
+
+/* 2. Přepínání ikon při najetí myší (Čistý CSS Hover) */
+
+/* Ikony, které jsou defaultně skryté */
+.ico-copy, 
+.ico-link {
+  display: none;
+}
+
+/* Při najetí myší skryjeme výchozí ikony */
+.icon-btn:hover .ico-mail,
+.icon-btn:hover .ico-github {
+  display: none;
+}
+
+/* A zobrazíme ty alternativní */
+.icon-btn:hover .ico-copy,
+.icon-btn:hover .ico-link {
+  display: block;
+}
