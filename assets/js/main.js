@@ -4,8 +4,6 @@
 (() => {
   const copyBtn = document.getElementById('copyEmailIcon');
   const feedback = document.getElementById('copyFeedback');
-  const mailIcon = copyBtn?.querySelector('.ico-mail');
-  const checkIcon = copyBtn?.querySelector('.ico-check');
 
   if (copyBtn && feedback) {
     copyBtn.addEventListener('click', async () => {
@@ -17,7 +15,7 @@
         if (navigator.clipboard?.writeText) {
           await navigator.clipboard.writeText(email);
         } else {
-          // Fallback
+          // Fallback pro starší prohlížeče
           const i = document.createElement('input');
           i.value = email;
           document.body.appendChild(i);
@@ -26,17 +24,12 @@
           i.remove();
         }
 
-        // Vizuální efekt (Výměna ikon a text)
-        if(mailIcon) mailIcon.style.display = 'none';
-        if(checkIcon) checkIcon.style.display = 'block';
-        copyBtn.style.color = 'var(--accent)'; // Zůstane zelené
-        
+        // Vizuální efekt: Pouze změna barvy na zelenou a zobrazení textu
+        copyBtn.style.color = 'var(--accent)'; 
         feedback.classList.add('visible');
 
         // Reset po 2 sekundách
         setTimeout(() => {
-          if(mailIcon) mailIcon.style.display = 'block';
-          if(checkIcon) checkIcon.style.display = 'none';
           copyBtn.style.color = ''; // Reset barvy
           feedback.classList.remove('visible');
         }, 2000);
@@ -55,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const cards = document.querySelectorAll(".project-card");
   if (!cards.length) return;
 
-  let isTicking = false; // Zámek pro requestAnimationFrame
+  let isTicking = false;
 
   document.addEventListener("mousemove", (e) => {
     if (!isTicking) {
@@ -67,7 +60,6 @@ document.addEventListener("DOMContentLoaded", () => {
           const x = clientX - rect.left;
           const y = clientY - rect.top;
           
-          // Aktualizujeme proměnné
           card.style.setProperty("--x", `${x}px`);
           card.style.setProperty("--y", `${y}px`);
         });
@@ -79,3 +71,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
