@@ -1,15 +1,22 @@
 <!doctype html>
 <html lang="cs">
 <head>
+  <script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "ug5nl4t2r7");
+</script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Kodi doplňky | Portfolio</title>
   <meta name="description" content="Video doplňky zaměřené na UX a přehlednost. Důraz na rychlé vyhledání správného titulu, jasnou navigaci a minimum slepých uliček." />
   
   <!-- Favicons -->
-  <link rel="icon" type="image/svg+xml" href="/assets/favicons/favicon.svg">
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32.png">
-  <link rel="apple-touch-icon" href="/assets/favicons/apple-touch-icon.png">
+  <link rel="icon" href="/assets/icons/favicon.svg?v=2" type="image/svg+xml">
+  <link rel="alternate icon" href="/assets/icons/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
   <link rel="manifest" href="/assets/icons/site.webmanifest">
   <meta name="theme-color" content="#0b0b0b">
   <meta name="color-scheme" content="dark" />
@@ -26,7 +33,11 @@
 
   <main id="main" class="page">
     <nav class="page-back">
-      <a href="/" class="page-back__link">← Zpět na portfolio</a>
+      <a href="/" 
+        onclick="if(document.referrer.indexOf(window.location.hostname) !== -1) { history.back(); return false; }"
+        class="page-back__link">
+        ← Zpět na portfolio
+      </a>
     </nav>
     <h1>Kodi doplňky</h1>
 <div class="project-meta">
@@ -231,7 +242,13 @@
   </main>
 
   <footer class="site-footer">
-    © David Kučera · daviocz.github.io
+    <div style="text-align: center;">
+      © David Kučera · 2025
+      <br>
+      <small style="opacity: 0.5; font-size: 0.75rem;">
+        Tento web používá anonymní analýzu návštěvnosti bez souborů cookies.
+      </small>
+    </div>
   </footer>
 
   <div class="gallery-modal" hidden>
